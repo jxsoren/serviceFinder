@@ -1,6 +1,6 @@
 import { domestic } from "./serviceCriterias";
 
-interface ServiceCriteria {
+export interface ServiceCriteria {
   service: string;
   subService: string;
 }
