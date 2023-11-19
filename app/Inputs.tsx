@@ -8,13 +8,94 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   VStack,
+  Button,
+  Box,
+  Select,
+  HStack,
 } from "@chakra-ui/react";
 
+import { useState } from "react";
+import { calculations } from "./calculations";
+
+interface ServiceCriteria {
+  service: string;
+  subService: string;
+  weightLimit?: number;
+  maxLength?: number;
+  maxWidth?: number;
+  maxHeight?: number;
+  maxLengthPlusGirth?: number;
+}
+
 const Inputs = () => {
+  const [length, setLength] = useState(15);
+  const [width, setWidth] = useState(15);
+  const [height, setHeight] = useState(15);
+  const [weight, setWeight] = useState(15);
+  const [weightUnit, setWeightUnit] = useState("oz");
+  const [destination, setDestination] = useState("domestic");
+  const [summary, setSummary] = useState<ServiceCriteria[]>([]);
+
+  const handleLengthChange = (value: string) => setLength(parseInt(value));
+  const handleWidthChange = (value: string) => setWidth(parseInt(value));
+  const handleHeightChange = (value: string) => setHeight(parseInt(value));
+  const handleWeightChange = (value: string) => setWeight(parseInt(value));
+  const handleWeightUnitChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setWeightUnit(event.target.value);
+  };
+  const handleDestinationChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setDestination(event.target.value);
+  };
+  const handleSubmit = () => {
+    const weightInPounds =
+      weightUnit === "oz" ? Math.round(weight / 16) : weight;
+    const calculatedServices = calculations(
+      length,
+      width,
+      height,
+      weightInPounds,
+      destination
+    );
+
+    setSummary(calculatedServices);
+  };
+
   return (
     <VStack>
+      <Select
+        size="lg"
+        maxW={250}
+        value={destination}
+        onChange={handleDestinationChange}
+      >
+        <option value="domestic">Domestic</option>
+        <option value="international">International</option>
+      </Select>
       <Text>Length</Text>
-      <NumberInput size="lg" maxW={250} defaultValue={15} min={10}>
+      <NumberInput
+        size="lg"
+        maxW={250}
+        defaultValue={15}
+        onChange={handleLengthChange}
+      >
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
+
+      <Text>Width</Text>
+      <NumberInput
+        size="lg"
+        maxW={250}
+        defaultValue={15}
+        onChange={handleWidthChange}
+      >
         <NumberInputField />
         <NumberInputStepper>
           <NumberIncrementStepper />
@@ -23,7 +104,12 @@ const Inputs = () => {
       </NumberInput>
 
       <Text>Height</Text>
-      <NumberInput size="lg" maxW={250} defaultValue={15} min={10}>
+      <NumberInput
+        size="lg"
+        maxW={250}
+        defaultValue={15}
+        onChange={handleHeightChange}
+      >
         <NumberInputField />
         <NumberInputStepper>
           <NumberIncrementStepper />
@@ -32,13 +118,58 @@ const Inputs = () => {
       </NumberInput>
 
       <Text>Weight</Text>
-      <NumberInput size="lg" maxW={250} defaultValue={15} min={10}>
-        <NumberInputField />
-        <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
-        </NumberInputStepper>
-      </NumberInput>
+      <HStack>
+        <NumberInput
+          size="lg"
+          maxW={250}
+          defaultValue={15}
+          onChange={handleWeightChange}
+        >
+          <NumberInputField />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+
+        <Select
+          size="lg"
+          maxW="100px"
+          value={weightUnit}
+          onChange={handleWeightUnitChange}
+        >
+          <option value="lbs">lbs</option>
+          <option value="oz">oz</option>
+        </Select>
+      </HStack>
+
+      <Button
+        size="md"
+        height="48px"
+        width="200px"
+        border="2px"
+        mt={6}
+        borderColor="green.500"
+        onClick={handleSubmit}
+      >
+        Calculate
+      </Button>
+
+      {summary && (
+        <Box margin-top={4}>
+          Calculation Result:
+          <Text color={"green"}>
+            {summary.map((summaryItem, index) => {
+              return (
+                <Box key={index}>
+                  <Text>Service: {summaryItem.service}</Text>
+                  <Text>Sub Service: {summaryItem.subService}</Text>
+                </Box>
+              );
+            })}
+          </Text>
+        </Box>
+      )}
     </VStack>
   );
 };
