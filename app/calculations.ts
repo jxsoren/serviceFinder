@@ -2,7 +2,7 @@ import { domestic } from "./serviceCriterias";
 
 export interface ServiceCriteria {
   service: string;
-  subService: string;
+  subService?: string;
 }
 
 const calculations = (

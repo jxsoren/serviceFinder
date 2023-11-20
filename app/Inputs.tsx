@@ -20,7 +20,7 @@ import { calculations } from "./calculations";
 
 interface ServiceCriteria {
   service: string;
-  subService: string;
+  subService?: string;
   weightLimit?: number;
   maxLength?: number;
   maxWidth?: number;
@@ -176,12 +176,14 @@ const Inputs = () => {
                 </Text>
                 <Text color="teal.500">{summaryItem.service}</Text>
               </Box>
-              <Box mb={4}>
-                <Text fontSize="md" fontWeight="semibold">
-                  Sub Service:
-                </Text>
-                <Text color="orange.500">{summaryItem.subService}</Text>
-              </Box>
+              {summaryItem.subService && (
+                <Box mb={4}>
+                  <Text fontSize="md" fontWeight="semibold">
+                    Sub Service:
+                  </Text>
+                  <Text color="orange.500">{summaryItem.subService}</Text>
+                </Box>
+              )}
               {index < summary.length - 1 && <Divider />}
             </Box>
           ))}
