@@ -12,6 +12,7 @@ import {
   Box,
   Select,
   HStack,
+  Divider,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
@@ -156,18 +157,34 @@ const Inputs = () => {
       </Button>
 
       {summary && (
-        <Box margin-top={4}>
-          Calculation Result:
-          <Text color={"green"}>
-            {summary.map((summaryItem, index) => {
-              return (
-                <Box key={index}>
-                  <Text>Service: {summaryItem.service}</Text>
-                  <Text>Sub Service: {summaryItem.subService}</Text>
-                </Box>
-              );
-            })}
+        <Box mt={4}>
+          <Text fontSize="lg" fontWeight="bold" mb={2}>
+            Calculation Result:
           </Text>
+          {summary.map((summaryItem, index) => (
+            <Box
+              key={index}
+              mb={6}
+              p={4}
+              boxShadow="sm"
+              borderRadius="md"
+              bgColor="gray.50"
+            >
+              <Box mb={4}>
+                <Text fontSize="md" fontWeight="semibold">
+                  Service:
+                </Text>
+                <Text color="teal.500">{summaryItem.service}</Text>
+              </Box>
+              <Box mb={4}>
+                <Text fontSize="md" fontWeight="semibold">
+                  Sub Service:
+                </Text>
+                <Text color="orange.500">{summaryItem.subService}</Text>
+              </Box>
+              {index < summary.length - 1 && <Divider />}
+            </Box>
+          ))}
         </Box>
       )}
     </VStack>
