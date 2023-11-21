@@ -178,10 +178,12 @@ const Inputs = () => {
               </Box>
               {summaryItem.subService && (
                 <Box mb={4}>
-                  <Text fontSize="md" fontWeight="semibold">
+                  <Text fontSize="lg" fontWeight="semibold">
                     Sub Service:
                   </Text>
-                  <Text color="orange.500">{summaryItem.subService}</Text>
+                  <Text color="white.500" as="mark">
+                    {summaryItem.subService}
+                  </Text>
                 </Box>
               )}
               {index < summary.length - 1 && <Divider />}
