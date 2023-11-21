@@ -1,32 +1,9 @@
 const domestic = [
-  // USPS First Class ---
+  // USPS Ground Advantage ---
   {
-    service: "USPS First Class",
-    subService: "USPS First Class Mail (parcel weight-based)",
-    weightLimit: 16,
-    maxLength: 22,
-    maxWidth: 18,
-    maxHeight: 15,
-    maxLengthPlusGirth: 108,
-  },
-  {
-    service: "USPS First Class",
-    subService: "USPS First Class Mail Letter",
-    weightLimit: 3.5,
-    maxLength: 11.5,
-    maxWidth: 0.25,
-    maxHeight: 6.125,
-  },
-  {
-    service: "USPS First Class",
-    subService: "USPS First Class Mail Thick Envelope",
-    weightLimit: 16,
-    maxLength: 15,
-    maxWidth: 12,
-    maxHeight: 0.75,
-    minLength: 11.5,
-    minWidth: 6.125,
-    minHeight: 0.25,
+    service: "USPS Ground Advantage",
+    weightLimit: 70,
+    maxLengthPlusGirth: 130,
   },
   // USPS Media Mail ---
   {
@@ -53,6 +30,7 @@ const domestic = [
     subService: "USPS Priority Mail Cubic",
     weightLimit: 320,
     maxLength: 18,
+    // Add cubic logic
   },
   {
     service: "USPS Priority Mail",
@@ -66,7 +44,7 @@ const domestic = [
     subService: "USPS Priority Mail Flat Rate Legal Envelope",
     weightLimit: 1120,
     maxLength: 15,
-    maxWidth: 9.5,
+    maxHeight: 9.5,
   },
   {
     service: "USPS Priority Mail",
@@ -135,36 +113,44 @@ const domestic = [
 ];
 
 const international = [
-  // USPS First Class Mail International ---
+  // USPS First Class Package International Service ---
   {
     service: "USPS First Class Package International Service",
-    weightLimit: 64,
-    maxLengthPlusGirth: 108,
+    weightLimit: 4,
+    minLength: 6,
+    maxLength: 24,
+    maxCombinedDimensions: 36,
+  },
+  // USPS First Class Mail International ---
+  {
+    service: "USPS First Class Mail International",
+    subService: "Letters",
+    weightLimit: 1,
+    minLength: 5.5,
+    minWidth: 3.5,
+    maxLength: 11.5,
+    maxWidth: 6.125,
   },
   {
     service: "USPS First Class Mail International",
-    weightLimit: 70,
-    maxLengthPlusGirth: 108,
+    subService: "Large Envelopes",
+    minLength: 11.5,
+    minWidth: 6.125,
+    maxLength: 15,
+    maxWidth: 12,
   },
   // USPS Priority Mail International ---
   {
     service: "USPS Priority Mail International",
-    subService: "USPS Priority Mail International (parcel weight based)",
-    weightLimit: 70,
-    maxLengthPlusGirth: 108,
-  },
-  {
-    service: "USPS Priority Mail International",
-    subService: "USPS Priority Mail International Flat Rate",
+    subService: "Parcel Weight Based",
     weightLimit: 70,
     maxLengthPlusGirth: 108,
   },
   // USPS Priority Mail Express International ---
   {
     service: "USPS Priority Mail Express International",
-    subService: "USPS Priority Mail International Flat Rate",
     weightLimit: 70,
-    maxLengthPlusGirth: 108,
+    maxLengthPlusGirth: 79,
   },
 ];
 
