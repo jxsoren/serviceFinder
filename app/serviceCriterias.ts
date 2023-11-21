@@ -1,4 +1,18 @@
-const domestic = [
+interface ServiceCriteria {
+  service: string;
+  subService?: string;
+  weightLimit: number;
+  maxLength?: number;
+  maxWidth?: number;
+  maxHeight?: number;
+  maxLengthPlusGirth?: number;
+  minLength?: number;
+  minWidth?: number;
+  minHeight?: number;
+  maxCombinedDimensions?: number;
+}
+
+const domestic: ServiceCriteria[] = [
   // USPS Ground Advantage ---
   {
     service: "USPS Ground Advantage",
@@ -112,11 +126,11 @@ const domestic = [
   },
 ];
 
-const international = [
+const international: ServiceCriteria[] = [
   // USPS First Class Package International Service ---
   {
     service: "USPS First Class Package International Service",
-    weightLimit: 4,
+    weightLimit: 64,
     minLength: 6,
     maxLength: 24,
     maxCombinedDimensions: 36,
@@ -125,7 +139,7 @@ const international = [
   {
     service: "USPS First Class Mail International",
     subService: "Letters",
-    weightLimit: 1,
+    weightLimit: 16,
     minLength: 5.5,
     minWidth: 3.5,
     maxLength: 11.5,
@@ -134,6 +148,7 @@ const international = [
   {
     service: "USPS First Class Mail International",
     subService: "Large Envelopes",
+    weightLimit: 16,
     minLength: 11.5,
     minWidth: 6.125,
     maxLength: 15,
@@ -143,13 +158,19 @@ const international = [
   {
     service: "USPS Priority Mail International",
     subService: "Parcel Weight Based",
-    weightLimit: 70,
+    weightLimit: 1120,
+    maxLengthPlusGirth: 108,
+  },
+  {
+    service: "USPS Priority Mail International",
+    subService: "International Flat Rate",
+    weightLimit: 1120,
     maxLengthPlusGirth: 108,
   },
   // USPS Priority Mail Express International ---
   {
     service: "USPS Priority Mail Express International",
-    weightLimit: 70,
+    weightLimit: 1120,
     maxLengthPlusGirth: 79,
   },
 ];
