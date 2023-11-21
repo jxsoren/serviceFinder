@@ -1,6 +1,6 @@
-import { domestic } from "./serviceCriterias";
+import { domestic, international } from "./serviceCriterias";
 
-export interface ServiceCriteria {
+export interface Criteria {
   service: string;
   subService?: string;
 }
@@ -11,36 +11,31 @@ const calculations = (
   height: number,
   weight: number,
   destination: string
-): ServiceCriteria[] => {
+): Criteria[] => {
   const girth = calcGirth(length, width);
   const lengthPlusGirth = length + girth;
 
-  let qualifyingServices: ServiceCriteria[] = [];
+  let qualifyingServices: Criteria[] = [];
 
-  if (destination === "domestic") {
-    for (const criteria of domestic) {
-      if (
-        weight <= criteria.weightLimit &&
-        (criteria.maxLength === undefined || length <= criteria.maxLength) &&
-        (criteria.maxWidth === undefined || width <= criteria.maxWidth) &&
-        (criteria.maxHeight === undefined || height <= criteria.maxHeight) &&
-        (criteria.maxLengthPlusGirth === undefined ||
-          lengthPlusGirth <= criteria.maxLengthPlusGirth) &&
-        (criteria.minLength === undefined || length >= criteria.minLength) &&
-        (criteria.minWidth === undefined || width >= criteria.minWidth) &&
-        (criteria.minHeight === undefined || height >= criteria.minHeight)
-      ) {
-        qualifyingServices.push({
-          service: criteria.service,
-          subService: criteria.subService,
-        });
-      }
+  const criteriaArray = destination === "domestic" ? domestic : international;
+
+  for (const criteria of criteriaArray) {
+    if (
+      weight <= criteria.weightLimit &&
+      (criteria.maxLength === undefined || length <= criteria.maxLength) &&
+      (criteria.maxWidth === undefined || width <= criteria.maxWidth) &&
+      (criteria.maxHeight === undefined || height <= criteria.maxHeight) &&
+      (criteria.maxLengthPlusGirth === undefined ||
+        lengthPlusGirth <= criteria.maxLengthPlusGirth) &&
+      (criteria.minLength === undefined || length >= criteria.minLength) &&
+      (criteria.minWidth === undefined || width >= criteria.minWidth) &&
+      (criteria.minHeight === undefined || height >= criteria.minHeight)
+    ) {
+      qualifyingServices.push({
+        service: criteria.service,
+        subService: criteria.subService,
+      });
     }
-  } else if (destination === "international") {
-    qualifyingServices.push({
-      service: "International",
-      subService: "International",
-    });
   }
 
   if (qualifyingServices.length === 0) {
