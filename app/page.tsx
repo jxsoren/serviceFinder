@@ -7,16 +7,19 @@ import {
   Link,
   Stack,
   Input,
+  Center,
 } from "@chakra-ui/react";
 
-import Inputs from "./Inputs"
+import Inputs from "./Inputs";
 
 export default function Home() {
   return (
     <Stack>
-      <Heading as="h1" size="2xl" mb={4}>
-        Hello
-      </Heading>
+      <Center>
+        <Heading as="h1" size="2xl" mb={4}>
+          Service Calculator
+        </Heading>
+      </Center>
 
       <Inputs />
     </Stack>
