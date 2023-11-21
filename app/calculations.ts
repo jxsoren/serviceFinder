@@ -12,7 +12,7 @@ const calculations = (
   weight: number,
   destination: string
 ): Criteria[] => {
-  const girth = calcGirth(length, width);
+  const girth = 2 * (length + width);
   const lengthPlusGirth = length + girth;
 
   let qualifyingServices: Criteria[] = [];
@@ -46,11 +46,6 @@ const calculations = (
   }
 
   return qualifyingServices;
-};
-
-const calcGirth = (length: number, width: number) => {
-  const girth = 2 * (length + width);
-  return girth;
 };
 
 export { calculations };
