@@ -52,13 +52,13 @@ const Inputs = () => {
     setDestination(event.target.value);
   };
   const handleSubmit = () => {
-    const weightInPounds =
-      weightUnit === "oz" ? Math.round(weight / 16) : weight;
+    const weightInOunces =
+      weightUnit === "lbs" ? Math.round(weight * 16) : weight;
     const calculatedServices = calculations(
       length,
       width,
       height,
-      weightInPounds,
+      weightInOunces,
       destination
     );
 
