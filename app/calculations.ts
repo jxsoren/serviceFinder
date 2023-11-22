@@ -14,12 +14,15 @@ const calculations = (
 ): Criteria[] => {
   const girth = 2 * (length + width);
   const lengthPlusGirth = length + girth;
+  const combinedDimensions = length + width + height;
+  const cubicFoot = (length * width * height) / 1728;
 
   let qualifyingServices: Criteria[] = [];
 
-  const criteriaArray = destination === "domestic" ? domestic : international;
+  const criteriaDestination =
+    destination === "domestic" ? domestic : international;
 
-  for (const criteria of criteriaArray) {
+  for (const criteria of criteriaDestination) {
     if (
       weight <= criteria.weightLimit &&
       (criteria.maxLength === undefined || length <= criteria.maxLength) &&
@@ -29,7 +32,11 @@ const calculations = (
         lengthPlusGirth <= criteria.maxLengthPlusGirth) &&
       (criteria.minLength === undefined || length >= criteria.minLength) &&
       (criteria.minWidth === undefined || width >= criteria.minWidth) &&
-      (criteria.minHeight === undefined || height >= criteria.minHeight)
+      (criteria.minHeight === undefined || height >= criteria.minHeight) &&
+      (criteria.maxCombinedDimensions === undefined ||
+        combinedDimensions <= criteria.maxCombinedDimensions) &&
+      (criteria.maxCubicFoot === undefined ||
+        cubicFoot <= criteria.maxCubicFoot)
     ) {
       qualifyingServices.push({
         service: criteria.service,

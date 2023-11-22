@@ -10,13 +10,16 @@ interface ServiceCriteria {
   minWidth?: number;
   minHeight?: number;
   maxCombinedDimensions?: number;
+  maxCubicFoot?: number;
 }
+
+// All measurements are in inches. All weights are in ounces.
 
 const domestic: ServiceCriteria[] = [
   // USPS Ground Advantage ---
   {
     service: "USPS Ground Advantage",
-    weightLimit: 70,
+    weightLimit: 1120,
     maxLengthPlusGirth: 130,
   },
   // USPS Media Mail ---
@@ -44,7 +47,7 @@ const domestic: ServiceCriteria[] = [
     subService: "USPS Priority Mail Cubic",
     weightLimit: 320,
     maxLength: 18,
-    // Add cubic logic
+    maxCubicFoot: 0.5,
   },
   {
     service: "USPS Priority Mail",
