@@ -47,8 +47,7 @@ const calculations = (
 
   if (qualifyingServices.length === 0) {
     qualifyingServices.push({
-      service: "No service available",
-      subService: "No service available",
+      service: "No services available",
     });
   }
 
