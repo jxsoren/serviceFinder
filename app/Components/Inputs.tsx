@@ -1,24 +1,34 @@
 "use client";
 
+import React, { useEffect } from "react";
+
 import {
-  Text,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
   VStack,
   Button,
   Box,
   Select,
-  HStack,
-  useToast,
-  useMediaQuery,
+  Grid,
+  GridItem,
+  FormControl,
+  FormLabel,
+  Icon,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  IconButton,
 } from "@chakra-ui/react";
+
+import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 
 import { useState } from "react";
 import { calculations } from "../Logic/calculations";
 import ServiceItem from "./ServiceItem";
+import {
+  FaRulerCombined,
+  FaWeightHanging,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 interface ServiceCriteria {
   service: string;
@@ -31,16 +41,56 @@ interface ServiceCriteria {
   additionalDetails?: { transitTime: string; isGround: boolean };
 }
 
-const Inputs = () => {
-  const toast = useToast();
+import DimensionInput from "./DimensionInput";
 
-  const [length, setLength] = useState(15);
-  const [width, setWidth] = useState(15);
-  const [height, setHeight] = useState(15);
-  const [weight, setWeight] = useState(15);
-  const [weightUnit, setWeightUnit] = useState("oz");
-  const [destination, setDestination] = useState("domestic");
+const useDebounce = (value: string, delay: number) => {
+  const [debouncedValue, setDebouncedValue] = useState<string>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+  return debouncedValue;
+};
+
+const Inputs = () => {
+  const [length, setLength] = useState<number>(15);
+  const [width, setWidth] = useState<number>(15);
+  const [height, setHeight] = useState<number>(15);
+  const [weight, setWeight] = useState<number>(15);
+  const [weightUnit, setWeightUnit] = useState<string>("oz");
+  const [destination, setDestination] = useState<string>("domestic");
   const [summary, setSummary] = useState<ServiceCriteria[]>([]);
+
+  const [filter, setFilter] = useState<string>("");
+  const [filteredSummary, setFilteredSummary] = useState<ServiceCriteria[]>([]);
+  const [hasCalculated, setHasCalculated] = useState<boolean>(false);
+
+  const debouncedFilter = useDebounce(filter, 100);
+  const clearFilter = () => setFilter("");
+
+  useEffect(() => {
+    if (filter.length > 0) {
+      const filteredSummary = summary.filter(
+        (serviceCriteria) =>
+          serviceCriteria.service
+            .toLowerCase()
+            .includes(filter.toLowerCase()) ||
+          (serviceCriteria.subService &&
+            serviceCriteria.subService
+              .toLowerCase()
+              .includes(filter.toLowerCase()))
+      );
+      setFilteredSummary(filteredSummary);
+    } else {
+      setFilteredSummary(summary);
+    }
+  }, [debouncedFilter, summary]);
 
   const handleDimensionChange = (
     valueAsString: string,
@@ -74,6 +124,11 @@ const Inputs = () => {
   ) => {
     setDestination(event.target.value);
   };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter(event.target.value);
+  };
+
   const handleSubmit = () => {
     const weightInOunces =
       weightUnit === "lbs" ? Math.round(weight * 16) : weight;
@@ -86,95 +141,102 @@ const Inputs = () => {
     );
 
     setSummary(calculatedServices);
+    setHasCalculated(true);
   };
 
   return (
     <VStack spacing={4} align="stretch" maxW={"lg"} mx="auto" p={4}>
-      <Text>Destination</Text>
-      <Select
-        size="lg"
-        aria-label="Select Destination"
-        maxW={250}
-        value={destination}
-        onChange={handleDestinationChange}
-      >
-        <option value="domestic">Domestic</option>
-        <option value="international">International</option>
-      </Select>
-      <Text>Length</Text>
-      <NumberInput
-        size="lg"
-        maxW={250}
-        defaultValue={15}
-        min={0}
-        onChange={handleLengthChange}
-      >
-        <NumberInputField />
-        <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
-        </NumberInputStepper>
-      </NumberInput>
-      <Text>Width</Text>
-      <NumberInput
-        size="lg"
-        maxW={250}
-        min={0}
-        defaultValue={15}
-        onChange={handleWidthChange}
-      >
-        <NumberInputField />
-        <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
-        </NumberInputStepper>
-      </NumberInput>
-      <Text>Height</Text>
-      <NumberInput
-        size="lg"
-        maxW={250}
-        defaultValue={15}
-        min={0}
-        onChange={handleHeightChange}
-      >
-        <NumberInputField />
-        <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
-        </NumberInputStepper>
-      </NumberInput>
-      <Text>Weight</Text>
-      <HStack>
-        <NumberInput
-          size="lg"
-          maxW={250}
-          defaultValue={15}
-          min={0}
-          onChange={handleWeightChange}
-        >
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
-        </NumberInput>
+      <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+        <GridItem colSpan={2}>
+          <FormControl id="destination">
+            <FormLabel>
+              <Icon as={FaMapMarkerAlt} mr={2} />
+              Destination
+            </FormLabel>
+            <Select
+              size="lg"
+              aria-label="Select Destination"
+              value={destination}
+              onChange={handleDestinationChange}
+            >
+              <option value="domestic">Domestic</option>
+              <option value="international">International</option>
+            </Select>
+          </FormControl>
+        </GridItem>
 
-        <Select
-          size="lg"
-          maxW="100px"
-          value={weightUnit}
-          onChange={handleWeightUnitChange}
-        >
-          <option value="lbs">lbs</option>
-          <option value="oz">oz</option>
-        </Select>
-      </HStack>
+        <DimensionInput
+          id="length"
+          label="Length (in)"
+          value={length}
+          onChange={handleLengthChange}
+          icon={FaRulerCombined}
+        />
+        <DimensionInput
+          id="width"
+          label="Width (in)"
+          value={width}
+          onChange={handleWidthChange}
+          icon={FaRulerCombined}
+        />
+        <DimensionInput
+          id="height"
+          label="Height (in)"
+          value={height}
+          onChange={handleHeightChange}
+          icon={FaRulerCombined}
+        />
+        <DimensionInput
+          id="weight"
+          label="Weight"
+          value={weight}
+          onChange={handleWeightChange}
+          icon={FaWeightHanging}
+          extraInput={
+            <Select
+              size="lg"
+              maxW="100px"
+              value={weightUnit}
+              onChange={handleWeightUnitChange}
+            >
+              <option value="lbs">lbs</option>
+              <option value="oz">oz</option>
+            </Select>
+          }
+        />
+      </Grid>
       <Button size="lg" colorScheme="teal" onClick={handleSubmit} mt={4}>
         Calculate
       </Button>
+
+      {hasCalculated && (
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<SearchIcon color="gray.300" />}
+          />
+          <Input
+            variant="outline"
+            placeholder="Search services..."
+            value={filter}
+            onChange={handleSearchChange}
+          />
+          {filter && (
+            <InputRightElement>
+              <IconButton
+                icon={<CloseIcon />}
+                size="sm"
+                onClick={clearFilter}
+                aria-label="Clear search"
+              />
+            </InputRightElement>
+          )}
+        </InputGroup>
+      )}
+
       {summary && (
         <Box>
-          {summary.map((summaryInfo, index) => (
+          {filteredSummary.map((summaryInfo, index) => (
             <ServiceItem
               service={summaryInfo.service}
               subService={summaryInfo.subService}
