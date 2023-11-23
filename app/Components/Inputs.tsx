@@ -67,24 +67,24 @@ const Inputs = () => {
   const [destination, setDestination] = useState<string>("domestic");
   const [summary, setSummary] = useState<ServiceCriteria[]>([]);
 
-  const [filter, setFilter] = useState<string>("");
+  const [filterInput, setFilterInput] = useState<string>("");
   const [filteredSummary, setFilteredSummary] = useState<ServiceCriteria[]>([]);
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
 
-  const debouncedFilter = useDebounce(filter, 100);
-  const clearFilter = () => setFilter("");
+  const debouncedFilter = useDebounce(filterInput, 100);
+  const clearFilter = () => setFilterInput("");
 
   useEffect(() => {
-    if (filter.length > 0) {
+    if (filterInput.length > 0) {
       const filteredSummary = summary.filter(
         (serviceCriteria) =>
           serviceCriteria.service
             .toLowerCase()
-            .includes(filter.toLowerCase()) ||
+            .includes(filterInput.toLowerCase()) ||
           (serviceCriteria.subService &&
             serviceCriteria.subService
               .toLowerCase()
-              .includes(filter.toLowerCase()))
+              .includes(filterInput.toLowerCase()))
       );
       setFilteredSummary(filteredSummary);
     } else {
@@ -126,7 +126,7 @@ const Inputs = () => {
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.target.value);
+    setFilterInput(event.target.value);
   };
 
   const handleSubmit = () => {
@@ -218,10 +218,10 @@ const Inputs = () => {
           <Input
             variant="outline"
             placeholder="Search services..."
-            value={filter}
+            value={filterInput}
             onChange={handleSearchChange}
           />
-          {filter && (
+          {filterInput && (
             <InputRightElement>
               <IconButton
                 icon={<CloseIcon />}
