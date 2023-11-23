@@ -306,7 +306,7 @@ const domestic: ServiceCriteria[] = [
   },
   {
     service: "UPS Mail Innovations",
-    subService: "Parcel Select Heavyweigh)",
+    subService: "Parcel Select Heavyweight",
     minWeight: 16,
     maxWeight: 1120,
     maxLength: 108,
