@@ -297,7 +297,7 @@ const domestic: ServiceCriteria[] = [
   },
   {
     service: "UPS Mail Innovations",
-    subService: "Less than 1 lb (Parcel Select Lightweight)",
+    subService: "Parcel Select Lightweight",
     maxWeight: 15.99,
     additionalDetails: {
       transitTime: "5-8 Postal Days",
@@ -306,7 +306,8 @@ const domestic: ServiceCriteria[] = [
   },
   {
     service: "UPS Mail Innovations",
-    subService: "1 lb or greater (Parcel Select Heavyweight)",
+    subService: "Parcel Select Heavyweigh)",
+    minWeight: 16,
     maxWeight: 1120,
     maxLength: 108,
     maxLengthPlusGirth: 165,
