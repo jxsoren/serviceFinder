@@ -42,10 +42,28 @@ const Inputs = () => {
   const [destination, setDestination] = useState("domestic");
   const [summary, setSummary] = useState<ServiceCriteria[]>([]);
 
-  const handleLengthChange = (value: string) => setLength(parseInt(value));
-  const handleWidthChange = (value: string) => setWidth(parseInt(value));
-  const handleHeightChange = (value: string) => setHeight(parseInt(value));
-  const handleWeightChange = (value: string) => setWeight(parseInt(value));
+  const handleDimensionChange = (
+    valueAsString: string,
+    setValue: React.Dispatch<React.SetStateAction<number>>
+  ) => {
+    let value = parseInt(valueAsString);
+
+    if (value < 0 || isNaN(value)) {
+      value = 0;
+    }
+
+    setValue(value);
+  };
+
+  const handleLengthChange = (value: string) =>
+    handleDimensionChange(value, setLength);
+  const handleWidthChange = (value: string) =>
+    handleDimensionChange(value, setWidth);
+  const handleHeightChange = (value: string) =>
+    handleDimensionChange(value, setHeight);
+  const handleWeightChange = (value: string) =>
+    handleDimensionChange(value, setWeight);
+
   const handleWeightUnitChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -88,6 +106,7 @@ const Inputs = () => {
         size="lg"
         maxW={250}
         defaultValue={15}
+        min={0}
         onChange={handleLengthChange}
       >
         <NumberInputField />
@@ -100,6 +119,7 @@ const Inputs = () => {
       <NumberInput
         size="lg"
         maxW={250}
+        min={0}
         defaultValue={15}
         onChange={handleWidthChange}
       >
@@ -114,6 +134,7 @@ const Inputs = () => {
         size="lg"
         maxW={250}
         defaultValue={15}
+        min={0}
         onChange={handleHeightChange}
       >
         <NumberInputField />
@@ -128,6 +149,7 @@ const Inputs = () => {
           size="lg"
           maxW={250}
           defaultValue={15}
+          min={0}
           onChange={handleWeightChange}
         >
           <NumberInputField />
