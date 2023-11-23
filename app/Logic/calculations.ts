@@ -26,6 +26,7 @@ const calculations = (
   for (const criteria of criteriaDestination) {
     if (
       weight <= criteria.maxWeight &&
+      (criteria.minWeight === undefined || weight >= criteria.minWeight) &&
       (criteria.maxLength === undefined || length <= criteria.maxLength) &&
       (criteria.maxWidth === undefined || width <= criteria.maxWidth) &&
       (criteria.maxHeight === undefined || height <= criteria.maxHeight) &&
