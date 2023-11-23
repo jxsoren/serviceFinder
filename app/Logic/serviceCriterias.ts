@@ -24,7 +24,7 @@ const domestic: ServiceCriteria[] = [
     maxWeight: 1120,
     maxLengthPlusGirth: 130,
     additionalDetails: {
-      transitTime: "????",
+      transitTime: "2-5 Postal days",
       isGround: true,
     },
   },
@@ -178,6 +178,7 @@ const domestic: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  //
   {
     service: "UPS WWEX",
     subService: "UPS Next Day Air Early",
@@ -429,7 +430,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     service: "FedEx Express Saver",
-    subService: "nan",
     maxWeight: 2400.0,
     maxLength: 119.0,
     maxLengthPlusGirth: 165.0,
@@ -440,7 +440,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     service: "FedEx Ground",
-    subService: "nan",
     maxWeight: 2400.0,
     maxLength: 108.0,
     maxLengthPlusGirth: 165.0,
@@ -451,7 +450,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     service: "FedEx Home Delivery",
-    subService: "nan",
     maxWeight: 2400.0,
     maxLength: 108.0,
     maxLengthPlusGirth: 165.0,
@@ -510,7 +508,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     service: "FedEx First Overnight",
-    subService: "nan",
     maxWeight: 2400.0,
     maxLength: 108.0,
     maxLengthPlusGirth: 165.0,
