@@ -10,7 +10,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 
-import Inputs from "./Inputs";
+import Inputs from "./Components/Inputs";
 
 export default function Home() {
   return (
@@ -20,7 +20,6 @@ export default function Home() {
           Service Calculator
         </Heading>
       </Center>
-
       <Inputs />
     </Stack>
   );
