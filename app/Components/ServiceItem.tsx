@@ -1,4 +1,12 @@
-import { Box, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Flex,
+  Icon,
+  useColorModeValue,
+  Tooltip,
+} from "@chakra-ui/react";
+import { FaTruck, FaClock, FaInfoCircle } from "react-icons/fa";
 
 interface ServiceItemProps {
   service: string;
@@ -13,10 +21,9 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 }) => {
   const bgColor = useColorModeValue("gray.100", "gray.700");
   const borderColor = useColorModeValue("gray.200", "gray.600");
+  const textColor = useColorModeValue("gray.800", "whiteAlpha.900");
 
   const { transitTime, isGround } = additionalDetails || {};
-
-  const groundText = isGround ? "Ground Is Available" : null;
 
   return (
     <Box
@@ -25,44 +32,43 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       bg={bgColor}
       border="1px"
       borderColor={borderColor}
-      borderRadius="md"
+      borderRadius="lg"
       boxShadow="sm"
-      _hover={{ boxShadow: "md" }}
+      _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
+      transition="all 0.2s ease-in-out"
     >
-      <Text fontSize="md" fontWeight="semibold">
-        Service:
-      </Text>
-      <Text color="blue.500" fontSize="lg">
-        {service}
-      </Text>
+      <Flex alignItems="center" mb={3}>
+        <Icon as={FaInfoCircle} color="blue.500" mr={2} />
+        <Text fontSize="lg" fontWeight="semibold" color={textColor}>
+          {service}
+        </Text>
+      </Flex>
 
       {subService && (
-        <Box mt={3}>
-          <Text fontSize="sm" fontWeight="semibold">
-            Sub Service:
-          </Text>
-          <Text color="purple.500" fontSize="md">
+        <Flex alignItems="center" mb={3}>
+          <Icon as={FaTruck} color="purple.500" mr={2} />
+          <Text fontSize="md" color={textColor}>
             {subService}
           </Text>
-        </Box>
+        </Flex>
       )}
 
-      <Box mt={3} mb={4} p={4} bg={bgColor} border="1px">
-        <Text fontSize="sm" fontWeight="semibold">
-          Transit Time
-        </Text>
-        <Text color="yellow.500" fontSize="lg">
-          {transitTime}
-        </Text>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Flex alignItems="center">
+          <Icon as={FaClock} color="yellow.500" mr={2} />
+          <Text fontSize="sm" fontWeight="semibold" color={textColor}>
+            Transit Time: {transitTime || "N/A"}
+          </Text>
+        </Flex>
 
         {isGround && (
-          <Box mt={2}>
-            <Text fontSize="sm" fontWeight="semibold" color="green.500">
-              {groundText}
+          <Tooltip label="Ground shipping available" hasArrow>
+            <Text fontSize="sm" color="green.500">
+              Ground Available
             </Text>
-          </Box>
+          </Tooltip>
         )}
-      </Box>
+      </Flex>
     </Box>
   );
 };
