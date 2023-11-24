@@ -90,7 +90,7 @@ const Inputs = () => {
     } else {
       setFilteredSummary(summary);
     }
-  }, [debouncedFilter, summary]);
+  }, [debouncedFilter, filterInput, summary]);
 
   const handleDimensionChange = (
     valueAsString: string,
@@ -211,10 +211,9 @@ const Inputs = () => {
 
       {hasCalculated && (
         <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            children={<SearchIcon color="gray.300" />}
-          />
+          <InputLeftElement pointerEvents="none">
+            <SearchIcon color="gray.300" />
+          </InputLeftElement>
           <Input
             variant="outline"
             placeholder="Search services..."
