@@ -1,4 +1,5 @@
 export interface ServiceCriteria {
+  provider: string;
   service: string;
   subService?: string;
   maxWeight: number;
@@ -20,6 +21,7 @@ export interface ServiceCriteria {
 const domestic: ServiceCriteria[] = [
   // USPS Ground Advantage ---
   {
+    provider: "USPS",
     service: "USPS Ground Advantage",
     maxWeight: 1120,
     maxLengthPlusGirth: 130,
@@ -30,6 +32,7 @@ const domestic: ServiceCriteria[] = [
   },
   // USPS Media Mail ---
   {
+    provider: "USPS",
     service: "USPS Media Mail",
     maxWeight: 1120,
     maxLengthPlusGirth: 108,
@@ -40,6 +43,7 @@ const domestic: ServiceCriteria[] = [
   },
   // USPS Parcel Select ---
   {
+    provider: "USPS",
     service: "USPS Parcel Select",
     subService: "Weight Based",
     maxWeight: 1120,
@@ -51,6 +55,7 @@ const domestic: ServiceCriteria[] = [
   },
   // USPS Priority Mail ---
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Parcel Weight Based",
     maxWeight: 1120,
@@ -61,6 +66,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Cubic",
     maxWeight: 320,
@@ -72,6 +78,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Flat Rate Envelope",
     maxWeight: 1120,
@@ -83,6 +90,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Flat Rate Legal Envelope",
     maxWeight: 1120,
@@ -94,6 +102,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Flat Rate Padded Envelope",
     maxWeight: 1120,
@@ -105,6 +114,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Large Flat Rate Box",
     maxWeight: 1120,
@@ -117,6 +127,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Medium Flat Rate Box (Top-Loading)",
     maxWeight: 1120,
@@ -129,6 +140,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Medium Flat Rate Box (Side-Loading)",
     maxWeight: 1120,
@@ -141,6 +153,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail",
     subService: "Small Flat Rate Box",
     maxWeight: 1120,
@@ -153,6 +166,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
+
     service: "USPS Priority Mail",
     subService: "Thick Envelope",
     maxWeight: 1120,
@@ -169,6 +184,7 @@ const domestic: ServiceCriteria[] = [
   },
   // USPS Priority Mail Express ---
   {
+    provider: "USPS",
     service: "USPS Priority Mail Express",
     subService: "Parcel Weight Based",
     maxWeight: 240,
@@ -178,8 +194,9 @@ const domestic: ServiceCriteria[] = [
       isGround: false,
     },
   },
-  //
+  // UPS WWEX ---
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Next Day Air Early",
     maxWeight: 2400,
@@ -191,6 +208,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Next Day Air",
     maxWeight: 2400,
@@ -202,6 +220,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS WWEX",
     subService: "UPS Next Day Air Saver",
     maxWeight: 2400,
@@ -213,6 +233,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS WWEX",
     subService: "UPS 2nd Day Air A.M.",
     maxWeight: 2400,
@@ -224,6 +246,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS WWEX",
     subService: "UPS 2nd Day Air",
     maxWeight: 2400,
@@ -235,6 +259,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS WWEX",
     subService: "UPS 3 Day Select",
     maxWeight: 2400,
@@ -246,6 +272,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS WWEX",
     subService: "UPS Ground",
     maxWeight: 2400,
@@ -257,6 +285,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS Mail Innovations",
     subService: "Flat Mail",
     maxWeight: 15.99,
@@ -266,6 +296,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS Mail Innovations",
     subService: "Bound Printed Matter Flats",
     maxWeight: 240,
@@ -276,6 +308,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS Mail Innovations",
     subService: "Bound Printed Matter Parcels",
     maxWeight: 240,
@@ -286,6 +320,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS Mail Innovations",
     subService: "Media Mail",
     maxWeight: 1120,
@@ -296,6 +332,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS Mail Innovations",
     subService: "Parcel Select Lightweight",
     maxWeight: 15.99,
@@ -305,6 +343,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS Mail Innovations",
     subService: "Parcel Select Heavyweight",
     minWeight: 16,
@@ -317,6 +357,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS SurePost",
     subService: "Less than 1 lb",
     maxWeight: 15.9,
@@ -327,6 +369,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS SurePost",
     subService: "1 lb or greater",
     minWeight: 16,
@@ -337,6 +381,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS SurePost",
     subService: "Bound Printed Matter",
     maxWeight: 240,
@@ -346,6 +392,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
+
     service: "UPS SurePost",
     subService: "Media",
     maxWeight: 1120,
@@ -355,6 +403,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day (parcel weight-based)",
     maxWeight: 2400,
@@ -366,6 +416,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day AM",
     maxWeight: 2400,
@@ -377,6 +429,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day One Rate Envelope",
     maxWeight: 160,
@@ -386,6 +440,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day One Rate Pak",
     maxWeight: 800,
@@ -395,6 +451,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day One Rate Small Box",
     maxWeight: 800,
@@ -404,6 +462,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day One Rate Medium Box",
     maxWeight: 800,
@@ -413,6 +473,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day One Rate Large Box",
     maxWeight: 800,
@@ -422,6 +484,8 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
+
     service: "FedEx 2Day",
     subService: "FedEx 2Day One Rate Extra Large Box",
     maxWeight: 800,
@@ -431,6 +495,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Express Saver",
     maxWeight: 2400,
     maxLength: 119,
@@ -441,6 +506,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Ground",
     maxWeight: 2400,
     maxLength: 108,
@@ -451,6 +517,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Home Delivery",
     maxWeight: 2400,
     maxLength: 108,
@@ -461,6 +528,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Priority Overnight",
     subService: "FedEx Priority Overnight (parcel weight-based)",
     maxWeight: 2400,
@@ -473,6 +541,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Priority Overnight",
     subService: "FedEx Priority Overnight Envelope",
     maxWeight: 2400,
@@ -485,6 +554,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Priority Overnight",
     subService: "FedEx Priority Overnight One Rate Envelope",
     maxWeight: 2400,
@@ -497,6 +567,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Priority Overnight",
     subService: "FedEx Priority Overnight Pak",
     maxWeight: 2400,
@@ -509,6 +580,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx First Overnight",
     maxWeight: 2400,
     maxLength: 108,
@@ -520,6 +592,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Ground Economy (formerly SmartPost)",
     subService: "FedEx SmartPost Parcel Select Lightweight",
     maxWeight: 240,
@@ -530,6 +603,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx Ground Economy (formerly SmartPost)",
     subService: "FedEx SmartPost Parcel Select",
     maxWeight: 1120,
@@ -540,6 +614,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel",
     subService: "DHL SmartMail Parcel Expedited Max",
     maxWeight: 16,
@@ -550,6 +625,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel",
     subService: "DHL SmartMail Parcel Expedited",
     maxWeight: 16,
@@ -560,6 +636,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel",
     subService: "DHL SmartMail Parcel Ground",
     maxWeight: 16,
@@ -570,6 +647,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel Plus",
     subService: "DHL SmartMail Parcel Plus Expedited Max",
     maxWeight: 400,
@@ -580,6 +658,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel Plus",
     subService: "DHL SmartMail Parcel Plus Expedited",
     maxWeight: 400,
@@ -590,6 +669,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel Plus",
     subService: "DHL SmartMail Parcel Plus Ground",
     maxWeight: 400,
@@ -600,6 +680,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel Return",
     subService: "DHL SmartMail Parcel Return Light",
     maxWeight: 16,
@@ -609,6 +690,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel Return",
     subService: "DHL SmartMail Parcel Return Plus",
     maxWeight: 400,
@@ -619,6 +701,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Parcel Return",
     subService: "DHL SmartMail Parcel Return Ground",
     maxWeight: 400,
@@ -629,6 +712,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Bound Printed Matter",
     subService: "DHL SmartMail Bound Printed Matter Expedited",
     maxWeight: 240,
@@ -639,6 +723,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Bound Printed Matter",
     subService: "DHL SmartMail Bound Printed Matter Ground",
     maxWeight: 240,
@@ -649,6 +734,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Flats",
     subService: "DHL SmartMail Flats Expedited",
     maxWeight: 16,
@@ -659,6 +745,7 @@ const domestic: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL SmartMail Flats",
     subService: "DHL SmartMail Flats Ground",
     maxWeight: 16,
@@ -673,6 +760,8 @@ const domestic: ServiceCriteria[] = [
 const international: ServiceCriteria[] = [
   // USPS First Class Package International Service ---
   {
+    provider: "USPS",
+
     service: "USPS First Class Package International Service",
     maxWeight: 64,
     minLength: 6,
@@ -685,6 +774,7 @@ const international: ServiceCriteria[] = [
   },
   // USPS First Class Mail International ---
   {
+    provider: "USPS",
     service: "USPS First Class Mail International",
     subService: "Letters",
     maxWeight: 16,
@@ -698,6 +788,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS First Class Mail International",
     subService: "Large Envelopes",
     maxWeight: 16,
@@ -712,6 +803,7 @@ const international: ServiceCriteria[] = [
   },
   // USPS Priority Mail International ---
   {
+    provider: "USPS",
     service: "USPS Priority Mail International Service",
     subService: "Parcel Weight Based",
     maxWeight: 1120,
@@ -722,6 +814,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail International",
     subService: "Large Flat Rate Box",
     maxWeight: 320,
@@ -734,6 +827,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail International",
     subService: "Medium Flat Rate Box (Top-Loading)",
     maxWeight: 320,
@@ -746,6 +840,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail International",
     subService: "Medium Flat Rate Box (Side-Loading)",
     maxWeight: 320,
@@ -758,6 +853,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail International",
     subService: "Small Flat Rate Box",
     maxWeight: 64,
@@ -770,6 +866,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail International",
     subService: "Flat Rate Envelope",
     maxWeight: 64,
@@ -781,6 +878,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail International",
     subService: "Flat Rate Legal Envelope",
     maxWeight: 64,
@@ -792,6 +890,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "USPS",
     service: "USPS Priority Mail International",
     subService: "Flat Rate Padded Envelope",
     maxWeight: 64,
@@ -804,6 +903,7 @@ const international: ServiceCriteria[] = [
   },
   // USPS Priority Mail Express International ---
   {
+    provider: "USPS",
     service: "USPS Priority Mail Express International",
     maxWeight: 1120,
     maxLengthPlusGirth: 79,
@@ -813,6 +913,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Standard to Canada",
     maxWeight: 2400,
@@ -824,6 +925,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Standard to Mexico",
     maxWeight: 2400,
@@ -835,6 +937,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Worldwide Economy",
     maxWeight: 2400,
@@ -846,6 +949,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Worldwide Saver",
     maxWeight: 2400,
@@ -857,6 +961,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Worldwide Express",
     maxWeight: 2400,
@@ -868,6 +973,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Worldwide Express Plus",
     maxWeight: 2400,
@@ -879,6 +985,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS WWEX",
     subService: "UPS Worldwide Expedited",
     maxWeight: 2400,
@@ -890,6 +997,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS Mail Innovations",
     subService: "ePacket",
     maxWeight: 70.4,
@@ -899,6 +1007,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS Mail Innovations",
     subService: "Priority Mail International (PMI)",
     maxWeight: 1056,
@@ -908,6 +1017,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS Mail Innovations",
     subService: "Priority & International Priority Air (IPA)",
     maxWeight: 70.4,
@@ -917,6 +1027,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "UPS Mail Innovations",
     subService: "Economy & International Surface Airlift (ISAL)",
     maxWeight: 70.4,
@@ -926,6 +1037,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "UPS",
     service: "FedEx International Economy",
     maxWeight: 2400,
     maxLengthPlusGirth: 130,
@@ -935,6 +1047,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx International Priority",
     maxWeight: 2400,
     maxLengthPlusGirth: 130,
@@ -944,6 +1057,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx International Priority Express",
     maxWeight: 2400,
     maxLengthPlusGirth: 130,
@@ -954,6 +1068,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx International Ground (to CA)",
     maxWeight: 2400,
     maxLengthPlusGirth: 165,
@@ -963,6 +1078,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "FedEx International First",
     maxWeight: 2400,
     maxLengthPlusGirth: 130,
@@ -973,6 +1089,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "DHL International",
     subService: "DHL Express Envelope/Document",
     maxWeight: 10,
@@ -982,6 +1099,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "FedEx",
     service: "DHL International",
     subService: "DHL Express Worldwide (220 countries)",
     maxWeight: 2400,
@@ -991,6 +1109,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL International",
     subService: "DHL Express 12:00 noon (155 countries)",
     maxWeight: 2400,
@@ -1000,6 +1119,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL International",
     subService: "DHL Express 9:00 (85 countries)",
     maxWeight: 1056,
@@ -1009,6 +1129,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL International",
     subService: "DHL Parcel International Direct",
     maxWeight: 1056,
@@ -1021,6 +1142,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL International",
     subService: "DHL Parcel International Standard",
     maxWeight: 1056,
@@ -1030,6 +1152,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
+    provider: "DHL",
     service: "DHL International",
     subService: "DHL Packet International",
     maxWeight: 70.4,
