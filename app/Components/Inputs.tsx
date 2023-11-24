@@ -21,8 +21,10 @@ import {
 
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 
+import { Criteria } from "../logic/calculations";
+
 import { useState } from "react";
-import { calculations } from "../Logic/calculations";
+import { calculations } from "../logic/calculations";
 import ServiceItem from "./ServiceItem";
 import {
   FaRulerCombined,
