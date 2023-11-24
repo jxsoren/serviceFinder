@@ -1,6 +1,7 @@
 import { domestic, international } from "./serviceCriterias";
 
 export interface Criteria {
+  provider?: string;
   service: string;
   subService?: string;
   additionalDetails?: { transitTime: string; isGround: boolean };
@@ -41,6 +42,7 @@ const calculations = (
         cubicFoot <= criteria.maxCubicFoot)
     ) {
       qualifyingServices.push({
+        provider: criteria.provider,
         service: criteria.service,
         subService: criteria.subService,
         additionalDetails: criteria.additionalDetails,
