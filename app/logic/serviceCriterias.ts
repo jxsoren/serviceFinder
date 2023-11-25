@@ -221,7 +221,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS WWEX",
     subService: "UPS Next Day Air Saver",
     maxWeight: 2400,
@@ -234,7 +233,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS WWEX",
     subService: "UPS 2nd Day Air A.M.",
     maxWeight: 2400,
@@ -247,7 +245,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS WWEX",
     subService: "UPS 2nd Day Air",
     maxWeight: 2400,
@@ -260,7 +257,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS WWEX",
     subService: "UPS 3 Day Select",
     maxWeight: 2400,
@@ -273,7 +269,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS WWEX",
     subService: "UPS Ground",
     maxWeight: 2400,
@@ -286,7 +281,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS Mail Innovations",
     subService: "Flat Mail",
     maxWeight: 15.99,
@@ -297,7 +291,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS Mail Innovations",
     subService: "Bound Printed Matter Flats",
     maxWeight: 240,
@@ -309,7 +302,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS Mail Innovations",
     subService: "Bound Printed Matter Parcels",
     maxWeight: 240,
@@ -321,7 +313,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS Mail Innovations",
     subService: "Media Mail",
     maxWeight: 1120,
@@ -333,7 +324,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS Mail Innovations",
     subService: "Parcel Select Lightweight",
     maxWeight: 15.99,
@@ -344,7 +334,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS Mail Innovations",
     subService: "Parcel Select Heavyweight",
     minWeight: 16,
@@ -358,7 +347,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS SurePost",
     subService: "Less than 1 lb",
     maxWeight: 15.9,
@@ -370,7 +358,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS SurePost",
     subService: "1 lb or greater",
     minWeight: 16,
@@ -382,7 +369,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS SurePost",
     subService: "Bound Printed Matter",
     maxWeight: 240,
@@ -393,7 +379,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "UPS",
-
     service: "UPS SurePost",
     subService: "Media",
     maxWeight: 1120,
@@ -404,7 +389,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
     subService: "FedEx 2Day (parcel weight-based)",
     maxWeight: 2400,
@@ -417,7 +401,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
     subService: "FedEx 2Day AM",
     maxWeight: 2400,
@@ -441,7 +424,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
     subService: "FedEx 2Day One Rate Pak",
     maxWeight: 800,
@@ -761,7 +743,6 @@ const international: ServiceCriteria[] = [
   // USPS First Class Package International Service ---
   {
     provider: "USPS",
-
     service: "USPS First Class Package International Service",
     maxWeight: 64,
     minLength: 6,
