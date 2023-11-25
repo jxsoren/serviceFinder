@@ -14,8 +14,7 @@ const calculations = (
   weight: number,
   destination: string
 ): Criteria[] => {
-  const girth = 2 * (length + width);
-  const lengthPlusGirth = length + girth;
+  const lengthPlusGirth = length + 2 * (width + height);
   const combinedDimensions = length + width + height;
   const cubicFoot = (length * width * height) / 1728;
 
