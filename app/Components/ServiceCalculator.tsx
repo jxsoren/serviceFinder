@@ -1,12 +1,11 @@
 "use client";
 
-import { Box, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 
 import React, { useState } from "react";
 
-import { GroupedServices } from "../Components/Results";
+import Results, { GroupedServices } from "../Components/Results";
 import Inputs from "../Components/Inputs";
-import Results from "../Components/Results";
 import { ServiceCriteria } from "../logic/serviceCriterias";
 
 const ServiceCalculator = () => {
