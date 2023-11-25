@@ -45,30 +45,34 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </Flex>
 
       {subService && (
-        <Flex alignItems="center" mb={3}>
-          <Icon as={FaTruck} color="purple.500" mr={2} />
-          <Text fontSize="md" color={textColor}>
-            {subService}
-          </Text>
-        </Flex>
+        <>
+          <Flex alignItems="center" mb={3}>
+            <Icon as={FaTruck} color="purple.500" mr={2} />
+            <Text fontSize="md" color={textColor}>
+              {subService}
+            </Text>
+          </Flex>
+        </>
       )}
 
-      <Flex alignItems="center" justifyContent="space-between">
-        <Flex alignItems="center">
-          <Icon as={FaClock} color="yellow.500" mr={2} />
-          <Text fontSize="sm" fontWeight="semibold" color={textColor}>
-            Transit Time: {transitTime || "N/A"}
-          </Text>
-        </Flex>
-
-        {isGround && (
-          <Tooltip label="Ground shipping available" hasArrow>
-            <Text fontSize="sm" color="green.500">
-              Ground Available
+      {additionalDetails && (
+        <Flex alignItems="center" justifyContent="space-between">
+          <Flex alignItems="center">
+            <Icon as={FaClock} color="yellow.500" mr={2} />
+            <Text fontSize="sm" fontWeight="semibold" color={textColor}>
+              Transit Time: {transitTime}
             </Text>
-          </Tooltip>
-        )}
-      </Flex>
+          </Flex>
+
+          {isGround && (
+            <Tooltip label="Ground shipping available" hasArrow>
+              <Text fontSize="sm" color="green.500">
+                Ground Available
+              </Text>
+            </Tooltip>
+          )}
+        </Flex>
+      )}
     </Box>
   );
 };
