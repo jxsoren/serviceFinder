@@ -2,7 +2,7 @@ export interface ServiceCriteria {
   provider: string;
   service: string;
   subService?: string;
-  maxWeight: number;
+  maxWeight?: number;
   minWeight?: number;
   maxLength?: number;
   maxWidth?: number;

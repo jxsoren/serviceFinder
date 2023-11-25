@@ -1,7 +1,7 @@
-import { domestic, international } from "./serviceCriterias";
+import { ServiceCriteria, domestic, international } from "./serviceCriterias";
 
-export interface Criteria {
-  provider?: string;
+export interface Criteria extends ServiceCriteria {
+  provider: string;
   service: string;
   subService?: string;
   additionalDetails?: { transitTime: string; isGround: boolean };
@@ -26,7 +26,7 @@ const calculations = (
 
   for (const criteria of criteriaDestination) {
     if (
-      weight <= criteria.maxWeight &&
+      (criteria.maxWeight === undefined || weight <= criteria.maxWeight) &&
       (criteria.minWeight === undefined || weight >= criteria.minWeight) &&
       (criteria.maxLength === undefined || length <= criteria.maxLength) &&
       (criteria.maxWidth === undefined || width <= criteria.maxWidth) &&
@@ -52,6 +52,7 @@ const calculations = (
 
   if (qualifyingServices.length === 0) {
     qualifyingServices.push({
+      provider: "N/A",
       service: "No services available",
     });
   }

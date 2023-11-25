@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Heading, Stack, Center, VStack, Fade } from "@chakra-ui/react";
-import Inputs from "./Components/Inputs";
 import { FaCalculator } from "react-icons/fa";
+
+import ServiceCalculator from "./Components/ServiceCalculator";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
           </Fade>
         </Center>
         <Center>
-          <Inputs />
+          <ServiceCalculator />
         </Center>
       </VStack>
     </Box>

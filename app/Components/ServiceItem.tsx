@@ -45,14 +45,12 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </Flex>
 
       {subService && (
-        <>
-          <Flex alignItems="center" mb={3}>
-            <Icon as={FaTruck} color="purple.500" mr={2} />
-            <Text fontSize="md" color={textColor}>
-              {subService}
-            </Text>
-          </Flex>
-        </>
+        <Flex alignItems="center" mb={3}>
+          <Icon as={FaTruck} color="purple.500" mr={2} />
+          <Text fontSize="md" color={textColor}>
+            {subService}
+          </Text>
+        </Flex>
       )}
 
       {additionalDetails && (
