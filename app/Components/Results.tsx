@@ -89,32 +89,33 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
   }, [filterInput, summary, debouncedFilter]);
 
   return (
-    <>
-      {hasCalculated && (
-        <InputGroup>
-          <InputLeftElement pointerEvents="none">
-            <SearchIcon color="gray.100" />
-          </InputLeftElement>
-          <Input
-            variant="outline"
-            placeholder="Search services..."
-            value={filterInput}
-            onChange={handleSearchChange}
-          />
-          {filterInput && (
-            <InputRightElement>
-              <IconButton
-                icon={<CloseIcon />}
-                size="sm"
-                onClick={clearFilter}
-                aria-label="Clear search"
-                color="gray.100"
-              />
-            </InputRightElement>
-          )}
-        </InputGroup>
-      )}
-
+    <Box>
+      <Box w={"30vw"}>
+        {hasCalculated && (
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">
+              <SearchIcon color="gray.100" />
+            </InputLeftElement>
+            <Input
+              variant="outline"
+              placeholder="Search services..."
+              value={filterInput}
+              onChange={handleSearchChange}
+            />
+            {filterInput && (
+              <InputRightElement>
+                <IconButton
+                  icon={<CloseIcon />}
+                  size="sm"
+                  onClick={clearFilter}
+                  aria-label="Clear search"
+                  color="gray.100"
+                />
+              </InputRightElement>
+            )}
+          </InputGroup>
+        )}
+      </Box>
       {hasCalculated &&
         Object.entries(filteredSummary).map(([provider, services]) => (
           <Box key={provider}>
@@ -131,7 +132,7 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
             ))}
           </Box>
         ))}
-    </>
+    </Box>
   );
 };
 

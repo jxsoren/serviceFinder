@@ -1,11 +1,12 @@
 "use client";
 
+import { Box, VStack } from "@chakra-ui/react";
+
 import React, { useState } from "react";
 
 import { GroupedServices } from "../Components/Results";
 import Inputs from "../Components/Inputs";
 import Results from "../Components/Results";
-import { Criteria } from "../logic/calculations";
 import { ServiceCriteria } from "../logic/serviceCriterias";
 
 const ServiceCalculator = () => {
@@ -28,14 +29,14 @@ const ServiceCalculator = () => {
   };
 
   return (
-    <>
+    <VStack w={"30vw"}>
       <Inputs
         setSummary={setSummary}
         setHasCalculated={setHasCalculated}
         groupServicesByProvider={groupServiceByProvider}
       />
       <Results summary={summary} hasCalculated={hasCalculated} />
-    </>
+    </VStack>
   );
 };
 

@@ -36,6 +36,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       boxShadow="sm"
       _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
       transition="all 0.2s ease-in-out"
+      w={"30vw"}
     >
       <Flex alignItems="center" mb={3}>
         <Icon as={FaInfoCircle} color="blue.500" mr={2} />
