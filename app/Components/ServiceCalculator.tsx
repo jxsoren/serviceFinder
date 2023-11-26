@@ -1,8 +1,7 @@
 "use client";
+import React, { useState } from "react";
 
 import { VStack, Fade, Text, Box } from "@chakra-ui/react";
-
-import React, { useState } from "react";
 
 import Results, { GroupedServices } from "../Components/Results";
 import Inputs from "../Components/Inputs";
@@ -41,7 +40,9 @@ const ServiceCalculator = () => {
             <Results summary={summary} hasCalculated={hasCalculated} />
           </Fade>
         ) : (
-          <Text color="gray.500">Calculate to see results</Text>
+          <Text color="gray.500" textAlign="center">
+            Enter details and click calculate to see results...
+          </Text>
         )}
       </VStack>
     </Box>
