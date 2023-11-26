@@ -111,7 +111,7 @@ const Inputs: React.FC<InputsProps> = ({
     >
       <Grid templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem colSpan={2}>
-          <FormControl id="destination" isRequired>
+          <FormControl id="destination">
             <FormLabel>
               <Icon as={FaMapMarkerAlt} mr={2} />
               Destination
