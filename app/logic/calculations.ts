@@ -1,10 +1,14 @@
-import { ServiceCriteria, domestic, international } from "./serviceCriterias";
+import {
+  ServiceCriteria,
+  Dimensions,
+  domestic,
+  international,
+} from "./serviceCriterias";
 
 export interface Criteria extends ServiceCriteria {
   provider: string;
   service: string;
-  subService?: string;
-  additionalDetails?: { transitTime: string; isGround: boolean };
+  qualifyingDimensions?: Dimensions[];
 }
 
 const calculations = (
@@ -20,11 +24,18 @@ const calculations = (
 
   let qualifyingServices: Criteria[] = [];
 
-  const criteriaDestination =
-    destination === "domestic" ? domestic : international;
+  const servicesList = destination === "domestic" ? domestic : international;
 
-  for (const criteria of criteriaDestination) {
-    if (
+  for (const criteria of servicesList) {
+    let qualifyingDimensions: Dimensions[] =
+      criteria.multiSizes?.filter(
+        (dimension) =>
+          dimension.length >= length &&
+          dimension.width >= width &&
+          (dimension.height === undefined || dimension.height >= height)
+      ) || [];
+
+    let qualifiesBasedOnStandardCriteria =
       (criteria.maxWeight === undefined || weight <= criteria.maxWeight) &&
       (criteria.minWeight === undefined || weight >= criteria.minWeight) &&
       (criteria.maxLength === undefined || length <= criteria.maxLength) &&
@@ -38,13 +49,15 @@ const calculations = (
       (criteria.maxCombinedDimensions === undefined ||
         combinedDimensions <= criteria.maxCombinedDimensions) &&
       (criteria.maxCubicFoot === undefined ||
-        cubicFoot <= criteria.maxCubicFoot)
-    ) {
+        cubicFoot <= criteria.maxCubicFoot);
+
+    if (qualifyingDimensions.length > 0 || qualifiesBasedOnStandardCriteria) {
       qualifyingServices.push({
         provider: criteria.provider,
         service: criteria.service,
         subService: criteria.subService,
         additionalDetails: criteria.additionalDetails,
+        multiSizes: qualifyingDimensions,
       });
     }
   }
