@@ -1,3 +1,10 @@
+interface Dimensions {
+  label: string;
+  length: number;
+  width: number;
+  height?: number;
+}
+
 export interface ServiceCriteria {
   provider: string;
   service: string;
@@ -13,10 +20,12 @@ export interface ServiceCriteria {
   minHeight?: number;
   maxCombinedDimensions?: number;
   maxCubicFoot?: number;
+  maxVolume?: number;
+  additionalDimensions?: Dimensions[];
   additionalDetails?: { transitTime: string; isGround: boolean };
 }
 
-// All measurements are in inches. All weights are in ounces.
+// All measurements are in inches. All weights are in ounces. Volume is in cubic inches.
 
 const domestic: ServiceCriteria[] = [
   // USPS Ground Advantage ---
@@ -129,24 +138,12 @@ const domestic: ServiceCriteria[] = [
   {
     provider: "USPS",
     service: "USPS Priority Mail",
-    subService: "Medium Flat Rate Box (Top-Loading)",
+    subService: "Medium Flat Rate Box",
     maxWeight: 1120,
-    maxLength: 11,
-    maxWidth: 8.5,
-    maxHeight: 5.5,
-    additionalDetails: {
-      transitTime: "1-3 Postal Days",
-      isGround: false,
-    },
-  },
-  {
-    provider: "USPS",
-    service: "USPS Priority Mail",
-    subService: "Medium Flat Rate Box (Side-Loading)",
-    maxWeight: 1120,
-    maxLength: 13.625,
-    maxWidth: 11.875,
-    maxHeight: 3.375,
+    additionalDimensions: [
+      { label: "Top Loading", length: 11, width: 8.5, height: 5.5 },
+      { label: "Side Loading", length: 13.625, width: 11.875, height: 3.375 },
+    ],
     additionalDetails: {
       transitTime: "1-3 Postal Days",
       isGround: false,
@@ -167,7 +164,6 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "USPS",
-
     service: "USPS Priority Mail",
     subService: "Thick Envelope",
     maxWeight: 1120,
@@ -279,6 +275,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // UPS Mail Innovations ---
   {
     provider: "UPS",
     service: "UPS Mail Innovations",
@@ -345,6 +342,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // UPS SurePost ---
   {
     provider: "UPS",
     service: "UPS SurePost",
@@ -387,6 +385,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // FedEx 2Day ---
   {
     provider: "FedEx",
     service: "FedEx 2Day",
@@ -402,7 +401,7 @@ const domestic: ServiceCriteria[] = [
   {
     provider: "FedEx",
     service: "FedEx 2Day",
-    subService: "FedEx 2Day AM",
+    subService: "2Day AM",
     maxWeight: 2400,
     maxLength: 119,
     maxLengthPlusGirth: 165,
@@ -413,10 +412,16 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
-    subService: "FedEx 2Day One Rate Envelope",
+    subService: "2Day One Rate Envelope",
     maxWeight: 160,
+    maxLength: 12.5,
+    maxWidth: 9.5,
+    maxVolume: 250,
+    additionalDimensions: [
+      { label: "Regular Envelope", length: 12.5, width: 9.5 },
+      { label: "Reusable Envelope", length: 15.5, width: 9.5 },
+    ],
     additionalDetails: {
       transitTime: "2 Postal Days",
       isGround: false,
@@ -425,8 +430,15 @@ const domestic: ServiceCriteria[] = [
   {
     provider: "FedEx",
     service: "FedEx 2Day",
-    subService: "FedEx 2Day One Rate Pak",
+    subService: "2Day One Rate Pak",
     maxWeight: 800,
+    maxVolume: 650,
+    additionalDimensions: [
+      { label: "Size 1", length: 12.75, width: 10.25, height: 1.5 },
+      { label: "Size 2", length: 15.5, width: 12, height: 1.5 },
+      { label: "Padded", length: 14.75, width: 11.75, height: 1.5 },
+      { label: "Reusable Sturdy Pak", length: 14.5, width: 10, height: 1.5 },
+    ],
     additionalDetails: {
       transitTime: "2 Postal Days",
       isGround: false,
@@ -434,10 +446,14 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
-    subService: "FedEx 2Day One Rate Small Box",
+    subService: "2Day One Rate Small Box",
     maxWeight: 800,
+    maxVolume: 420,
+    additionalDimensions: [
+      { label: "Size 1", length: 12.375, width: 10.875, height: 0 },
+      { label: "Size 2", length: 11.25, width: 8.75, height: 0 },
+    ],
     additionalDetails: {
       transitTime: "2 Postal Days",
       isGround: false,
@@ -445,10 +461,14 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
-    subService: "FedEx 2Day One Rate Medium Box",
+    subService: "2Day One Rate Medium Box",
     maxWeight: 800,
+    maxVolume: 650,
+    additionalDimensions: [
+      { label: "Size 1", length: 13.25, width: 11.5, height: 0 },
+      { label: "Size 2", length: 11.25, width: 8.75, height: 0 },
+    ],
     additionalDetails: {
       transitTime: "2 Postal Days",
       isGround: false,
@@ -456,10 +476,14 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
-    subService: "FedEx 2Day One Rate Large Box",
+    subService: "2Day One Rate Large Box",
     maxWeight: 800,
+    maxVolume: 1100,
+    additionalDimensions: [
+      { label: "Size 1", length: 17.5, width: 12.375, height: 0 },
+      { label: "Size 2", length: 11.25, width: 8.75, height: 0 },
+    ],
     additionalDetails: {
       transitTime: "2 Postal Days",
       isGround: false,
@@ -467,15 +491,20 @@ const domestic: ServiceCriteria[] = [
   },
   {
     provider: "FedEx",
-
     service: "FedEx 2Day",
-    subService: "FedEx 2Day One Rate Extra Large Box",
+    subService: "2Day One Rate Extra Large Box",
     maxWeight: 800,
+    maxVolume: 2200,
+    additionalDimensions: [
+      { label: "Size 1", length: 11, width: 11.875, height: 0 },
+      { label: "Size 2", length: 6, width: 15.75, height: 0 },
+    ],
     additionalDetails: {
       transitTime: "2 Postal Days",
       isGround: false,
     },
   },
+  // FedEx Express Saver ---
   {
     provider: "FedEx",
     service: "FedEx Express Saver",
@@ -487,6 +516,7 @@ const domestic: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // FedEx Ground ---
   {
     provider: "FedEx",
     service: "FedEx Ground",
@@ -498,6 +528,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // FedEx Home Delivery ---
   {
     provider: "FedEx",
     service: "FedEx Home Delivery",
@@ -509,6 +540,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // FedEx Pririty Overnight ---
   {
     provider: "FedEx",
     service: "FedEx Priority Overnight",
@@ -561,6 +593,46 @@ const domestic: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // FedEx Standard Overnight ---
+  {
+    provider: "FedEx",
+    service: "FedEx Standard Overnight",
+    subService: "Parcel Weight Based",
+    maxWeight: 2400,
+    maxLength: 119,
+    maxLengthPlusGirth: 165,
+    additionalDetails: {
+      transitTime: "Next Postal Day by 4:30 pm, 8pm for residences",
+      isGround: false,
+    },
+  },
+  {
+    provider: "FedEx",
+    service: "FedEx Standard Overnight",
+    subService: "One Rate Envelope",
+    maxWeight: 160,
+    additionalDimensions: [
+      { label: "Regular Envelope", length: 12.5, width: 9.5 },
+      { label: "Reusable Envelope", length: 15.5, width: 9.5 },
+    ],
+    additionalDetails: {
+      transitTime: "Next Postal Day by 4:30 pm, 8pm for residences",
+      isGround: false,
+    },
+  },
+  {
+    provider: "FedEx",
+    service: "FedEx Standard Overnight",
+    subService: "One Rate Pak",
+    maxWeight: 2400,
+    maxLength: 108,
+    maxLengthPlusGirth: 165,
+    additionalDetails: {
+      transitTime: "Next Postal Day by 4:30 pm, 8pm for residences",
+      isGround: false,
+    },
+  },
+  // FedEx First Overnight ---
   {
     provider: "FedEx",
     service: "FedEx First Overnight",
@@ -573,6 +645,7 @@ const domestic: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // FedEx Ground Economy --
   {
     provider: "FedEx",
     service: "FedEx Ground Economy (formerly SmartPost)",
@@ -595,6 +668,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // DHL SmartMail Parcel ---
   {
     provider: "DHL",
     service: "DHL SmartMail Parcel",
@@ -628,6 +702,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // DHL SmartMail Parcel Plus ---
   {
     provider: "DHL",
     service: "DHL SmartMail Parcel Plus",
@@ -661,6 +736,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // DHL SmartMail Parcel Return ---
   {
     provider: "DHL",
     service: "DHL SmartMail Parcel Return",
@@ -693,6 +769,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // DHL SmartMail Bound Printed Matter ---
   {
     provider: "DHL",
     service: "DHL SmartMail Bound Printed Matter",
@@ -715,6 +792,7 @@ const domestic: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // DHL SmartMail Flats ---
   {
     provider: "DHL",
     service: "DHL SmartMail Flats",
@@ -810,24 +888,12 @@ const international: ServiceCriteria[] = [
   {
     provider: "USPS",
     service: "USPS Priority Mail International",
-    subService: "Medium Flat Rate Box (Top-Loading)",
+    subService: "Medium Flat Rate Box",
     maxWeight: 320,
-    maxLength: 11,
-    maxWidth: 8.5,
-    maxHeight: 5.5,
-    additionalDetails: {
-      transitTime: "6-10 Postal Days",
-      isGround: false,
-    },
-  },
-  {
-    provider: "USPS",
-    service: "USPS Priority Mail International",
-    subService: "Medium Flat Rate Box (Side-Loading)",
-    maxWeight: 320,
-    maxLength: 13.625,
-    maxWidth: 11.875,
-    maxHeight: 3.375,
+    additionalDimensions: [
+      { label: "Top Loading", length: 11, width: 8.5, height: 5.5 },
+      { label: "Side Loading", length: 13.625, width: 11.875, height: 3.375 },
+    ],
     additionalDetails: {
       transitTime: "6-10 Postal Days",
       isGround: false,
@@ -893,6 +959,7 @@ const international: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // UPS WWEX ---
   {
     provider: "UPS",
     service: "UPS WWEX",
@@ -977,6 +1044,7 @@ const international: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // UPS Mail Innovations ---
   {
     provider: "UPS",
     service: "UPS Mail Innovations",
@@ -1017,6 +1085,7 @@ const international: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // FedEx International Economy ---
   {
     provider: "UPS",
     service: "FedEx International Economy",
@@ -1027,6 +1096,7 @@ const international: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // FedEx International Priority ---
   {
     provider: "FedEx",
     service: "FedEx International Priority",
@@ -1037,6 +1107,7 @@ const international: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // FexEx International Priority Express ---
   {
     provider: "FedEx",
     service: "FedEx International Priority Express",
@@ -1048,6 +1119,7 @@ const international: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // FedEx International Ground ---
   {
     provider: "FedEx",
     service: "FedEx International Ground (to CA)",
@@ -1058,6 +1130,7 @@ const international: ServiceCriteria[] = [
       isGround: true,
     },
   },
+  // FedEx International First ---
   {
     provider: "FedEx",
     service: "FedEx International First",
@@ -1069,6 +1142,7 @@ const international: ServiceCriteria[] = [
       isGround: false,
     },
   },
+  // DHL International ---
   {
     provider: "FedEx",
     service: "DHL International",
