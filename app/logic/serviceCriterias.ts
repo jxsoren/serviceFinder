@@ -1,4 +1,4 @@
-interface Dimensions {
+export interface Dimensions {
   label: string;
   length: number;
   width: number;
@@ -21,7 +21,7 @@ export interface ServiceCriteria {
   maxCombinedDimensions?: number;
   maxCubicFoot?: number;
   maxVolume?: number;
-  additionalDimensions?: Dimensions[];
+  multiDimensions?: Dimensions[];
   additionalDetails?: { transitTime: string; isGround: boolean };
 }
 
@@ -140,7 +140,7 @@ const domestic: ServiceCriteria[] = [
     service: "USPS Priority Mail",
     subService: "Medium Flat Rate Box",
     maxWeight: 1120,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Top Loading", length: 11, width: 8.5, height: 5.5 },
       { label: "Side Loading", length: 13.625, width: 11.875, height: 3.375 },
     ],
@@ -418,7 +418,7 @@ const domestic: ServiceCriteria[] = [
     maxLength: 12.5,
     maxWidth: 9.5,
     maxVolume: 250,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Regular Envelope", length: 12.5, width: 9.5 },
       { label: "Reusable Envelope", length: 15.5, width: 9.5 },
     ],
@@ -433,7 +433,7 @@ const domestic: ServiceCriteria[] = [
     subService: "2Day One Rate Pak",
     maxWeight: 800,
     maxVolume: 650,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Size 1", length: 12.75, width: 10.25, height: 1.5 },
       { label: "Size 2", length: 15.5, width: 12, height: 1.5 },
       { label: "Padded", length: 14.75, width: 11.75, height: 1.5 },
@@ -450,7 +450,7 @@ const domestic: ServiceCriteria[] = [
     subService: "2Day One Rate Small Box",
     maxWeight: 800,
     maxVolume: 420,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Size 1", length: 12.375, width: 10.875, height: 0 },
       { label: "Size 2", length: 11.25, width: 8.75, height: 0 },
     ],
@@ -465,7 +465,7 @@ const domestic: ServiceCriteria[] = [
     subService: "2Day One Rate Medium Box",
     maxWeight: 800,
     maxVolume: 650,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Size 1", length: 13.25, width: 11.5, height: 0 },
       { label: "Size 2", length: 11.25, width: 8.75, height: 0 },
     ],
@@ -480,7 +480,7 @@ const domestic: ServiceCriteria[] = [
     subService: "2Day One Rate Large Box",
     maxWeight: 800,
     maxVolume: 1100,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Size 1", length: 17.5, width: 12.375, height: 0 },
       { label: "Size 2", length: 11.25, width: 8.75, height: 0 },
     ],
@@ -495,7 +495,7 @@ const domestic: ServiceCriteria[] = [
     subService: "2Day One Rate Extra Large Box",
     maxWeight: 800,
     maxVolume: 2200,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Size 1", length: 11, width: 11.875, height: 0 },
       { label: "Size 2", length: 6, width: 15.75, height: 0 },
     ],
@@ -611,7 +611,7 @@ const domestic: ServiceCriteria[] = [
     service: "FedEx Standard Overnight",
     subService: "One Rate Envelope",
     maxWeight: 160,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Regular Envelope", length: 12.5, width: 9.5 },
       { label: "Reusable Envelope", length: 15.5, width: 9.5 },
     ],
@@ -890,7 +890,7 @@ const international: ServiceCriteria[] = [
     service: "USPS Priority Mail International",
     subService: "Medium Flat Rate Box",
     maxWeight: 320,
-    additionalDimensions: [
+    multiDimensions: [
       { label: "Top Loading", length: 11, width: 8.5, height: 5.5 },
       { label: "Side Loading", length: 13.625, width: 11.875, height: 3.375 },
     ],
