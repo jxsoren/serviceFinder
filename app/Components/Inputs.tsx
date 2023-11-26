@@ -30,12 +30,14 @@ interface InputsProps {
   setSummary: React.Dispatch<React.SetStateAction<GroupedServices>>;
   setHasCalculated: React.Dispatch<React.SetStateAction<boolean>>;
   groupServicesByProvider: (services: ServiceCriteria[]) => GroupedServices;
+  hasCalculated: boolean;
 }
 
 const Inputs: React.FC<InputsProps> = ({
   setSummary,
   setHasCalculated,
   groupServicesByProvider,
+  hasCalculated,
 }) => {
   const [length, setLength] = useState<number>(15);
   const [width, setWidth] = useState<number>(15);
@@ -63,6 +65,7 @@ const Inputs: React.FC<InputsProps> = ({
     handleDimensionChange(value, setWidth);
   const handleHeightChange = (value: string) =>
     handleDimensionChange(value, setHeight);
+
   const handleWeightChange = (value: string) =>
     handleDimensionChange(value, setWeight);
 
@@ -80,6 +83,7 @@ const Inputs: React.FC<InputsProps> = ({
   const handleSubmit = () => {
     const weightInOunces =
       weightUnit === "lbs" ? Math.round(weight * 16) : weight;
+
     const calculatedServices = calculations(
       length,
       width,
@@ -95,10 +99,19 @@ const Inputs: React.FC<InputsProps> = ({
   };
 
   return (
-    <VStack spacing={4} align="stretch" maxW={"lg"} mx="auto" p={4}>
+    <VStack
+      spacing={4}
+      align="stretch"
+      maxW="lg"
+      mx="auto"
+      p={4}
+      boxShadow="lg"
+      borderRadius="md"
+      bg="blue.50"
+    >
       <Grid templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem colSpan={2}>
-          <FormControl id="destination">
+          <FormControl id="destination" isRequired>
             <FormLabel>
               <Icon as={FaMapMarkerAlt} mr={2} />
               Destination
