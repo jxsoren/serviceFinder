@@ -36,7 +36,6 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       boxShadow="sm"
       _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
       transition="all 0.2s ease-in-out"
-      w={"30vw"}
     >
       <Flex alignItems="center" mb={3}>
         <Icon as={FaInfoCircle} color="blue.500" mr={2} />
@@ -59,16 +58,14 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
           <Flex alignItems="center">
             <Icon as={FaClock} color="yellow.500" mr={2} />
             <Text fontSize="sm" fontWeight="semibold" color={textColor}>
-              Transit Time: {transitTime}
+              {transitTime}
             </Text>
           </Flex>
 
           {isGround && (
-            <Tooltip label="Ground shipping available" hasArrow>
-              <Text fontSize="sm" color="green.500">
-                Ground Available
-              </Text>
-            </Tooltip>
+            <Text fontSize="sm" color="green.500">
+              Ground Available
+            </Text>
           )}
         </Flex>
       )}

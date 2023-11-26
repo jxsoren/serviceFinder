@@ -10,6 +10,7 @@ import {
   InputRightElement,
   IconButton,
   Heading,
+  Text,
 } from "@chakra-ui/react";
 
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
@@ -89,37 +90,36 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
   }, [filterInput, summary, debouncedFilter]);
 
   return (
-    <Box>
-      <Box w={"30vw"}>
-        {hasCalculated && (
-          <InputGroup>
-            <InputLeftElement pointerEvents="none">
-              <SearchIcon color="gray.100" />
-            </InputLeftElement>
-            <Input
-              variant="outline"
-              placeholder="Search services..."
-              value={filterInput}
-              onChange={handleSearchChange}
-            />
-            {filterInput && (
-              <InputRightElement>
-                <IconButton
-                  icon={<CloseIcon />}
-                  size="sm"
-                  onClick={clearFilter}
-                  aria-label="Clear search"
-                  color="gray.100"
-                />
-              </InputRightElement>
-            )}
-          </InputGroup>
-        )}
-      </Box>
-      {hasCalculated &&
+    <Box px={[2, 4, 6]} py={4} maxW="lg" mx="auto">
+      {hasCalculated && (
+        <InputGroup size="lg" mb={4}>
+          <InputLeftElement>
+            <SearchIcon color="gray.500" />
+          </InputLeftElement>
+          <Input
+            variant="filled"
+            placeholder="Search services..."
+            value={filterInput}
+            onChange={handleSearchChange}
+          />
+          {filterInput && (
+            <InputRightElement>
+              <IconButton
+                icon={<CloseIcon />}
+                size="sm"
+                onClick={clearFilter}
+                aria-label="Clear search"
+                variant="ghost"
+              />
+            </InputRightElement>
+          )}
+        </InputGroup>
+      )}
+
+      {hasCalculated ? (
         Object.entries(filteredSummary).map(([provider, services]) => (
-          <Box key={provider}>
-            <Heading size="lg" my={4}>
+          <Box key={provider} mb={6}>
+            <Heading size="md" mb={2} color="blue.600">
               {provider}
             </Heading>
             {services.map((service, index) => (
@@ -131,7 +131,12 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
               />
             ))}
           </Box>
-        ))}
+        ))
+      ) : (
+        <Text color="gray.500" textAlign="center">
+          Enter details and click calculate to see results.
+        </Text>
+      )}
     </Box>
   );
 };
