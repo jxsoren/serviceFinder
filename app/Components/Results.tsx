@@ -11,6 +11,7 @@ import {
   IconButton,
   Heading,
   Text,
+  Flex,
 } from "@chakra-ui/react";
 
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
@@ -116,7 +117,7 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
         </InputGroup>
       )}
 
-      {hasCalculated ? (
+      {hasCalculated &&
         Object.entries(filteredSummary).map(([provider, services]) => (
           <Box key={provider} mb={6}>
             <Heading size="md" mb={2} color="blue.600">
@@ -131,12 +132,7 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
               />
             ))}
           </Box>
-        ))
-      ) : (
-        <Text color="gray.500" textAlign="center">
-          Enter details and click calculate to see results.
-        </Text>
-      )}
+        ))}
     </Box>
   );
 };
