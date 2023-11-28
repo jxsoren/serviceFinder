@@ -168,7 +168,16 @@ const Inputs: React.FC<InputsProps> = ({
           }
         />
       </Grid>
-      <Button size="lg" colorScheme="teal" onClick={handleSubmit} mt={4}>
+      <Button
+        size="lg"
+        bg="#1E5DF9"
+        color="white"
+        onClick={handleSubmit}
+        mt={4}
+        _hover={{
+          bg: "#2dc4d6",
+        }}
+      >
         Calculate
       </Button>
     </VStack>
