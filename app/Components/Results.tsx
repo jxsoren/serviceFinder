@@ -10,15 +10,13 @@ import {
   InputRightElement,
   IconButton,
   Heading,
-  Text,
-  Flex,
 } from "@chakra-ui/react";
-
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 
 import ServiceItem from "./ServiceItem";
-
 import { ServiceCriteria } from "../logic/serviceCriterias";
+
+import ProviderTitle from "./ProviderTitle";
 
 export interface GroupedServices {
   [provider: string]: ServiceCriteria[];
@@ -120,15 +118,14 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
       {hasCalculated &&
         Object.entries(filteredSummary).map(([provider, services]) => (
           <Box key={provider} mb={6}>
-            <Heading size="md" mb={2} color="blue.600">
-              {provider}
-            </Heading>
+            <ProviderTitle provider={provider}>{provider}</ProviderTitle>
             {services.map((service, index) => (
               <ServiceItem
                 key={index}
                 service={service.service}
                 subService={service.subService}
                 additionalDetails={service.additionalDetails}
+                provider={provider}
               />
             ))}
           </Box>
