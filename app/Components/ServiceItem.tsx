@@ -77,7 +77,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       transition="all 0.2s ease-in-out"
     >
       <Flex alignItems="center" mb={3}>
-        <Icon as={providerIcon} color={providerColor} mr={2} />
+        <Icon as={providerIcon} color={providerColor} mr={2} boxSize="32px" />
         <Text fontSize="lg" fontWeight="semizzbold" color={textColor}>
           {service}
         </Text>
