@@ -56,10 +56,8 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
 
   useEffect(() => {
     if (filterInput.length > 0) {
-      // Create a new object to hold the filtered groups
       const newFilteredSummary: GroupedServices = Object.keys(summary).reduce(
         (acc, provider) => {
-          // Filter the services within each provider group
           const filteredServices = summary[provider].filter(
             (service) =>
               service.service
@@ -71,7 +69,6 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
                   .includes(filterInput.toLowerCase()))
           );
 
-          // Only add the provider group to the accumulator if it has filtered services
           if (filteredServices.length > 0) {
             acc[provider] = filteredServices;
           }
@@ -83,7 +80,6 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
 
       setFilteredSummary(newFilteredSummary);
     } else {
-      // If the filter input is empty, set the filtered summary to the full summary
       setFilteredSummary(summary);
     }
   }, [filterInput, summary, debouncedFilter]);
