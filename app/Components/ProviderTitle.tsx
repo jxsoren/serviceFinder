@@ -29,11 +29,9 @@ const ProviderTitle: React.FC<ProviderTitleProps> = ({
   let providerTitleColor = providerColors[provider] || "white";
 
   return (
-    <Box>
-      <Heading size="lg" color={providerTitleColor}>
-        {children}
-      </Heading>
-    </Box>
+    <Heading size="xl" color={providerTitleColor} p={2}>
+      {children}
+    </Heading>
   );
 };
 
