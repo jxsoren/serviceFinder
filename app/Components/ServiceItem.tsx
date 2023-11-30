@@ -1,6 +1,13 @@
 import React from "react";
 
-import { Box, Text, Flex, Icon, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Flex,
+  Icon,
+  HStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import {
   FaTruck,
   FaClock,
@@ -41,9 +48,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   additionalDetails,
   provider,
 }) => {
-  const bgColor = useColorModeValue("gray.100", "gray.700");
-  const borderColor = useColorModeValue("gray.200", "gray.600");
-  const textColor = useColorModeValue("gray.800", "whiteAlpha.900");
+  const textColor = "gray.700";
 
   const { transitTime, isGround } = additionalDetails || {};
 
@@ -55,38 +60,78 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   };
 
   const providerColors: ProviderColors = {
-    USPS: "blue.500",
-    UPS: "yellow.500",
-    FedEx: "purple.500",
-    DHL: "red.500",
+    USPS: "#004B87",
+    UPS: "#FFB500",
+    FedEx: "#4D148C",
+    DHL: "#D40511",
+  };
+
+  const providerBgColors: ProviderColors = {
+    USPS: "#004B87",
+    UPS: "#FFB500",
+    FedEx: "#4D148C",
+    DHL: "#D40511",
+  };
+
+  const providerIconBgColors: ProviderColors = {
+    USPS: "#CCE4F6",
+    UPS: "#FFF2D5",
+    FedEx: "#E8D3FF",
+    DHL: "#FFD3D3",
   };
 
   let providerIcon: IconType = providerIcons[provider] || FaInfoCircle;
   let providerColor: string = providerColors[provider] || "gray.500";
+  let providerBgColor: string = providerBgColors[provider] || "gray.100";
+  let providerIconBgColor: string =
+    providerIconBgColors[provider] || "gray.100";
 
   return (
     <Box
+      position="relative"
       mb={4}
       p={4}
-      bg={bgColor}
-      border="1px"
-      borderColor={borderColor}
       borderRadius="lg"
       boxShadow="sm"
       _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
       transition="all 0.2s ease-in-out"
+      bgGradient={`linear(to-br, ${providerBgColor}, gray.200)`}
     >
-      <Flex alignItems="center" mb={3}>
-        <Icon as={providerIcon} color={providerColor} mr={2} boxSize="32px" />
-        <Text fontSize="lg" fontWeight="semizzbold" color={textColor}>
-          {service}
-        </Text>
-      </Flex>
+      <HStack>
+        <Flex alignItems="center" mb={3}>
+          <Icon as={FaInfoCircle} color="#FFFFFF" mr={2} boxSize="20px" />
+          <Text
+            fontSize="lg"
+            fontWeight="semibold"
+            color={textColor}
+            textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+          >
+            {service}
+          </Text>
+        </Flex>
+        <Icon
+          as={providerIcon}
+          color={providerColor}
+          position="absolute"
+          top={2}
+          right={2}
+          bg={providerIconBgColor}
+          p={2}
+          borderRadius="full"
+          boxShadow="0 2px 4px rgba(0,0,0,0.1)"
+          boxSize="30px"
+        />
+      </HStack>
 
       {subService && (
         <Flex alignItems="center" mb={3}>
-          <Icon as={FaTruck} color="purple.500" mr={2} />
-          <Text fontSize="md" color={textColor}>
+          <Icon as={FaTruck} color="#FFFF" mr={2} boxSize="20px" />
+          <Text
+            fontSize="md"
+            fontWeight="semibold"
+            color={textColor}
+            textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+          >
             {subService}
           </Text>
         </Flex>
@@ -95,14 +140,24 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       {additionalDetails && (
         <Flex alignItems="center" justifyContent="space-between">
           <Flex alignItems="center">
-            <Icon as={FaClock} color="yellow.500" mr={2} />
-            <Text fontSize="sm" fontWeight="semibold" color={textColor}>
+            <Icon as={FaClock} color="#FFFF" mr={2} boxSize="20px" />
+            <Text
+              fontSize="xs"
+              fontWeight="semibold"
+              color={textColor}
+              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+            >
               {transitTime}
             </Text>
           </Flex>
 
           {isGround && (
-            <Text fontSize="sm" color="green.500">
+            <Text
+              fontSize="sm"
+              fontWeight="semibold"
+              color="green.500"
+              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+            >
               Ground Available
             </Text>
           )}
