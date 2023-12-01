@@ -51,7 +51,10 @@ const calculations = (
       (criteria.maxCubicFoot === undefined ||
         cubicFoot <= criteria.maxCubicFoot);
 
-    if (qualifyingDimensions.length > 0 || qualifiesBasedOnStandardCriteria) {
+    if (
+      (qualifyingDimensions.length > 0 && qualifiesBasedOnStandardCriteria) ||
+      qualifiesBasedOnStandardCriteria
+    ) {
       qualifyingServices.push({
         provider: criteria.provider,
         service: criteria.service,
