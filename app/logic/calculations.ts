@@ -51,16 +51,20 @@ const calculations = (
       (criteria.maxCubicFoot === undefined ||
         cubicFoot <= criteria.maxCubicFoot);
 
-    if (
-      (qualifyingDimensions.length > 0 && qualifiesBasedOnStandardCriteria) ||
-      qualifiesBasedOnStandardCriteria
-    ) {
+    if (qualifyingDimensions.length > 0 && qualifiesBasedOnStandardCriteria) {
       qualifyingServices.push({
         provider: criteria.provider,
         service: criteria.service,
         subService: criteria.subService,
         additionalDetails: criteria.additionalDetails,
         multiSizes: qualifyingDimensions,
+      });
+    } else if (qualifiesBasedOnStandardCriteria) {
+      qualifyingServices.push({
+        provider: criteria.provider,
+        service: criteria.service,
+        subService: criteria.subService,
+        additionalDetails: criteria.additionalDetails,
       });
     }
   }
