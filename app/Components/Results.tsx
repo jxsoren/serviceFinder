@@ -122,6 +122,7 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
                 subService={service.subService}
                 additionalDetails={service.additionalDetails}
                 provider={provider}
+                multiSizes={service.multiSizes}
               />
             ))}
           </Box>
