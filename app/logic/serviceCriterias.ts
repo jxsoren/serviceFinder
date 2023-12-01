@@ -1087,7 +1087,7 @@ const international: ServiceCriteria[] = [
   },
   // FedEx International Economy ---
   {
-    provider: "UPS",
+    provider: "FedEx",
     service: "FedEx International Economy",
     maxWeight: 2400,
     maxLengthPlusGirth: 130,
