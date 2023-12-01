@@ -38,10 +38,10 @@ const Inputs: React.FC<InputsProps> = ({
   groupServicesByProvider,
   hasCalculated,
 }) => {
-  const [length, setLength] = useState<number>(15);
-  const [width, setWidth] = useState<number>(15);
-  const [height, setHeight] = useState<number>(15);
-  const [weight, setWeight] = useState<number>(15);
+  const [length, setLength] = useState<number>(0);
+  const [width, setWidth] = useState<number>(0);
+  const [height, setHeight] = useState<number>(0);
+  const [weight, setWeight] = useState<number>(0);
   const [weightUnit, setWeightUnit] = useState<string>("oz");
   const [destination, setDestination] = useState<string>("domestic");
 
