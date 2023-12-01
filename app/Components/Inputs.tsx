@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import {
   VStack,
@@ -21,7 +21,6 @@ import {
 
 import { calculations } from "../logic/calculations";
 import { GroupedServices } from "../Components/Results";
-
 import { ServiceCriteria } from "../logic/serviceCriterias";
 
 import DimensionInput from "./DimensionInput";
