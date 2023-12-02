@@ -19,9 +19,9 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-import { calculations } from "../logic/calculations";
-import { GroupedServices } from "../Components/Results";
-import { ServiceCriteria } from "../logic/serviceCriterias";
+import { calculations } from "../../logic/calculations/calculations";
+import { GroupedServices } from "./Results";
+import { ServiceCriteria } from "../../logic/calculations/serviceCriterias";
 
 import DimensionInput from "./DimensionInput";
 

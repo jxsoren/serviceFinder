@@ -14,7 +14,7 @@ import {
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 
 import ServiceItem from "./ServiceItem";
-import { ServiceCriteria } from "../logic/serviceCriterias";
+import { ServiceCriteria } from "../../logic/calculations/serviceCriterias";
 
 import ProviderTitle from "./ProviderTitle";
 

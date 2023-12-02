@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading, Stack, Center, VStack, Fade } from "@chakra-ui/react";
 import { FaCalculator } from "react-icons/fa";
 
-import ServiceCalculator from "./Components/ServiceCalculator";
+import ServiceCalculator from "./Components/ServiceCalculator/ServiceCalculator";
 
 export default function Home() {
   return (

@@ -1144,7 +1144,7 @@ const international: ServiceCriteria[] = [
   },
   // DHL International ---
   {
-    provider: "FedEx",
+    provider: "DHL",
     service: "DHL International",
     subService: "DHL Express Envelope/Document",
     maxWeight: 10,
@@ -1154,7 +1154,7 @@ const international: ServiceCriteria[] = [
     },
   },
   {
-    provider: "FedEx",
+    provider: "DHL",
     service: "DHL International",
     subService: "DHL Express Worldwide (220 countries)",
     maxWeight: 2400,
