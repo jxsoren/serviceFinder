@@ -15,7 +15,7 @@ const Navbar = () => {
       wrap="wrap"
       paddingY="1rem"
       paddingX={{ base: "1rem", md: "2rem" }}
-      bg="green.800"
+      bg="blue.800"
       color="white"
       boxShadow="0px 2px 10px rgba(0, 0, 0, 0.1)"
       position="relative"

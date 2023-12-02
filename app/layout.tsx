@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Calculate shipping services and rates for your package.",
 };
 
-import Navbar from "./Components/Nav/Navbar";
+import Navbar from "./Nav/Navbar";
 
 export default function RootLayout({
   children,
