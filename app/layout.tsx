@@ -19,19 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <head>
-        <title>Service Calculator</title>
-      </head>
+    <html lang="en">
       <body>
         <Box
-          bgGradient="linear(to-r, #1E5DF9, #30E3CA)"
+          style={{ background: "linear-gradient(to right, #1E5DF9, #30E3CA)" }}
           minH="100vh"
-          py={10}
-          px={5}
         >
-          <Navbar />
-          <Providers>{children}</Providers>
+          <Providers>
+            <Navbar />
+            {children}
+          </Providers>
         </Box>
       </body>
     </html>

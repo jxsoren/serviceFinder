@@ -191,8 +191,9 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
         <Flex alignItems="center" mt={3}>
           <Icon as={FaRuler} color="#FFFF" mr={2} boxSize="20px" />
           <HStack>
-            {multiSizes.map((dimension) => (
+            {multiSizes.map((dimension, index) => (
               <Text
+                key={index}
                 fontSize="xs"
                 fontWeight="semibold"
                 color={textColor}
