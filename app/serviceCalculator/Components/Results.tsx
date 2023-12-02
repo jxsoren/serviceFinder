@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 
 import {
   Box,
@@ -9,7 +9,6 @@ import {
   InputLeftElement,
   InputRightElement,
   IconButton,
-  Heading,
 } from "@chakra-ui/react";
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 
@@ -43,10 +42,8 @@ interface ResultProps {
 }
 
 const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
-  const [filteredSummary, setFilteredSummary] = useState<GroupedServices>({});
-
   const [filterInput, setFilterInput] = useState<string>("");
-  const clearFilter = () => setFilterInput("");
+  const clearFilter = useCallback(() => setFilterInput(""), []);
 
   const debouncedFilter = useDebounce(filterInput, 1000);
 
@@ -54,35 +51,27 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
     setFilterInput(event.target.value);
   };
 
-  useEffect(() => {
-    if (filterInput.length > 0) {
-      const newFilteredSummary: GroupedServices = Object.keys(summary).reduce(
-        (acc, provider) => {
-          const filteredServices = summary[provider].filter(
-            (service) =>
-              service.service
-                .toLowerCase()
-                .includes(filterInput.toLowerCase()) ||
-              (service.subService &&
-                service.subService
-                  .toLowerCase()
-                  .includes(filterInput.toLowerCase()))
-          );
+  const filterSummary = useMemo(() => {
+    if (!debouncedFilter) {
+      return summary;
+    }
 
-          if (filteredServices.length > 0) {
-            acc[provider] = filteredServices;
-          }
-
-          return acc;
-        },
-        {} as GroupedServices
+    const lowerCaseFilter = debouncedFilter.toLowerCase();
+    return Object.keys(summary).reduce((acc, provider) => {
+      const filteredServices = summary[provider].filter(
+        (service) =>
+          service.service.toLowerCase().includes(lowerCaseFilter) ||
+          (service.subService &&
+            service.subService.toLowerCase().includes(lowerCaseFilter))
       );
 
-      setFilteredSummary(newFilteredSummary);
-    } else {
-      setFilteredSummary(summary);
-    }
-  }, [filterInput, summary, debouncedFilter]);
+      if (filteredServices.length > 0) {
+        acc[provider] = filteredServices;
+      }
+
+      return acc;
+    }, {} as GroupedServices);
+  }, [debouncedFilter, summary]);
 
   return (
     <Box px={[2, 4, 6]} py={4} maxW="lg" mx="auto">
@@ -112,7 +101,7 @@ const Results: React.FC<ResultProps> = ({ summary, hasCalculated }) => {
       )}
 
       {hasCalculated &&
-        Object.entries(filteredSummary).map(([provider, services]) => (
+        Object.entries(filterSummary).map(([provider, services]) => (
           <Box key={provider} mb={6}>
             <ProviderTitle provider={provider}>{provider}</ProviderTitle>
             {services.map((service, index) => (
