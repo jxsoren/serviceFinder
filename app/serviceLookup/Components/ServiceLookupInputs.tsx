@@ -1,18 +1,19 @@
 import React from "react";
 import {
-  Box,
-  Heading,
-  Stack,
-  Center,
   VStack,
-  Fade,
-  Text,
+  Heading,
   Button,
-  Input,
   Select,
+  IconButton,
   useColorModeValue,
+  Text,
+  FormControl,
+  FormLabel,
+  Icon,
 } from "@chakra-ui/react";
 import { HiOutlineIdentification, HiOutlineSearch } from "react-icons/hi";
+
+import { FaSearch, FaTruck } from "react-icons/fa";
 
 import DimensionInput from "@/app/serviceCalculator/Components/DimensionInput";
 import { handleDimensionChange } from "@/app/serviceCalculator/Components/Inputs";
@@ -23,6 +24,8 @@ interface ServiceLookupInputsProps {
   searchId: number;
   setSearchId: React.Dispatch<React.SetStateAction<number>>;
   fetchServiceData: () => void;
+  searchType: string;
+  setSearchType: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
@@ -31,9 +34,15 @@ const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
   searchId,
   setSearchId,
   fetchServiceData,
+  searchType,
+  setSearchType,
 }) => {
   const handleInputChange = (value: string) => {
     handleDimensionChange(value, setSearchId);
+  };
+
+  const handleSearchTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSearchType(e.target.value);
   };
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -43,20 +52,38 @@ const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
   const inputBg = useColorModeValue("gray.100", "gray.700");
 
   return (
-    <VStack spacing={4} align="stretch" w="md" mx="auto">
-      <Heading size="md" textAlign="center">
-        Service Lookup
-      </Heading>
-      <Select
-        size="lg"
-        value={category}
-        onChange={handleCategoryChange}
-        icon={<HiOutlineSearch />}
-        bg={inputBg}
-      >
-        <option value="shipping">Shipping</option>
-        <option value="ecommerce">Ecommerce</option>
-      </Select>
+    <VStack spacing={6} align="stretch" w="md" mx="auto">
+      <FormControl id="search-type">
+        <FormLabel>
+          <Icon as={FaSearch} mr={2} />
+          Search Type
+        </FormLabel>
+        <Select
+          size="lg"
+          value={searchType}
+          onChange={handleSearchTypeChange}
+          bg={inputBg}
+        >
+          <option value="quickSearch">Quick Search</option>
+          <option value="apiSearch">API Search</option>
+        </Select>
+      </FormControl>
+
+      <FormControl id="service-type">
+        <FormLabel>
+          <Icon as={FaTruck} mr={2} />
+          Service Type
+        </FormLabel>
+        <Select
+          size="lg"
+          value={category}
+          onChange={handleCategoryChange}
+          bg={inputBg}
+        >
+          <option value="shipping">Shipping</option>
+          <option value="ecommerce">Ecommerce</option>
+        </Select>
+      </FormControl>
       <DimensionInput
         id="serviceId"
         label="Service ID"
@@ -66,11 +93,9 @@ const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
       />
       <Button
         colorScheme="blue"
-        leftIcon={<HiOutlineSearch />}
         onClick={fetchServiceData}
         size="lg"
-        boxShadow="sm"
-        _hover={{ boxShadow: "md" }}
+        width="full"
       >
         Explore
       </Button>
