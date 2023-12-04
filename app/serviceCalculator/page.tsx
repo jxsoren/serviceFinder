@@ -16,6 +16,7 @@ const ServiceCalculatorPage = () => {
       px={5}
     >
       <PageHeader icon={FaCalculator} title={"Service Calculator"} />
+      <ServiceCalculator />
     </Box>
   );
 };
