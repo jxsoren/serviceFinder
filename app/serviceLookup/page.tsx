@@ -11,6 +11,8 @@ import {
   Input,
 } from "@chakra-ui/react";
 
+import ServiceLookup from "./Components/ServiceLookup";
+
 export default function ServiceLookupPage() {
   return (
     <Box minH="100vh" p={4}>
@@ -28,16 +30,10 @@ export default function ServiceLookupPage() {
           <Heading as="h1" size="xl" textAlign="center">
             Service Lookup
           </Heading>
-          <Text color="gray.500" textAlign="center">
-            Enter A Service ID to lookup the associated service...
-          </Text>
 
-          <Fade in={true}>
-            <Stack spacing={3}>
-              <Input placeholder="Enter Service ID" size="md" />
-              <Button colorScheme="blue">Explore</Button>
-            </Stack>
-          </Fade>
+          
+
+          <ServiceLookup />
         </VStack>
       </Center>
     </Box>
