@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Box,
@@ -11,11 +13,20 @@ import {
   Input,
 } from "@chakra-ui/react";
 
+import { CiSearch } from "react-icons/ci";
+
 import ServiceLookup from "./Components/ServiceLookup";
+import PageHeader from "../Components/PageHeader";
 
 export default function ServiceLookupPage() {
   return (
-    <Box minH="100vh" p={4}>
+    <Box
+      bgGradient="linear(to-r, #1E5DF9, #30E3CA)"
+      minH="100vh"
+      py={10}
+      px={5}
+    >
+      <PageHeader icon={CiSearch} title={"Service Lookup"} />
       <Center>
         <VStack
           spacing={4}
@@ -27,15 +38,21 @@ export default function ServiceLookupPage() {
           borderRadius="lg"
           bg="white"
         >
-          <Heading as="h1" size="xl" textAlign="center">
-            Service Lookup
-          </Heading>
-
-          
-
           <ServiceLookup />
         </VStack>
       </Center>
     </Box>
   );
+}
+
+{
+  /* <Box
+bgGradient="linear(to-r, #1E5DF9, #30E3CA)"
+minH="100vh"
+py={10}
+px={5}
+>
+<PageHeader icon={CiSearch} title={"Service Lookup"} />
+<ServiceLookup />
+</Box> */
 }
