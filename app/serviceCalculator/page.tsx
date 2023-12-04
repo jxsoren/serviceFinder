@@ -1,9 +1,11 @@
 "use client";
 
 import { Center, Heading, VStack, Box } from "@chakra-ui/react";
+
 import { FaCalculator } from "react-icons/fa";
 
 import ServiceCalculator from "./Components/ServiceCalculator";
+import PageHeader from "../Components/PageHeader";
 
 const ServiceCalculatorPage = () => {
   return (
@@ -13,17 +15,7 @@ const ServiceCalculatorPage = () => {
       py={10}
       px={5}
     >
-      <VStack spacing={8} align="stretch">
-        <Center>
-          <Heading as="h1" size="2xl" mb={4} color="white">
-            <FaCalculator style={{ display: "inline", marginRight: "10px" }} />
-            Service Calculator
-          </Heading>
-        </Center>
-        <Center>
-          <ServiceCalculator />
-        </Center>
-      </VStack>
+      <PageHeader icon={FaCalculator} title={"Service Calculator"} />
     </Box>
   );
 };
