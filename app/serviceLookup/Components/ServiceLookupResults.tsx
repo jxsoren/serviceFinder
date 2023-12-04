@@ -53,7 +53,7 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
   };
 
   return (
-    <Box p={4} maxW="lg" mx="auto">
+    <Box p={4} w="md" mx="auto">
       <Heading mb={4}>Service Lookup Results</Heading>
 
       {isLoading && <Text>Loading...</Text>}
@@ -107,7 +107,7 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
           <Flex alignItems="center" mt={3}>
             <Icon as={FaBoxOpen} color="orange.400" mr={2} />
             <Text fontSize="sm">
-              Package Types:{" "}
+              Package Types:
               {service.package_types.map((type) => type.name).join(", ")}
             </Text>
           </Flex>

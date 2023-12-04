@@ -43,40 +43,38 @@ const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
   const inputBg = useColorModeValue("gray.100", "gray.700");
 
   return (
-    <Center>
-      <VStack spacing={6} align="stretch" w="full" maxW="md">
-        <Heading size="md" textAlign="center">
-          Service Lookup
-        </Heading>
-        <Select
-          size="lg"
-          value={category}
-          onChange={handleCategoryChange}
-          icon={<HiOutlineSearch />}
-          bg={inputBg}
-        >
-          <option value="shipping">Shipping</option>
-          <option value="ecommerce">Ecommerce</option>
-        </Select>
-        <DimensionInput
-          id="serviceId"
-          label="Service ID"
-          value={searchId}
-          onChange={handleInputChange}
-          icon={HiOutlineIdentification}
-        />
-        <Button
-          colorScheme="blue"
-          leftIcon={<HiOutlineSearch />}
-          onClick={fetchServiceData}
-          size="lg"
-          boxShadow="sm"
-          _hover={{ boxShadow: "md" }}
-        >
-          Explore
-        </Button>
-      </VStack>
-    </Center>
+    <VStack spacing={4} align="stretch" w="md" mx="auto">
+      <Heading size="md" textAlign="center">
+        Service Lookup
+      </Heading>
+      <Select
+        size="lg"
+        value={category}
+        onChange={handleCategoryChange}
+        icon={<HiOutlineSearch />}
+        bg={inputBg}
+      >
+        <option value="shipping">Shipping</option>
+        <option value="ecommerce">Ecommerce</option>
+      </Select>
+      <DimensionInput
+        id="serviceId"
+        label="Service ID"
+        value={searchId}
+        onChange={handleInputChange}
+        icon={HiOutlineIdentification}
+      />
+      <Button
+        colorScheme="blue"
+        leftIcon={<HiOutlineSearch />}
+        onClick={fetchServiceData}
+        size="lg"
+        boxShadow="sm"
+        _hover={{ boxShadow: "md" }}
+      >
+        Explore
+      </Button>
+    </VStack>
   );
 };
 

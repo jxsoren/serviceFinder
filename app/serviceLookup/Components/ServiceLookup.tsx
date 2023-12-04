@@ -77,7 +77,7 @@ const ServiceLookup = () => {
   };
 
   return (
-    <Box>
+    <Box w="m" mx="auto">
       <ServiceLookupInputs
         category={category}
         setCategory={setCategory}
