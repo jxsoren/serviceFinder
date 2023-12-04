@@ -15,7 +15,14 @@ import {
 import { FaRuler } from "react-icons/fa6";
 import { IconType } from "react-icons";
 
-import { Dimensions } from "../../logic/calculations/serviceCriterias";
+import { Dimensions } from "../calculations/serviceCriterias";
+import {
+  providerIcons,
+  providerColors,
+  providerBgColors,
+  providerIconBgColors,
+  providerLogos,
+} from "../../providerColors";
 
 interface ServiceItemProps {
   service: string;
@@ -23,22 +30,6 @@ interface ServiceItemProps {
   additionalDetails?: { transitTime: string; isGround: boolean };
   provider: string;
   multiSizes?: Dimensions[];
-}
-
-interface ProviderIcons {
-  USPS: IconType;
-  UPS: IconType;
-  FedEx: IconType;
-  DHL: IconType;
-  [key: string]: IconType;
-}
-
-interface ProviderColors {
-  USPS: string;
-  UPS: string;
-  FedEx: string;
-  DHL: string;
-  [key: string]: string;
 }
 
 const ServiceItem: React.FC<ServiceItemProps> = ({
@@ -51,41 +42,6 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   const textColor = "gray.700";
 
   const { transitTime, isGround } = additionalDetails || {};
-
-  const providerIcons: ProviderIcons = {
-    USPS: FaUsps,
-    UPS: FaUps,
-    FedEx: FaFedex,
-    DHL: FaDhl,
-  };
-
-  const providerColors: ProviderColors = {
-    USPS: "#004B87",
-    UPS: "#FFB500",
-    FedEx: "#4D148C",
-    DHL: "#D40511",
-  };
-
-  const providerBgColors: ProviderColors = {
-    USPS: "#004B87",
-    UPS: "#FFB500",
-    FedEx: "#4D148C",
-    DHL: "#D40511",
-  };
-
-  const providerIconBgColors: ProviderColors = {
-    USPS: "#CCE4F6",
-    UPS: "#FFF2D5",
-    FedEx: "#E8D3FF",
-    DHL: "#FFD3D3",
-  };
-
-  const providerLogos: ProviderColors = {
-    USPS: "/logos/usps.svg",
-    UPS: "/logos/ups.svg",
-    FedEx: "/logos/fedex.svg",
-    DHL: "/logos/dhl.svg",
-  };
 
   let providerIcon: IconType = providerIcons[provider] || FaInfoCircle;
   let providerColor: string = providerColors[provider] || "gray.500";
