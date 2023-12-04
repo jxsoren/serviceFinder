@@ -13,7 +13,7 @@ import {
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 
 import ServiceItem from "./ServiceItem";
-import { ServiceCriteria } from "../../logic/calculations/serviceCriterias";
+import { ServiceCriteria } from "../calculations/serviceCriterias";
 
 import ProviderTitle from "./ProviderTitle";
 

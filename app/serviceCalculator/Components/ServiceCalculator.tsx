@@ -5,7 +5,7 @@ import { VStack, Fade, Text, Box } from "@chakra-ui/react";
 
 import Results, { GroupedServices } from "./Results";
 import Inputs from "./Inputs";
-import { ServiceCriteria } from "../../logic/calculations/serviceCriterias";
+import { ServiceCriteria } from "../calculations/serviceCriterias";
 
 const ServiceCalculator = () => {
   const [summary, setSummary] = useState<GroupedServices>({});
