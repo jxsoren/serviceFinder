@@ -22,7 +22,14 @@ export interface ServiceData {
 import ServiceLookupInputs from "./ServiceLookupInputs";
 import ServiceLookupResults from "./ServiceLookupResults";
 
+import ecommerceCodes from "../json/ecommerceCodes.json";
+import shippingCodes from "../json/shippingCodes.json";
+
+const ecommerceCodesData: { services: ServiceData[] } = ecommerceCodes as any;
+const shippingCodesData: { services: ServiceData[] } = shippingCodes as any;
+
 const ServiceLookup = () => {
+  const [searchType, setSearchType] = useState<string>("quickSearch");
   const [data, setData] = useState<ServiceData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [displayResults, setDisplayResults] = useState<boolean>(false);
@@ -37,42 +44,65 @@ const ServiceLookup = () => {
     setDisplayResults(false);
   };
 
-  const fetchServiceData = async () => {
+  const quickSearch = () => {
+    const quickSearchData =
+      category === "shipping" ? shippingCodesData : ecommerceCodesData;
+
     setIsLoading(true);
 
-    console.log(`category: ${category}`);
-    console.log(`searchId: ${searchId}`);
+    const filteredData = quickSearchData.services.filter(
+      (service: ServiceData) => service.service_id === searchId
+    );
 
-    const queryParams = new URLSearchParams({
-      category: `${category}`,
-    });
+    setData(filteredData);
+    setIsLoading(false);
+    setDisplayResults(filteredData.length > 0);
+    setError(
+      filteredData.length > 0
+        ? null
+        : "No services found. Please verify the service ID."
+    );
+  };
 
-    try {
-      const response = await fetch(`/api/services?${queryParams.toString()}`);
+  const fetchServiceData = async () => {
+    setData([]);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+    if (searchType === "quickSearch") {
+      quickSearch();
+    } else {
+      setIsLoading(true);
 
-      const json = await response.json();
-      const filteredData = json.services.filter(
-        (service: any) => service.service_id === searchId
-      );
+      const queryParams = new URLSearchParams({
+        category: `${category}`,
+      });
 
-      setData(filteredData);
+      try {
+        const response = await fetch(`/api/services?${queryParams.toString()}`);
 
-      if (filteredData.length === 0) {
-        setError("No services found. Please verify the service ID.");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const json = await response.json();
+        const filteredData = json.services.filter(
+          (service: any) => service.service_id === searchId
+        );
+
+        setData(filteredData);
+
+        if (filteredData.length === 0) {
+          setError("No services found. Please verify the service ID.");
+          setDisplayResults(false);
+        } else {
+          setError(null);
+          setDisplayResults(true);
+        }
+      } catch (error: any) {
+        setError(error.message);
         setDisplayResults(false);
-      } else {
-        setError(null);
-        setDisplayResults(true);
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error: any) {
-      setError(error.message);
-      setDisplayResults(false);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -84,6 +114,8 @@ const ServiceLookup = () => {
         searchId={searchId}
         setSearchId={setSearchId}
         fetchServiceData={fetchServiceData}
+        searchType={searchType}
+        setSearchType={setSearchType}
       />
       {isLoading && (
         <Center py={10}>
