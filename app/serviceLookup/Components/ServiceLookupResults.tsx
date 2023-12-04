@@ -7,11 +7,10 @@ import {
   Icon,
   VStack,
   Badge,
+  Spinner,
 } from "@chakra-ui/react";
 import {
   FaTruck,
-  FaClock,
-  FaInfoCircle,
   FaUsps,
   FaUps,
   FaFedex,
@@ -53,67 +52,79 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
   };
 
   return (
-    <Box p={4} w="md" mx="auto">
-      <Heading mb={4}>Service Lookup Results</Heading>
+    <VStack p={4} w="full" maxW="md" mx="auto" spacing={5} align="stretch">
+      <Heading size="xl" color={"blue.200"} textAlign="center">
+        Service Lookup Results
+      </Heading>
 
-      {isLoading && <Text>Loading...</Text>}
+      {isLoading && (
+        <Flex justify="center">
+          <Spinner
+            color="blue.500"
+            size="xl"
+            label="Fetching Service Information..."
+          />
+        </Flex>
+      )}
 
-      {error && <Text color="red.500">{error}</Text>}
+      {error && (
+        <Box textAlign="center" color="red.500">
+          {error}
+        </Box>
+      )}
 
       {data?.map((service) => (
         <Box
           key={service.service_id}
-          p={4}
+          bg={providerColors}
+          p={5}
           mb={4}
-          borderRadius="lg"
-          boxShadow="sm"
-          _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
-          transition="all 0.2s ease-in-out"
-          bgGradient="linear(to-r, blue.100, blue.50)"
+          borderRadius="md"
+          borderWidth="1px"
+          borderColor={providerBgColors}
+          boxShadow="base"
+          _hover={{ boxShadow: "lg" }}
+          transition="all 0.3s"
         >
-          <Flex alignItems="center" justifyContent="space-between" mb={3}>
+          <Flex alignItems="center" justifyContent="space-between" mb={4}>
             <Icon
               as={getCarrierIcon(service.carrier_code)}
               color="blue.500"
-              boxSize="24px"
+              boxSize="6"
             />
-            <Icon
-              as={getCarrierIcon(service.carrier_code)}
-              color={providerColors}
-              position="absolute"
-              top={2}
-              right={2}
-              bg={providerIconBgColors}
-              p={2}
-              borderRadius="full"
-              boxShadow="0 2px 4px rgba(0,0,0,0.1)"
-              boxSize="40px"
-            />
-            <Text fontSize="lg" fontWeight="semibold" color="gray.700">
-              {service.service}
-            </Text>
-            <Badge colorScheme="blue">{service.category}</Badge>
+            <Flex direction="column" flex="1" ml={4}>
+              <Text fontSize="xl" fontWeight="bold" color={"white"}>
+                {service.service}
+              </Text>
+              <Badge colorScheme="blue" alignSelf="flex-start" mt={1}>
+                {service.category.toUpperCase()}
+              </Badge>
+            </Flex>
           </Flex>
 
           <Flex
             alignItems="center"
             justifyContent="space-between"
-            color="gray.600"
+            color={"gray.400"}
           >
-            <Text>Service Code: {service.service_code}</Text>
-            <Text>Carrier Code: {service.carrier_code}</Text>
+            <Text fontWeight="medium">
+              Service Code: {service.service_code}
+            </Text>
+            <Text fontWeight="medium">
+              Carrier Code: {service.carrier_code}
+            </Text>
           </Flex>
 
           <Flex alignItems="center" mt={3}>
             <Icon as={FaBoxOpen} color="orange.400" mr={2} />
-            <Text fontSize="sm">
-              Package Types:
+            <Text fontSize="sm" fontWeight="medium">
+              Package Types:{" "}
               {service.package_types.map((type) => type.name).join(", ")}
             </Text>
           </Flex>
         </Box>
       ))}
-    </Box>
+    </VStack>
   );
 };
 
