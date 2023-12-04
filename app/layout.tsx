@@ -7,8 +7,8 @@ import { Box } from "@chakra-ui/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Service Calculator",
-  description: "Calculate shipping services and rates for your package.",
+  title: "Service Explorer Tool",
+  description: "Service Explorer Tool",
 };
 
 import Navbar from "./Nav/Navbar";
