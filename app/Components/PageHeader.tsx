@@ -4,12 +4,11 @@ import { VStack, Center, Heading, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
 interface PageHeaderProps {
-  children: React.ReactNode;
   title: string;
   icon: IconType;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ children, title, icon }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ title, icon }) => {
   return (
     <VStack spacing={8} align="stretch">
       <Center>
@@ -18,7 +17,6 @@ const PageHeader: React.FC<PageHeaderProps> = ({ children, title, icon }) => {
           {title}
         </Heading>
       </Center>
-      <Center>{children}</Center>
     </VStack>
   );
 };
