@@ -19,9 +19,9 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-import { calculations } from "../../logic/calculations/calculations";
+import { calculations } from "../calculations/calculations";
 import { GroupedServices } from "./Results";
-import { ServiceCriteria } from "../../logic/calculations/serviceCriterias";
+import { ServiceCriteria } from "../calculations/serviceCriterias";
 
 import DimensionInput from "./DimensionInput";
 
@@ -31,6 +31,19 @@ interface InputsProps {
   groupServicesByProvider: (services: ServiceCriteria[]) => GroupedServices;
   hasCalculated: boolean;
 }
+
+export const handleDimensionChange = (
+  valueAsString: string,
+  setValue: React.Dispatch<React.SetStateAction<number>>
+) => {
+  let value = parseInt(valueAsString);
+
+  if (value < 0 || isNaN(value)) {
+    value = 0;
+  }
+
+  setValue(value);
+};
 
 const Inputs: React.FC<InputsProps> = ({
   setSummary,
@@ -44,19 +57,6 @@ const Inputs: React.FC<InputsProps> = ({
   const [weight, setWeight] = useState<number>(0);
   const [weightUnit, setWeightUnit] = useState<string>("oz");
   const [destination, setDestination] = useState<string>("domestic");
-
-  const handleDimensionChange = (
-    valueAsString: string,
-    setValue: React.Dispatch<React.SetStateAction<number>>
-  ) => {
-    let value = parseInt(valueAsString);
-
-    if (value < 0 || isNaN(value)) {
-      value = 0;
-    }
-
-    setValue(value);
-  };
 
   const handleLengthChange = (value: string) =>
     handleDimensionChange(value, setLength);
