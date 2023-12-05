@@ -20,7 +20,21 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-const ReverseLookupInputs = () => {
+interface ReverseLookupInputsProps {
+  provider: string;
+  setProvider: React.Dispatch<React.SetStateAction<string>>;
+  domain: string;
+  setDomain: React.Dispatch<React.SetStateAction<string>>;
+  fetchServiceData: () => void;
+}
+
+const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
+  provider,
+  setProvider,
+  domain,
+  setDomain,
+  fetchServiceData,
+}) => {
   return (
     <VStack spacing={6} align="stretch" w="md" mx="auto">
       <FormControl id="search-type">

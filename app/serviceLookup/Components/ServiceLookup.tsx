@@ -51,6 +51,9 @@ const ServiceLookup = () => {
   const [searchId, setSearchId] = useState<number>(0);
   const [category, setCategory] = useState<string>("shipping");
 
+  const [provider, setProvider] = useState<string>("usps");
+  const [domain, setDomain] = useState<string>("domestic");
+
   const handleCloseError = () => {
     setError(null);
     setDisplayResults(false);
@@ -99,6 +102,34 @@ const ServiceLookup = () => {
         const filteredData = json.services.filter(
           (service: any) => service.service_id === searchId
         );
+
+        const groupServicesByCarrier = (services: ServiceData[]) => {
+          const groupedServices: ServiceData[] = [];
+
+          services.forEach((service: ServiceData) => {
+            const { carrier_code } = service;
+
+            const carrierExists = groupedServices.some(
+              (groupedService: ServiceData) =>
+                groupedService.carrier_code === carrier_code
+            );
+
+            if (carrierExists) {
+              const index = groupedServices.findIndex(
+                (groupedService: ServiceData) =>
+                  groupedService.carrier_code === carrier_code
+              );
+
+              groupedServices[index].package_types.push(
+                ...service.package_types
+              );
+            } else {
+              groupedServices.push(service);
+            }
+          });
+
+          return groupedServices;
+        };
 
         setData(filteredData);
 
@@ -170,7 +201,13 @@ const ServiceLookup = () => {
           </TabPanel>
 
           <TabPanel>
-            <ReverseLookupInputs />
+            <ReverseLookupInputs
+              provider={provider}
+              setProvider={setProvider}
+              domain={domain}
+              setDomain={setDomain}
+              fetchServiceData={fetchServiceData}
+            />
           </TabPanel>
         </TabPanels>
       </Tabs>
