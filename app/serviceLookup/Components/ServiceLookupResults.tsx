@@ -51,14 +51,54 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
     }
   };
 
+  const getCarrierColor = (carrierCode: string) => {
+    const { USPS, UPS, FedEx, DHL } = providerBgColors;
+    switch (carrierCode.toLowerCase()) {
+      case "usps":
+        return USPS;
+      case "ups":
+        return UPS;
+      case "fedex":
+        return FedEx;
+      case "dhl":
+        return DHL;
+      default:
+        return "gray.500";
+    }
+  };
+
+  const getCarrierBgColor = (carrierCode: string) => {
+    const { USPS, UPS, FedEx, DHL } = providerIconBgColors;
+    switch (carrierCode.toLowerCase()) {
+      case "usps":
+        return USPS;
+      case "ups":
+        return UPS;
+      case "fedex":
+        return FedEx;
+      case "dhl":
+        return DHL;
+      default:
+        return "gray.500";
+    }
+  };
+
   return (
-    <VStack p={4} w="full" maxW="md" mx="auto" spacing={5} align="stretch">
-      <Heading size="xl" color={"blue.200"} textAlign="center">
+    <VStack p={4} w="full" maxW="md" mx="auto" spacing={8} align="stretch">
+      <Heading size="xl" color={"black.200"} textAlign="center">
         Service Lookup Results
       </Heading>
 
       {isLoading && (
         <Flex justify="center">
+          <Text
+            fontSize="md"
+            fontWeight="extrabold"
+            color={"white"}
+            textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+          >
+            Results may take up to 20 seconds...
+          </Text>
           <Spinner
             color="blue.500"
             size="xl"
@@ -68,8 +108,8 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
       )}
 
       {error && (
-        <Box textAlign="center" color="red.500">
-          {error}
+        <Box textAlign="center" color="red.600">
+          Error: {error}
         </Box>
       )}
 
@@ -77,23 +117,30 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
         <Box
           key={service.service_id}
           bg={providerColors}
-          p={5}
+          position="relative"
           mb={4}
-          borderRadius="md"
-          borderWidth="1px"
-          borderColor={providerBgColors}
+          p={4}
+          borderRadius="2xl"
           boxShadow="base"
-          _hover={{ boxShadow: "lg" }}
-          transition="all 0.3s"
+          _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
+          transition="all 0.2s ease-in-out"
+          bgGradient={`linear(to-br, ${getCarrierColor(
+            service.carrier_code
+          )}, gray.200)`}
         >
           <Flex alignItems="center" justifyContent="space-between" mb={4}>
             <Icon
               as={getCarrierIcon(service.carrier_code)}
-              color="blue.500"
-              boxSize="6"
+              color={getCarrierColor(service.carrier_code)}
+              bg={getCarrierBgColor(service.carrier_code)}
+              top={2}
+              p={2}
+              borderRadius="full"
+              boxShadow="0 2px 4px rgba(0,0,0,0.1)"
+              boxSize="40px"
             />
             <Flex direction="column" flex="1" ml={4}>
-              <Text fontSize="xl" fontWeight="bold" color={"white"}>
+              <Text fontSize="xl" fontWeight="extrabold" color={"white"}>
                 {service.service}
               </Text>
               <Badge colorScheme="blue" alignSelf="flex-start" mt={1}>
@@ -101,24 +148,33 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
               </Badge>
             </Flex>
           </Flex>
-
-          <Flex
-            alignItems="center"
-            justifyContent="space-between"
-            color={"gray.400"}
-          >
-            <Text fontWeight="medium">
+          <Flex alignItems="center" mb={3}>
+            <Text
+              fontSize="md"
+              fontWeight="extrabold"
+              color={"white"}
+              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+            >
               Service Code: {service.service_code}
             </Text>
-            <Text fontWeight="medium">
+            <Text
+              fontSize="md"
+              fontWeight="extrabold"
+              color={"white"}
+              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+            >
               Carrier Code: {service.carrier_code}
             </Text>
           </Flex>
-
           <Flex alignItems="center" mt={3}>
             <Icon as={FaBoxOpen} color="orange.400" mr={2} />
-            <Text fontSize="sm" fontWeight="medium">
-              Package Types:{" "}
+            <Text
+              fontSize="md"
+              fontWeight="extrabold"
+              color={"white"}
+              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+            >
+              Package Types:
               {service.package_types.map((type) => type.name).join(", ")}
             </Text>
           </Flex>
