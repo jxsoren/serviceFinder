@@ -30,7 +30,6 @@ interface ReverseLookupInputsProps {
 }
 
 import { handleDimensionChange } from "@/app/serviceCalculator/Components/Inputs";
-import { clear } from "console";
 
 const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
   provider,
