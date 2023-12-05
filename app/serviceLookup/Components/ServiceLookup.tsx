@@ -98,11 +98,6 @@ const ServiceLookup = () => {
     setData(filteredData);
     setIsLoading(false);
     setDisplayResults(filteredData.length > 0);
-    setError(
-      filteredData.length > 0
-        ? null
-        : "No services found. Please verify the service ID."
-    );
   };
 
   const fetchServiceData = async () => {
