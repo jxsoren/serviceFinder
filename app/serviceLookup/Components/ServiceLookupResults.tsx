@@ -37,6 +37,7 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
   error,
 }) => {
   const getCarrierIcon = (carrierCode: string) => {
+    if (carrierCode == null) return FaTruck;
     switch (carrierCode.toLowerCase()) {
       case "usps":
         return FaUsps;
@@ -52,6 +53,8 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
   };
 
   const getCarrierColor = (carrierCode: string) => {
+    if (carrierCode == null) return "gray.500";
+
     const { USPS, UPS, FedEx, DHL } = providerBgColors;
     switch (carrierCode.toLowerCase()) {
       case "usps":
@@ -68,6 +71,8 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
   };
 
   const getCarrierBgColor = (carrierCode: string) => {
+    if (carrierCode == null) return "gray.100";
+
     const { USPS, UPS, FedEx, DHL } = providerIconBgColors;
     switch (carrierCode.toLowerCase()) {
       case "usps":
@@ -157,14 +162,17 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
             >
               Service Code: {service.service_code}
             </Text>
-            <Text
-              fontSize="md"
-              fontWeight="extrabold"
-              color={"white"}
-              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-            >
-              Carrier Code: {service.carrier_code}
-            </Text>
+
+            {service.carrier_code && (
+              <Text
+                fontSize="md"
+                fontWeight="extrabold"
+                color={"white"}
+                textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+              >
+                Carrier Code: {service.carrier_code}
+              </Text>
+            )}
           </Flex>
           <Flex alignItems="center" mt={3}>
             <Icon as={FaBoxOpen} color="orange.400" mr={2} />
