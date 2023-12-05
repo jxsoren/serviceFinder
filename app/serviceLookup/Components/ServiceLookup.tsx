@@ -1,7 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { Box, Text, Center, Spinner } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Center,
+  Spinner,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from "@chakra-ui/react";
 
 import ErrorAlert from "./ErrorAlert";
 
@@ -20,6 +30,8 @@ export interface ServiceData {
 }
 
 import ServiceLookupInputs from "./ServiceLookupInputs";
+import ReverseLookupInputs from "./ReverseLookup/ReverseLookupInputs";
+
 import ServiceLookupResults from "./ServiceLookupResults";
 
 import ecommerceCodes from "../json/ecommerceCodes.json";
@@ -108,37 +120,60 @@ const ServiceLookup = () => {
 
   return (
     <Box w="m" mx="auto">
-      <ServiceLookupInputs
-        category={category}
-        setCategory={setCategory}
-        searchId={searchId}
-        setSearchId={setSearchId}
-        fetchServiceData={fetchServiceData}
-        searchType={searchType}
-        setSearchType={setSearchType}
-      />
-      {isLoading && (
-        <Center py={10}>
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="blue.500"
-            size="xl"
-            label="Fetching Service Information..."
-          />
-        </Center>
-      )}
-      {displayResults && (
-        <ServiceLookupResults data={data} isLoading={isLoading} error={error} />
-      )}
-      {error && (
-        <ErrorAlert
-          error={error}
-          handleCloseError={handleCloseError}
-          displayResults={displayResults}
-        />
-      )}
+      <Tabs variant="soft-rounded" colorScheme="blue.700">
+        <TabList mb="1em">
+          <Tab _selected={{ color: "white", bg: "blue.700" }}>
+            Service ID Lookup
+          </Tab>
+          <Tab _selected={{ color: "white", bg: "blue.700" }}>
+            Reverse Service Lookup
+          </Tab>
+        </TabList>
+
+        <TabPanels>
+          <TabPanel>
+            <ServiceLookupInputs
+              category={category}
+              setCategory={setCategory}
+              searchId={searchId}
+              setSearchId={setSearchId}
+              fetchServiceData={fetchServiceData}
+              searchType={searchType}
+              setSearchType={setSearchType}
+            />
+            {isLoading && (
+              <Center py={10}>
+                <Spinner
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                  label="Fetching Service Information..."
+                />
+              </Center>
+            )}
+            {displayResults && (
+              <ServiceLookupResults
+                data={data}
+                isLoading={isLoading}
+                error={error}
+              />
+            )}
+            {error && (
+              <ErrorAlert
+                error={error}
+                handleCloseError={handleCloseError}
+                displayResults={displayResults}
+              />
+            )}
+          </TabPanel>
+
+          <TabPanel>
+            <ReverseLookupInputs />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </Box>
   );
 };
