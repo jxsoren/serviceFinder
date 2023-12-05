@@ -72,7 +72,7 @@ const ServiceLookup = () => {
     setIsLoading(true);
 
     const filteredData = quickSearchData.services.filter(
-      (service: ServiceData) => service.carrier_code === provider
+      (service: ServiceData) => service.carrier_code.includes(provider)
     );
 
     setData(filteredData);
@@ -123,34 +123,6 @@ const ServiceLookup = () => {
         const filteredData = json.services.filter(
           (service: any) => service.service_id === searchId
         );
-
-        const groupServicesByCarrier = (services: ServiceData[]) => {
-          const groupedServices: ServiceData[] = [];
-
-          services.forEach((service: ServiceData) => {
-            const { carrier_code } = service;
-
-            const carrierExists = groupedServices.some(
-              (groupedService: ServiceData) =>
-                groupedService.carrier_code === carrier_code
-            );
-
-            if (carrierExists) {
-              const index = groupedServices.findIndex(
-                (groupedService: ServiceData) =>
-                  groupedService.carrier_code === carrier_code
-              );
-
-              groupedServices[index].package_types.push(
-                ...service.package_types
-              );
-            } else {
-              groupedServices.push(service);
-            }
-          });
-
-          return groupedServices;
-        };
 
         setData(filteredData);
 
