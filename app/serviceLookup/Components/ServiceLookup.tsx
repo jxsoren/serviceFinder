@@ -59,6 +59,32 @@ const ServiceLookup = () => {
     setDisplayResults(false);
   };
 
+  const clearServiceData = () => {
+    setData([]);
+    setError(null);
+    setDisplayResults(false);
+  };
+
+  const quickReverseSearch = () => {
+    const quickSearchData =
+      category === "shipping" ? shippingCodesData : ecommerceCodesData;
+
+    setIsLoading(true);
+
+    const filteredData = quickSearchData.services.filter(
+      (service: ServiceData) => service.carrier_code === provider
+    );
+
+    setData(filteredData);
+    setIsLoading(false);
+    setDisplayResults(filteredData.length > 0);
+    setError(
+      filteredData.length > 0
+        ? null
+        : "No services found. Please verify the service ID."
+    );
+  };
+
   const quickSearch = () => {
     const quickSearchData =
       category === "shipping" ? shippingCodesData : ecommerceCodesData;
@@ -171,33 +197,8 @@ const ServiceLookup = () => {
               fetchServiceData={fetchServiceData}
               searchType={searchType}
               setSearchType={setSearchType}
+              clearServiceData={clearServiceData}
             />
-            {isLoading && (
-              <Center py={10}>
-                <Spinner
-                  thickness="4px"
-                  speed="0.65s"
-                  emptyColor="gray.200"
-                  color="blue.500"
-                  size="xl"
-                  label="Fetching Service Information..."
-                />
-              </Center>
-            )}
-            {displayResults && (
-              <ServiceLookupResults
-                data={data}
-                isLoading={isLoading}
-                error={error}
-              />
-            )}
-            {error && (
-              <ErrorAlert
-                error={error}
-                handleCloseError={handleCloseError}
-                displayResults={displayResults}
-              />
-            )}
           </TabPanel>
 
           <TabPanel>
@@ -206,11 +207,35 @@ const ServiceLookup = () => {
               setProvider={setProvider}
               domain={domain}
               setDomain={setDomain}
-              fetchServiceData={fetchServiceData}
+              fetchServiceData={quickReverseSearch}
+              clearServiceData={clearServiceData}
             />
           </TabPanel>
         </TabPanels>
       </Tabs>
+
+      {isLoading && (
+        <Center py={10}>
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+            label="Fetching Service Information..."
+          />
+        </Center>
+      )}
+      {displayResults && (
+        <ServiceLookupResults data={data} isLoading={isLoading} error={error} />
+      )}
+      {error && (
+        <ErrorAlert
+          error={error}
+          handleCloseError={handleCloseError}
+          displayResults={displayResults}
+        />
+      )}
     </Box>
   );
 };
