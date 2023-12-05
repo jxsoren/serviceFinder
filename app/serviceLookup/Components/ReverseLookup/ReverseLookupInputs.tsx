@@ -21,10 +21,10 @@ import {
 } from "@chakra-ui/react";
 
 interface ReverseLookupInputsProps {
-  provider: string;
   setProvider: React.Dispatch<React.SetStateAction<string>>;
-  domain: string;
   setDomain: React.Dispatch<React.SetStateAction<string>>;
+  searchType: string;
+  setSearchType: React.Dispatch<React.SetStateAction<string>>;
   fetchServiceData: () => void;
   clearServiceData: () => void;
 }
@@ -32,21 +32,13 @@ interface ReverseLookupInputsProps {
 import { handleDimensionChange } from "@/app/serviceCalculator/Components/Inputs";
 
 const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
-  provider,
   setProvider,
-  domain,
   setDomain,
+  searchType,
+  setSearchType,
   fetchServiceData,
   clearServiceData,
 }) => {
-  //   const handleInputChange = (value: string) => {
-  //     handleDimensionChange(value, setSearchId);
-  //   };
-
-  //   const handleSearchTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //     setSearchType(e.target.value);
-  //   };
-
   const handleCarrierChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setProvider(e.target.value);
   };
@@ -54,8 +46,23 @@ const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
   const handleDomainChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setDomain(e.target.value);
   };
+
+  const handleSearchTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSearchType(e.target.value);
+  };
+
   return (
     <VStack spacing={6} align="stretch" w="md" mx="auto">
+      <FormControl id="search-type">
+        <FormLabel>
+          <Icon as={FaSearch} mr={2} />
+          Search Type
+        </FormLabel>
+        <Select size="lg" value={searchType} onChange={handleSearchTypeChange}>
+          <option value="quickSearch">Quick Search</option>
+          <option value="apiSearch">API Search</option>
+        </Select>
+      </FormControl>
       <FormControl id="search-type">
         <FormLabel>
           <Icon as={FaSearch} mr={2} />
