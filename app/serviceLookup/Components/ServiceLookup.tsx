@@ -198,7 +198,9 @@ const ServiceLookup = () => {
 
           <TabPanel>
             <ReverseLookupInputs
+              provider={provider}
               setProvider={setProvider}
+              domain={domain}
               setDomain={setDomain}
               searchType={searchType}
               setSearchType={setSearchType}

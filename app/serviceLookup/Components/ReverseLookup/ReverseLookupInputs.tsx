@@ -21,7 +21,9 @@ import {
 } from "@chakra-ui/react";
 
 interface ReverseLookupInputsProps {
+  provider: string;
   setProvider: React.Dispatch<React.SetStateAction<string>>;
+  domain: string;
   setDomain: React.Dispatch<React.SetStateAction<string>>;
   searchType: string;
   setSearchType: React.Dispatch<React.SetStateAction<string>>;
@@ -32,7 +34,9 @@ interface ReverseLookupInputsProps {
 import { handleDimensionChange } from "@/app/serviceCalculator/Components/Inputs";
 
 const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
+  provider,
   setProvider,
+  domain,
   setDomain,
   searchType,
   setSearchType,
@@ -58,30 +62,45 @@ const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
           <Icon as={FaSearch} mr={2} />
           Search Type
         </FormLabel>
-        <Select size="lg" value={searchType} onChange={handleSearchTypeChange}>
+        <Select
+          size="lg"
+          bg="blue.100"
+          value={searchType}
+          onChange={handleSearchTypeChange}
+        >
           <option value="quickSearch">Quick Search</option>
           <option value="apiSearch">API Search</option>
         </Select>
       </FormControl>
-      <FormControl id="search-type">
+      <FormControl id="carrier">
         <FormLabel>
           <Icon as={FaSearch} mr={2} />
           Carrier
         </FormLabel>
-        <Select size="lg" bg="blue.100" onChange={handleCarrierChange}>
+        <Select
+          size="lg"
+          bg="blue.100"
+          value={provider}
+          onChange={handleCarrierChange}
+        >
           <option value="usps">USPS</option>
           <option value="ups">UPS</option>
-          <option value="fedex">FedEx</option>
+          <option value="fed_ex">FedEx</option>
           <option value="dhl">DHL</option>
         </Select>
       </FormControl>
 
-      <FormControl id="service-type">
+      <FormControl id="domain">
         <FormLabel>
           <Icon as={FaTruck} mr={2} />
           Domain
         </FormLabel>
-        <Select size="lg" bg="blue.100" onChange={handleDomainChange}>
+        <Select
+          size="lg"
+          bg="blue.100"
+          value={domain}
+          onChange={handleDomainChange}
+        >
           <option value="domestic">Domestic</option>
           <option value="international">International</option>
         </Select>
