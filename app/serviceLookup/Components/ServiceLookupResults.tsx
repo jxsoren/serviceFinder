@@ -17,6 +17,8 @@ import {
   FaDhl,
   FaBoxOpen,
 } from "react-icons/fa";
+import { HiIdentification } from "react-icons/hi2";
+
 import { ServiceData } from "./ServiceLookup";
 
 import {
@@ -184,6 +186,18 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
             >
               Package Types:
               {service.package_types.map((type) => type.name).join(", ")}
+            </Text>
+          </Flex>
+
+          <Flex alignItems="center" mt={3}>
+            <Icon as={HiIdentification} color="white.400" mr={2} />
+            <Text
+              fontSize="md"
+              fontWeight="extrabold"
+              color={"black.100"}
+              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
+            >
+              Service ID: {service.service_id}
             </Text>
           </Flex>
         </Box>
