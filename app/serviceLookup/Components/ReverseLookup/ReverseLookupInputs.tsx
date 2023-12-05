@@ -26,7 +26,11 @@ interface ReverseLookupInputsProps {
   domain: string;
   setDomain: React.Dispatch<React.SetStateAction<string>>;
   fetchServiceData: () => void;
+  clearServiceData: () => void;
 }
+
+import { handleDimensionChange } from "@/app/serviceCalculator/Components/Inputs";
+import { clear } from "console";
 
 const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
   provider,
@@ -34,7 +38,23 @@ const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
   domain,
   setDomain,
   fetchServiceData,
+  clearServiceData,
 }) => {
+  //   const handleInputChange = (value: string) => {
+  //     handleDimensionChange(value, setSearchId);
+  //   };
+
+  //   const handleSearchTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //     setSearchType(e.target.value);
+  //   };
+
+  const handleCarrierChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setProvider(e.target.value);
+  };
+
+  const handleDomainChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setDomain(e.target.value);
+  };
   return (
     <VStack spacing={6} align="stretch" w="md" mx="auto">
       <FormControl id="search-type">
@@ -42,7 +62,7 @@ const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
           <Icon as={FaSearch} mr={2} />
           Carrier
         </FormLabel>
-        <Select size="lg" bg="blue.100">
+        <Select size="lg" bg="blue.100" onChange={handleCarrierChange}>
           <option value="usps">USPS</option>
           <option value="ups">UPS</option>
           <option value="fedex">FedEx</option>
@@ -55,14 +75,26 @@ const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
           <Icon as={FaTruck} mr={2} />
           Domain
         </FormLabel>
-        <Select size="lg" bg="blue.100">
+        <Select size="lg" bg="blue.100" onChange={handleDomainChange}>
           <option value="domestic">Domestic</option>
           <option value="international">International</option>
         </Select>
       </FormControl>
-
-      <Button colorScheme="blue" size="lg" width="full">
+      <Button
+        colorScheme="blue"
+        size="lg"
+        width="full"
+        onClick={fetchServiceData}
+      >
         Explore
+      </Button>
+      <Button
+        colorScheme="gray"
+        size="lg"
+        width="full"
+        onClick={clearServiceData}
+      >
+        Clear
       </Button>
     </VStack>
   );

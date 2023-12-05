@@ -26,6 +26,7 @@ interface ServiceLookupInputsProps {
   fetchServiceData: () => void;
   searchType: string;
   setSearchType: React.Dispatch<React.SetStateAction<string>>;
+  clearServiceData: () => void;
 }
 
 const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
@@ -36,6 +37,7 @@ const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
   fetchServiceData,
   searchType,
   setSearchType,
+  clearServiceData,
 }) => {
   const handleInputChange = (value: string) => {
     handleDimensionChange(value, setSearchId);
@@ -98,6 +100,15 @@ const ServiceLookupInputs: React.FC<ServiceLookupInputsProps> = ({
         width="full"
       >
         Explore
+      </Button>
+
+      <Button
+        colorScheme="gray"
+        size="lg"
+        width="full"
+        onClick={clearServiceData}
+      >
+        Clear
       </Button>
     </VStack>
   );
