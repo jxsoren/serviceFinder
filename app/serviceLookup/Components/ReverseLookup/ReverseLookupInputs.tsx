@@ -72,6 +72,22 @@ const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
           <option value="apiSearch">API Search</option>
         </Select>
       </FormControl>
+
+      <FormControl id="domain">
+        <FormLabel>
+          <Icon as={FaTruck} mr={2} />
+          Domain
+        </FormLabel>
+        <Select
+          size="lg"
+          bg="blue.100"
+          value={domain}
+          onChange={handleDomainChange}
+        >
+          <option value="domestic">Domestic</option>
+          <option value="international">International</option>
+        </Select>
+      </FormControl>
       <FormControl id="carrier">
         <FormLabel>
           <Icon as={FaSearch} mr={2} />
@@ -90,21 +106,6 @@ const ReverseLookupInputs: React.FC<ReverseLookupInputsProps> = ({
         </Select>
       </FormControl>
 
-      <FormControl id="domain">
-        <FormLabel>
-          <Icon as={FaTruck} mr={2} />
-          Domain
-        </FormLabel>
-        <Select
-          size="lg"
-          bg="blue.100"
-          value={domain}
-          onChange={handleDomainChange}
-        >
-          <option value="domestic">Domestic</option>
-          <option value="international">International</option>
-        </Select>
-      </FormControl>
       <Button
         colorScheme="blue"
         size="lg"
