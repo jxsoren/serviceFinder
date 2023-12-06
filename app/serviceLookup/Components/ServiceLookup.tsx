@@ -42,6 +42,7 @@ const shippingCodesData: { services: ServiceData[] } = shippingCodes as any;
 
 const ServiceLookup = () => {
   const [searchType, setSearchType] = useState<string>("quickSearch");
+  const [tabIndex, setTabIndex] = useState<number>(0);
   const [data, setData] = useState<ServiceData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [displayResults, setDisplayResults] = useState<boolean>(false);
@@ -65,43 +66,44 @@ const ServiceLookup = () => {
     setDisplayResults(false);
   };
 
-  const quickReverseSearch = () => {
-    const quickSearchData =
-      category === "shipping" ? shippingCodesData : ecommerceCodesData;
-
-    setIsLoading(true);
-
-    const filteredData = quickSearchData.services.filter(
-      (service: ServiceData) => service.carrier_code.includes(provider)
-    );
-
-    setData(filteredData);
-    setIsLoading(false);
-    setDisplayResults(filteredData.length > 0);
-    setError(
-      filteredData.length > 0
-        ? null
-        : "No services found. Please verify the service ID."
-    );
+  const handleLookupTypeChange = (index: number) => {
+    setTabIndex(index);
+    setSearchType("quickSearch");
+    clearServiceData();
   };
 
   const quickSearch = () => {
+    setIsLoading(true);
+
     const quickSearchData =
       category === "shipping" ? shippingCodesData : ecommerceCodesData;
 
-    setIsLoading(true);
-
-    const filteredData = quickSearchData.services.filter(
+    const filteredServiceIdData = quickSearchData.services.filter(
       (service: ServiceData) => service.service_id === searchId
     );
 
-    setData(filteredData);
-    setIsLoading(false);
-    setDisplayResults(filteredData.length > 0);
+    const filteredReverseData = quickSearchData.services.filter(
+      (service: ServiceData) => service.carrier_code.includes(provider)
+    );
+
+    if (tabIndex === 0 && filteredServiceIdData.length > 0) {
+      setData(filteredServiceIdData);
+      setDisplayResults(true);
+      setIsLoading(false);
+    } else if (tabIndex === 1 && filteredServiceIdData.length > 0) {
+      setData(filteredReverseData);
+      setDisplayResults(true);
+      setIsLoading(false);
+    } else {
+      setData([]);
+      setError("No services found. Please verify the service ID.");
+      setDisplayResults(false);
+      setIsLoading(false);
+    }
   };
 
   const fetchServiceData = async () => {
-    setData([]);
+    clearServiceData();
 
     if (searchType === "quickSearch") {
       quickSearch();
@@ -120,9 +122,15 @@ const ServiceLookup = () => {
         }
 
         const json = await response.json();
-        const filteredData = json.services.filter(
+        const filteredIdData = json.services.filter(
           (service: any) => service.service_id === searchId
         );
+        const filteredRevsereData = json.services.filter((service: any) =>
+          service.carrier_code.includes(provider)
+        );
+
+        const filteredData =
+          tabIndex === 0 ? filteredIdData : filteredRevsereData;
 
         setData(filteredData);
 
@@ -144,7 +152,11 @@ const ServiceLookup = () => {
 
   return (
     <Box w="m" mx="auto">
-      <Tabs variant="soft-rounded" colorScheme="blue.700">
+      <Tabs
+        variant="soft-rounded"
+        colorScheme="blue.700"
+        onChange={handleLookupTypeChange}
+      >
         <TabList mb="1em">
           <Tab _selected={{ color: "white", bg: "blue.700" }}>
             Service ID Lookup
@@ -176,7 +188,7 @@ const ServiceLookup = () => {
               setDomain={setDomain}
               searchType={searchType}
               setSearchType={setSearchType}
-              fetchServiceData={quickReverseSearch}
+              fetchServiceData={fetchServiceData}
               clearServiceData={clearServiceData}
             />
           </TabPanel>
