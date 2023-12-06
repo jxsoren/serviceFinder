@@ -26,6 +26,7 @@ import {
   providerBgColors,
   providerIconBgColors,
 } from "../../../app/providerColors";
+import ServiceItem from "./ServiceItem";
 
 interface ServiceLookupResultsProps {
   data: ServiceData[];
@@ -61,6 +62,8 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
     if (lowerCaseCode.includes("ups")) return UPS;
     if (lowerCaseCode.includes("fedex")) return FedEx;
     if (lowerCaseCode.includes("dhl")) return DHL;
+
+    return "gray.500";
   };
 
   const getCarrierBgColor = (carrierCode: string) => {
@@ -73,6 +76,8 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
     if (lowerCaseCode.includes("ups")) return UPS;
     if (lowerCaseCode.includes("fedex")) return FedEx;
     if (lowerCaseCode.includes("dhl")) return DHL;
+
+    return "gray.100";
   };
 
   const getCarrierUI = (carrierCode: string) => {
@@ -141,86 +146,13 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
       )}
 
       {data?.map((service) => (
-        <Box
+        <ServiceItem
           key={service.service_id}
-          bg={providerColors}
-          position="relative"
-          mb={4}
-          p={4}
-          borderRadius="2xl"
-          boxShadow="base"
-          _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
-          transition="all 0.2s ease-in-out"
-          bgGradient={`linear(to-br, ${getCarrierColor(
-            service.carrier_code
-          )}, gray.200)`}
-        >
-          <Flex alignItems="center" justifyContent="space-between" mb={4}>
-            <Icon
-              as={getCarrierIcon(service.carrier_code)}
-              color={getCarrierColor(service.carrier_code)}
-              bg={getCarrierBgColor(service.carrier_code)}
-              top={2}
-              p={2}
-              borderRadius="full"
-              boxShadow="0 2px 4px rgba(0,0,0,0.1)"
-              boxSize="40px"
-            />
-            <Flex direction="column" flex="1" ml={4}>
-              <Text fontSize="xl" fontWeight="extrabold" color={"white"}>
-                {service.service}
-              </Text>
-              <Badge colorScheme="blue" alignSelf="flex-start" mt={1}>
-                {service.category.toUpperCase()}
-              </Badge>
-            </Flex>
-          </Flex>
-          <Flex alignItems="center" mb={3}>
-            <Text
-              fontSize="md"
-              fontWeight="extrabold"
-              color={"white"}
-              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-            >
-              Service Code: {service.service_code}
-            </Text>
-
-            {service.carrier_code && (
-              <Text
-                fontSize="md"
-                fontWeight="extrabold"
-                color={"white"}
-                textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-              >
-                Carrier Code: {service.carrier_code}
-              </Text>
-            )}
-          </Flex>
-          <Flex alignItems="center" mt={3}>
-            <Icon as={FaBoxOpen} color="orange.400" mr={2} />
-            <Text
-              fontSize="md"
-              fontWeight="extrabold"
-              color={"white"}
-              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-            >
-              Package Types:
-              {service.package_types.map((type) => type.name).join(", ")}
-            </Text>
-          </Flex>
-
-          <Flex alignItems="center" mt={3}>
-            <Icon as={HiIdentification} color="white.400" mr={2} />
-            <Text
-              fontSize="md"
-              fontWeight="extrabold"
-              color={"black.100"}
-              textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-            >
-              Service ID: {service.service_id}
-            </Text>
-          </Flex>
-        </Box>
+          service={service}
+          carrierColor={getCarrierColor(service.carrier_code)}
+          carrierIcon={getCarrierIcon(service.carrier_code)}
+          carrierBgColor={getCarrierBgColor(service.carrier_code)}
+        />
       ))}
     </VStack>
   );
