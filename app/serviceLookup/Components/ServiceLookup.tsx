@@ -90,7 +90,7 @@ const ServiceLookup = () => {
       setData(filteredServiceIdData);
       setDisplayResults(true);
       setIsLoading(false);
-    } else if (tabIndex === 1 && filteredServiceIdData.length > 0) {
+    } else if (tabIndex === 1 && filteredReverseData.length > 0) {
       setData(filteredReverseData);
       setDisplayResults(true);
       setIsLoading(false);
