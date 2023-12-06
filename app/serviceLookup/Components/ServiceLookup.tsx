@@ -83,7 +83,9 @@ const ServiceLookup = () => {
     );
 
     const filteredReverseData = quickSearchData.services.filter(
-      (service: ServiceData) => service.carrier_code.includes(provider)
+      (service: ServiceData) =>
+        (service.service_code && service.service_code.includes(provider)) ||
+        (service.carrier_code && service.carrier_code.includes(provider))
     );
 
     if (tabIndex === 0 && filteredServiceIdData.length > 0) {
@@ -125,12 +127,15 @@ const ServiceLookup = () => {
         const filteredIdData = json.services.filter(
           (service: any) => service.service_id === searchId
         );
-        const filteredRevsereData = json.services.filter((service: any) =>
-          service.carrier_code.includes(provider)
+
+        const filteredJSONRevsereData = json.services.filter(
+          (service: ServiceData) =>
+            (service.service_code && service.service_code.includes(provider)) ||
+            (service.carrier_code && service.carrier_code.includes(provider))
         );
 
         const filteredData =
-          tabIndex === 0 ? filteredIdData : filteredRevsereData;
+          tabIndex === 0 ? filteredIdData : filteredJSONRevsereData;
 
         setData(filteredData);
 
