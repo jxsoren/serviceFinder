@@ -39,55 +39,75 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
   error,
 }) => {
   const getCarrierIcon = (carrierCode: string) => {
-    if (carrierCode == null) return FaTruck;
-    switch (carrierCode.toLowerCase()) {
-      case "usps":
-        return FaUsps;
-      case "ups":
-        return FaUps;
-      case "fedex":
-        return FaFedex;
-      case "dhl":
-        return FaDhl;
-      default:
-        return FaTruck;
-    }
+    if (!carrierCode) return FaTruck;
+
+    const lowerCaseCode = carrierCode.toLowerCase();
+
+    if (lowerCaseCode.includes("usps")) return FaUsps;
+    if (lowerCaseCode.includes("ups")) return FaUps;
+    if (lowerCaseCode.includes("fedex")) return FaFedex;
+    if (lowerCaseCode.includes("dhl")) return FaDhl;
+
+    return FaTruck;
   };
 
   const getCarrierColor = (carrierCode: string) => {
-    if (carrierCode == null) return "gray.500";
+    const { USPS, UPS, FedEx, DHL } = providerColors;
+    if (!carrierCode) return "gray.500";
 
-    const { USPS, UPS, FedEx, DHL } = providerBgColors;
-    switch (carrierCode.toLowerCase()) {
-      case "usps":
-        return USPS;
-      case "ups":
-        return UPS;
-      case "fedex":
-        return FedEx;
-      case "dhl":
-        return DHL;
-      default:
-        return "gray.500";
-    }
+    const lowerCaseCode = carrierCode.toLowerCase();
+
+    if (lowerCaseCode.includes("usps")) return USPS;
+    if (lowerCaseCode.includes("ups")) return UPS;
+    if (lowerCaseCode.includes("fedex")) return FedEx;
+    if (lowerCaseCode.includes("dhl")) return DHL;
   };
 
   const getCarrierBgColor = (carrierCode: string) => {
-    if (carrierCode == null) return "gray.100";
+    const { USPS, UPS, FedEx, DHL } = providerBgColors;
+    if (!carrierCode) return "gray.100";
 
-    const { USPS, UPS, FedEx, DHL } = providerIconBgColors;
-    switch (carrierCode.toLowerCase()) {
-      case "usps":
-        return USPS;
-      case "ups":
-        return UPS;
-      case "fedex":
-        return FedEx;
-      case "dhl":
-        return DHL;
-      default:
-        return "gray.500";
-    }
+    const lowerCaseCode = carrierCode.toLowerCase();
+
+    if (lowerCaseCode.includes("usps")) return USPS;
+    if (lowerCaseCode.includes("ups")) return UPS;
+    if (lowerCaseCode.includes("fedex")) return FedEx;
+    if (lowerCaseCode.includes("dhl")) return DHL;
+  };
+
+  const getCarrierUI = (carrierCode: string) => {
+    if (!carrierCode) return "gray.500";
+
+    const lowerCaseCode = carrierCode.toLowerCase();
+
+    if (lowerCaseCode.includes("usps"))
+      return {
+        icon: FaUsps,
+        iconBg: providerBgColors,
+        bg: providerBgColors,
+        color: providerColors.USPS,
+      };
+    if (lowerCaseCode.includes("ups"))
+      return {
+        icon: FaUps,
+        iconBg: providerBgColors,
+        bg: providerBgColors,
+        color: providerColors.UPS,
+      };
+    if (lowerCaseCode.includes("fedex"))
+      return {
+        icon: FaFedex,
+        iconBg: providerBgColors,
+        bg: providerBgColors,
+        color: providerColors.FedEx,
+      };
+    if (lowerCaseCode.includes("dhl"))
+      return {
+        icon: FaDhl,
+        iconBg: providerBgColors,
+        bg: providerBgColors,
+        color: providerColors.DHL,
+      };
   };
 
   return (
