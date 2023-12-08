@@ -66,7 +66,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             boxSize="40px"
           />
           <VStack align="flex-start" flex="1">
-            <Text fontSize={headingSize} fontWeight="bold" color="gray.800">
+            <Text fontSize={headingSize} fontWeight="bold" color="white">
               {service.service}
             </Text>
             <Badge colorScheme="purple" alignSelf="flex-start">
