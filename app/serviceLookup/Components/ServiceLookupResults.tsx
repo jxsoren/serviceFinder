@@ -18,6 +18,7 @@ import {
   FaBoxOpen,
 } from "react-icons/fa";
 import { HiIdentification } from "react-icons/hi2";
+import { IconType } from "react-icons";
 
 import { ServiceData } from "./ServiceLookup";
 
@@ -34,85 +35,60 @@ interface ServiceLookupResultsProps {
   error: string | null;
 }
 
+interface CarrierUI {
+  icon: IconType;
+  iconBg: string;
+  bg: string;
+  color: string;
+}
+
 const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
   data,
   isLoading,
   error,
 }) => {
-  const getCarrierIcon = (carrierCode: string) => {
-    if (!carrierCode) return FaTruck;
-
-    const lowerCaseCode = carrierCode.toLowerCase();
-
-    if (lowerCaseCode.includes("usps")) return FaUsps;
-    if (lowerCaseCode.includes("ups")) return FaUps;
-    if (lowerCaseCode.includes("fedex")) return FaFedex;
-    if (lowerCaseCode.includes("dhl")) return FaDhl;
-
-    return FaTruck;
-  };
-
-  const getCarrierColor = (carrierCode: string) => {
-    const { USPS, UPS, FedEx, DHL } = providerColors;
-    if (!carrierCode) return "gray.500";
-
-    const lowerCaseCode = carrierCode.toLowerCase();
-
-    if (lowerCaseCode.includes("usps")) return USPS;
-    if (lowerCaseCode.includes("ups")) return UPS;
-    if (lowerCaseCode.includes("fedex")) return FedEx;
-    if (lowerCaseCode.includes("dhl")) return DHL;
-
-    return "gray.500";
-  };
-
-  const getCarrierBgColor = (carrierCode: string) => {
-    const { USPS, UPS, FedEx, DHL } = providerBgColors;
-    if (!carrierCode) return "gray.100";
-
-    const lowerCaseCode = carrierCode.toLowerCase();
-
-    if (lowerCaseCode.includes("usps")) return USPS;
-    if (lowerCaseCode.includes("ups")) return UPS;
-    if (lowerCaseCode.includes("fedex")) return FedEx;
-    if (lowerCaseCode.includes("dhl")) return DHL;
-
-    return "gray.100";
-  };
-
   const getCarrierUI = (carrierCode: string) => {
-    if (!carrierCode) return "gray.500";
+    const defaultUI: CarrierUI = {
+      icon: FaTruck,
+      iconBg: "gray.100",
+      bg: "gray.100",
+      color: "gray.500",
+    };
+
+    if (!carrierCode) return defaultUI;
 
     const lowerCaseCode = carrierCode.toLowerCase();
 
     if (lowerCaseCode.includes("usps"))
       return {
         icon: FaUsps,
-        iconBg: providerBgColors,
-        bg: providerBgColors,
+        iconBg: providerIconBgColors.USPS,
+        bg: providerBgColors.USPS,
         color: providerColors.USPS,
       };
     if (lowerCaseCode.includes("ups"))
       return {
         icon: FaUps,
-        iconBg: providerBgColors,
-        bg: providerBgColors,
+        iconBg: providerIconBgColors.UPS,
+        bg: providerBgColors.UPS,
         color: providerColors.UPS,
       };
     if (lowerCaseCode.includes("fedex"))
       return {
         icon: FaFedex,
-        iconBg: providerBgColors,
-        bg: providerBgColors,
+        iconBg: providerIconBgColors.FedEx,
+        bg: providerBgColors.FedEx,
         color: providerColors.FedEx,
       };
     if (lowerCaseCode.includes("dhl"))
       return {
         icon: FaDhl,
-        iconBg: providerBgColors,
-        bg: providerBgColors,
+        iconBg: providerIconBgColors.DHL,
+        bg: providerBgColors.DHL,
         color: providerColors.DHL,
       };
+
+    return defaultUI;
   };
 
   return (
@@ -149,9 +125,10 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
         <ServiceItem
           key={service.service_id}
           service={service}
-          carrierColor={getCarrierColor(service.carrier_code)}
-          carrierIcon={getCarrierIcon(service.carrier_code)}
-          carrierBgColor={getCarrierBgColor(service.carrier_code)}
+          carrierColor={getCarrierUI(service.carrier_code).color}
+          carrierIcon={getCarrierUI(service.carrier_code).icon}
+          carrierBgColor={getCarrierUI(service.carrier_code).bg}
+          carrierIconBgColor={getCarrierUI(service.carrier_code).iconBg}
         />
       ))}
     </VStack>
