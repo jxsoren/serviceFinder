@@ -8,9 +8,13 @@ import {
   UnorderedList,
   useBreakpointValue,
   Grid,
+  VStack,
+  HStack,
 } from "@chakra-ui/react";
-import { FaBoxOpen } from "react-icons/fa";
+import { FaBoxOpen, FaShippingFast } from "react-icons/fa";
 import { HiIdentification } from "react-icons/hi2";
+import { MdOutlineLocalShipping } from "react-icons/md";
+
 import { IconType } from "react-icons";
 import { ServiceData } from "./ServiceLookup";
 
@@ -29,7 +33,9 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   carrierBgColor,
   carrierIconBgColor,
 }) => {
-  const textSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
+  const headingSize = useBreakpointValue({ base: "md", md: "lg", lg: "xl" });
+  const detailSize = useBreakpointValue({ base: "sm", md: "md" });
+  const codeSize = useBreakpointValue({ base: "xs", md: "sm" });
   const gridTemplateColumns = useBreakpointValue({
     base: "repeat(1, 1fr)",
     md: "repeat(2, 1fr)",
@@ -45,100 +51,95 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       boxShadow="lg"
       _hover={{ boxShadow: "2xl", transform: "scale(1.03)" }}
       transition="all 0.3s ease-in-out"
-      bgGradient={`linear(to-br, ${carrierColor}, gray.300)`}
+      bgGradient={`linear(to-br, ${carrierColor}, ${carrierBgColor})`}
       overflow="hidden"
+      border="1px solid #E2E8F0"
     >
-      <Flex alignItems="center" justifyContent="space-between" mb={5}>
-        <Icon
-          as={carrierIcon}
-          color={carrierColor}
-          bg={carrierIconBgColor}
-          p={3}
-          borderRadius="full"
-          boxShadow="md"
-          boxSize="50px"
-        />
-        <Flex direction="column" flex="1" ml={5}>
-          <Text fontSize={textSize} fontWeight="bold" color="gray.800">
-            {service.service}
-          </Text>
-          <Badge colorScheme="purple" alignSelf="flex-start" mt={2}>
-            {service.category.toUpperCase()}
-          </Badge>
-        </Flex>
-      </Flex>
-      <Flex alignItems="center" mb={3}>
-        <Text
-          fontSize="md"
-          fontWeight="extrabold"
-          color={"white"}
-          textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-        >
-          Service Code: {service.service_code}
-        </Text>
-
-        {service.carrier_code && (
-          <Text
-            fontSize="md"
-            fontWeight="semibold"
-            color={"white"}
-            textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-          >
-            Carrier Code: {service.carrier_code}
-          </Text>
-        )}
-      </Flex>
-      <Flex direction="column" mt={3}>
-        <Flex alignItems="center">
+      <VStack spacing={4} align="stretch">
+        <HStack justifyContent="space-between">
           <Icon
-            as={FaBoxOpen}
-            color="orange.400"
-            mr={2}
-            aria-label="Package icon"
+            as={carrierIcon}
+            color={carrierColor}
+            bg={carrierIconBgColor}
+            p={2}
+            borderRadius="full"
+            boxSize="40px"
           />
-          <Text
-            fontSize={textSize}
-            fontWeight="semibold"
-            color="white"
-            textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-            ml={2}
-          >
-            Package Types:
-          </Text>
-          <Grid templateColumns={gridTemplateColumns} gap={2} mt={2}>
-            <UnorderedList>
-              {service.package_types.length > 0 ? (
-                service.package_types.map((type) => (
-                  <Text
-                    alignSelf="flex-start"
-                    fontSize="xs"
-                    mt={2}
-                    colorScheme={"gray.200"}
-                  >
-                    {type.name}
-                  </Text>
-                ))
-              ) : (
-                <Text color="gray.500" mt={2}>
-                  No package types available
-                </Text>
-              )}
-            </UnorderedList>
-          </Grid>
-        </Flex>
-      </Flex>
+          <VStack align="flex-start" flex="1">
+            <Text fontSize={headingSize} fontWeight="bold" color="gray.800">
+              {service.service}
+            </Text>
+            <Badge colorScheme="purple" alignSelf="flex-start">
+              {service.category.toUpperCase()}
+            </Badge>
+          </VStack>
+        </HStack>
 
-      <Flex alignItems="center" mt={3}>
-        <Icon as={HiIdentification} color="white.400" mr={2} />
-        <Text
-          fontSize="md"
-          fontWeight="semibold"
-          color={"black.100"}
-          textShadow="1px 1px 2px rgba(0, 0, 0, 0.1)"
-        >
-          Service ID: {service.service_id}
-        </Text>
-      </Flex>
+        <Flex direction="column">
+          <HStack>
+            <Icon
+              as={FaShippingFast}
+              color="white.400"
+              aria-label="Shipping icon"
+            />
+            <Text fontSize={detailSize} fontWeight="semibold" color="white">
+              Service Code: {service.service_code}
+            </Text>
+          </HStack>
+
+          {service.carrier_code && (
+            <HStack>
+              <Icon
+                as={MdOutlineLocalShipping}
+                color="white.100"
+                aria-label="Package icon"
+              />
+              <Text fontSize={detailSize} fontWeight="semibold" color="white">
+                Carrier Code: {service.carrier_code}
+              </Text>
+            </HStack>
+          )}
+
+          <VStack align="flex-start" mt={2}>
+            <HStack>
+              <Icon
+                as={FaBoxOpen}
+                color="orange.400"
+                aria-label="Package icon"
+              />
+              <Text fontSize={detailSize} fontWeight="semibold" color="white">
+                Package Types:
+              </Text>
+            </HStack>
+            <Box overflowY="auto" maxHeight="200px">
+              <Grid templateColumns={gridTemplateColumns} gap={2}>
+                {service.package_types.length > 0 ? (
+                  service.package_types.map((type, index) => (
+                    <Text
+                      key={index}
+                      fontSize={codeSize}
+                      color="whiteAlpha.800"
+                    >
+                      {type.name}
+                    </Text>
+                  ))
+                ) : (
+                  <Text fontSize={codeSize} color="whiteAlpha.500">
+                    No package types available
+                  </Text>
+                )}
+              </Grid>
+            </Box>
+          </VStack>
+        </Flex>
+
+        <HStack>
+          <Icon as={HiIdentification} color="white.400" />
+          <Text fontSize={detailSize} fontWeight="semibold" color="white">
+            Service ID: {service.service_id}
+          </Text>
+        </HStack>
+      </VStack>
     </Box>
   );
 };
