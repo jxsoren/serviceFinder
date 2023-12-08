@@ -77,7 +77,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             transform: "rotate(0deg)",
           }}
         /> */}
-        <Flex alignItems="center" mb={3}>
+        <Flex alignItems="center" justifyContent="space-between" mb={5}>
           <Icon as={FaInfoCircle} color="#FFFFFF" mr={2} boxSize="20px" />
           <Text
             fontSize="lg"
