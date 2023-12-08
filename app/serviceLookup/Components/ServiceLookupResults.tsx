@@ -73,7 +73,7 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
         bg: providerBgColors.UPS,
         color: providerColors.UPS,
       };
-    if (lowerCaseCode.includes("fedex"))
+    if (lowerCaseCode.includes("fed_"))
       return {
         icon: FaFedex,
         iconBg: providerIconBgColors.FedEx,
