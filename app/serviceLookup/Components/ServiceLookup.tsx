@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import {
   Box,
-  Text,
   Center,
   Spinner,
   Tabs,
@@ -20,8 +19,15 @@ export interface PackageType {
   name: string;
 }
 
+interface CSVServiceData {
+  id: string;
+  serviceName: string;
+  providerName: string;
+  source: string;
+}
+
 export interface ServiceData {
-  service_id: number;
+  service_id: number | string;
   service: string;
   service_code: string;
   carrier_code: string;
@@ -31,6 +37,7 @@ export interface ServiceData {
 
 import ServiceLookupInputs from "./ServiceLookupInputs";
 import ReverseLookupInputs from "./ReverseLookup/ReverseLookupInputs";
+import TableLookupInputs from "./TableLookup/TableLookupInputs";
 
 import ServiceLookupResults from "./ServiceLookupResults";
 
@@ -96,10 +103,52 @@ const ServiceLookup = () => {
       setData(filteredReverseData);
       setDisplayResults(true);
       setIsLoading(false);
+    } else if (tabIndex === 2) {
     } else {
       setData([]);
       setError("No services found. Please verify the service ID.");
       setDisplayResults(false);
+      setIsLoading(false);
+    }
+  };
+
+  const convertCSVToServiceData = (
+    csvData: CSVServiceData[]
+  ): ServiceData[] => {
+    return csvData.map((csvItem) => ({
+      service_id: csvItem.id,
+      service: csvItem.serviceName,
+      service_code: "defaultServiceCode",
+      carrier_code: "defaultCarrierCode",
+      category: "defaultCategory",
+      package_types: [
+        {
+          type: "defaultType",
+          name: "defaultName",
+        },
+      ],
+    }));
+  };
+
+  const searchCSV = async (searchId: string) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/csv-data");
+      const csvData: CSVServiceData[] = await response.json();
+
+      let filteredData = csvData.filter((item) => item.id === searchId);
+      console.log(csvData);
+      console.log(searchId);
+
+      const convertedData = convertCSVToServiceData(filteredData);
+
+      setData(convertedData);
+      console.log(data);
+      setDisplayResults(true);
+    } catch (error) {
+      setError("Error fetching data.");
+      setDisplayResults(false);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -169,6 +218,9 @@ const ServiceLookup = () => {
           <Tab _selected={{ color: "white", bg: "blue.700" }}>
             Reverse Service Lookup
           </Tab>
+          <Tab _selected={{ color: "white", bg: "blue.700" }}>
+            Service Table Lookup
+          </Tab>
         </TabList>
 
         <TabPanels>
@@ -184,7 +236,6 @@ const ServiceLookup = () => {
               clearServiceData={clearServiceData}
             />
           </TabPanel>
-
           <TabPanel>
             <ReverseLookupInputs
               provider={provider}
@@ -194,6 +245,14 @@ const ServiceLookup = () => {
               searchType={searchType}
               setSearchType={setSearchType}
               fetchServiceData={fetchServiceData}
+              clearServiceData={clearServiceData}
+            />
+          </TabPanel>
+          <TabPanel>
+            <TableLookupInputs
+              searchId={searchId.toString()}
+              setSearchId={setSearchId}
+              searchCSV={searchCSV}
               clearServiceData={clearServiceData}
             />
           </TabPanel>
@@ -215,6 +274,7 @@ const ServiceLookup = () => {
       {displayResults && (
         <ServiceLookupResults data={data} isLoading={isLoading} error={error} />
       )}
+
       {error && (
         <ErrorAlert
           error={error}

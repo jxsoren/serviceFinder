@@ -1,0 +1,808 @@
+id,serviceName,providerName,source
+168,parcelConnectBookService,APC,EasyPost
+169,parcelConnectExpeditedDDP,APC,EasyPost
+170,parcelConnectExpeditedDDU,APC,EasyPost
+171,parcelConnectPriorityDDP,APC,EasyPost
+172,parcelConnectPriorityDDPDelcon,APC,EasyPost
+173,parcelConnectPriorityDDU,APC,EasyPost
+174,parcelConnectPriorityDDUDelcon,APC,EasyPost
+175,parcelConnectPriorityDDUPQW,APC,EasyPost
+176,parcelConnectStandardDDU,APC,EasyPost
+177,parcelConnectStandardDDUPQW,APC,EasyPost
+178,parcelConnectPacketDDU,APC,EasyPost
+179,Domestic,Aramex,EasyPost
+180,PriorityDocumentExpress,Aramex,EasyPost
+181,PriorityParcelExpress,Aramex,EasyPost
+182,PriorityLetterExpress,Aramex,EasyPost
+183,DeferredDocumentExpress,Aramex,EasyPost
+184,DeferredParcelExpress,Aramex,EasyPost
+185,GroundDocumentExpress,Aramex,EasyPost
+186,GroundParcelExpress,Aramex,EasyPost
+187,EconomyParcelExpress,Aramex,EasyPost
+188,48HRBrownInstall,ArrowXL,EasyPost
+189,48HRBrownInstallRemove,ArrowXL,EasyPost
+190,48HROther,ArrowXL,EasyPost
+191,48HROtherRemove,ArrowXL,EasyPost
+192,48HRWhiteInstall,ArrowXL,EasyPost
+193,48HRWhiteInstallRemove,ArrowXL,EasyPost
+194,48HRWhiteRemove,ArrowXL,EasyPost
+195,ExpressBrownInstall,ArrowXL,EasyPost
+196,ExpressBrownInstallRemove,ArrowXL,EasyPost
+197,ExpressOther,ArrowXL,EasyPost
+198,ExpressOtherRemove,ArrowXL,EasyPost
+199,ExpressWhiteInstall,ArrowXL,EasyPost
+200,ExpressWhiteInstallRemove,ArrowXL,EasyPost
+201,ExpressWhiteRemove,ArrowXL,EasyPost
+202,StandardBrownInstall,ArrowXL,EasyPost
+203,StandardBrownInstallRemove,ArrowXL,EasyPost
+204,StandardBrownRemove,ArrowXL,EasyPost
+205,StandardOther,ArrowXL,EasyPost
+206,StandardOtherAssemble,ArrowXL,EasyPost
+207,StandardOtherNoUnpack,ArrowXL,EasyPost
+208,StandardOtherRemove,ArrowXL,EasyPost
+209,StandardOtherUnpack,ArrowXL,EasyPost
+210,StandardOtherUnpackLeavePackaging,ArrowXL,EasyPost
+211,StandardReturns,ArrowXL,EasyPost
+212,StandardWhiteInstall,ArrowXL,EasyPost
+213,StandardWhiteInstallRemove,ArrowXL,EasyPost
+214,StandardWhiteRemove,ArrowXL,EasyPost
+215,PMI,Globegistics,EasyPost
+216,ePaq Select Direct Access Canada DDP,Asendia,EasyPost
+217,IPA,Asendia,EasyPost
+218,ISAL,Asendia,EasyPost
+219,NormalRegistered,Asendia HK,EasyPost
+220,PostExpress,Asendia HK,EasyPost
+221,ExpressPost,Australia Post,EasyPost
+222,ExpressPostSignature,Australia Post,EasyPost
+223,ParcelPost,Australia Post,EasyPost
+224,ParcelPostSignature,Australia Post,EasyPost
+225,ParcelPostExtra,Australia Post,EasyPost
+226,ParcelPostWinePlusSignature,Australia Post,EasyPost
+227,Boxberry,Boxberry,EasyPost
+228,RegularParcel,Canada Post,EasyPost
+229,ExpeditedParcel,Canada Post,EasyPost
+230,Xpresspost,Canada Post,EasyPost
+231,XpresspostCertified,Canada Post,EasyPost
+232,Priority,Canada Post,EasyPost
+233,LibraryBooks,Canada Post,EasyPost
+234,ExpeditedParcelUSA,Canada Post,EasyPost
+235,PriorityWorldwideEnvelopeUSA,Canada Post,EasyPost
+236,PriorityWorldwidePakUSA,Canada Post,EasyPost
+237,PriorityWorldwideParcelUSA,Canada Post,EasyPost
+238,SmallPacketUSAAir,Canada Post,EasyPost
+239,TrackedPacketUSA,Canada Post,EasyPost
+240,TrackedPacketUSALVM,Canada Post,EasyPost
+241,XpresspostUSA,Canada Post,EasyPost
+242,XpresspostInternational,Canada Post,EasyPost
+243,InternationalParcelAir,Canada Post,EasyPost
+244,InternationalParcelSurface,Canada Post,EasyPost
+245,PriorityWorldwideEnvelopeIntl,Canada Post,EasyPost
+246,PriorityWorldwidePakIntl,Canada Post,EasyPost
+247,PriorityWorldwideParcelIntl,Canada Post,EasyPost
+248,SmallPacketInternationalAir,Canada Post,EasyPost
+249,SmallPacketInternationalSurface,Canada Post,EasyPost
+250,TrackedPacketInternational,Canada Post,EasyPost
+251,Ground,Canpar,EasyPost
+252,SelectLetter,Canpar,EasyPost
+253,SelectPak,Canpar,EasyPost
+254,Select,Canpar,EasyPost
+255,OvernightLetter,Canpar,EasyPost
+256,OvernightPak,Canpar,EasyPost
+257,Overnight,OnTrac,EasyPost
+258,SelectUSA,Canpar,EasyPost
+259,USAPak,Canpar,EasyPost
+260,USALetter,Canpar,EasyPost
+261,USA,Canpar,EasyPost
+262,International,Canpar,EasyPost
+263,Parcel,Fastway,EasyPost
+264,InterMonBureauDePoste,Colissimo,EasyPost
+265,InterMonCommercant,Colissimo,EasyPost
+266,InterMonDomicileAvecSignature,Colissimo,EasyPost
+267,InterMonDomicileSansSignature,Colissimo,EasyPost
+268,MaConsigneCityssimo,Colissimo,EasyPost
+269,MonBureauDePoste,Colissimo,EasyPost
+270,MonCommercant,Colissimo,EasyPost
+271,MonDomicileAvecSignature,Colissimo,EasyPost
+272,MonDomicileSansSignature,Colissimo,EasyPost
+273,MonDomicileSurRDV,Colissimo,EasyPost
+274,Scheduled,Uber RUSH,EasyPost
+275,OnDemand,Uber RUSH,EasyPost
+276,PacketPlus,DHL Ecommerce Asia,EasyPost
+277,Packet,DHL Ecommerce Asia,EasyPost
+278,PacketPlus,DHL Ecommerce Asia,EasyPost
+279,ParcelDirect,DHL Ecommerce Asia,EasyPost
+280,ParcelDirectExpedited,DHL Ecommerce Asia,EasyPost
+281,BreakBulkEconomy,DHL Express,EasyPost
+282,BreakBulkExpress,DHL Express,EasyPost
+283,DomesticEconomySelect,DHL Express,EasyPost
+284,DomesticExpress,DHL Express,EasyPost
+285,DomesticExpress1030,DHL Express,EasyPost
+286,DomesticExpress1200,DHL Express,EasyPost
+287,EconomySelect,DHL Express,EasyPost
+288,EconomySelectNonDoc,DHL Express,EasyPost
+289,EuroPack,DHL Express,EasyPost
+290,EuropackNonDoc,DHL Express,EasyPost
+291,Express1030,DHL Express,EasyPost
+292,Express1030NonDoc,DHL Express,EasyPost
+293,Express1200NonDoc,DHL Express,EasyPost
+294,Express1200,DHL Express,EasyPost
+295,Express900,DHL Express,EasyPost
+296,Express900NonDoc,DHL Express,EasyPost
+297,ExpressEasy,DHL Express,EasyPost
+298,ExpressEasyNonDoc,DHL Express,EasyPost
+299,ExpressEnvelope,DHL Express,EasyPost
+300,ExpressWorldwide,DHL Express,EasyPost
+301,ExpressWorldwideB2C,DHL Express,EasyPost
+302,ExpressWorldwideB2CNonDoc,DHL Express,EasyPost
+303,ExpressWorldwideECX,DHL Express,EasyPost
+304,ExpressWorldwideNonDoc,DHL Express,EasyPost
+305,FreightWorldwide,DHL Express,EasyPost
+306,GlobalmailBusiness,DHL Express,EasyPost
+307,JetLine,DHL Express,EasyPost
+308,JumboBox,DHL Express,EasyPost
+309,LogisticsServices,DHL Express,EasyPost
+310,SameDay,LaserShip,EasyPost
+311,SecureLine,DHL Express,EasyPost
+312,SprintLine,DHL Express,EasyPost
+313,BPMExpeditedDomestic,DHL Global Mail,EasyPost
+314,BPMGroundDomestic,DHL Global Mail,EasyPost
+315,FlatsExpeditedDomestic,DHL Global Mail,EasyPost
+316,FlatsGroundDomestic,DHL Global Mail,EasyPost
+317,MediaMailGroundDomestic,DHL Global Mail,EasyPost
+318,ParcelExpeditedMax,DHL Global Mail,EasyPost
+319,ParcelPlusExpeditedDomestic,DHL Global Mail,EasyPost
+320,ParcelPlusGroundDomestic,DHL Global Mail,EasyPost
+321,ParcelsExpeditedDomestic,DHL Global Mail,EasyPost
+322,ParcelsGroundDomestic,DHL Global Mail,EasyPost
+323,MarketingParcelExpeditedDomestic,DHL Global Mail,EasyPost
+324,MarketingParcelGroundDomestic,DHL Global Mail,EasyPost
+325,DHLPacketInternationalPriority,DHL GM International,EasyPost
+326,DHLPacketInternationalStandard,DHL GM International,EasyPost
+327,DHLPacketPlusInternational,DHL GM International,EasyPost
+328,DHLPacketIPA,DHL GM International,EasyPost
+329,DHLPacketISAL,DHL GM International,EasyPost
+330,DHLParcelInternationalPriority,DHL GM International,EasyPost
+331,DHLParcelInternationalStandard,DHL GM International,EasyPost
+332,DHLParcelDirectInternationalPriority,DHL GM International,EasyPost
+333,DHLParcelDirectInternationalExpedited,DHL GM International,EasyPost
+334,Ground,Dicom,EasyPost
+335,RegisteredMail,Direct Link,EasyPost
+336,UntrackedMail,Direct Link,EasyPost
+337,ParcelMail,Direct Link,EasyPost
+338,DPDCLASSIC,DPD,EasyPost
+339,DPD8:30,DPD,EasyPost
+340,DPD10:00,DPD,EasyPost
+341,DPD12:00,DPD,EasyPost
+342,DPD18:00,DPD,EasyPost
+343,DPDEXPRESS,DPD,EasyPost
+344,DPDPARCELLETTER,DPD,EasyPost
+345,DPDPARCELLETTERPLUS,DPD,EasyPost
+346,DPDINTERNATIONALMAIL,DPD,EasyPost
+347,AirExpressInternationalAir,DPD UK,EasyPost
+348,AirClassicInternationalAir,DPD UK,EasyPost
+349,ParcelSunday,DPD UK,EasyPost
+350,FreightParcelSunday,DPD UK,EasyPost
+351,PalletSunday,DPD UK,EasyPost
+352,PalletDpdClassic,DPD UK,EasyPost
+353,ExpresspakDpdClassic,DPD UK,EasyPost
+354,ExpresspakSunday,DPD UK,EasyPost
+355,ParcelDpdClassic,DPD UK,EasyPost
+356,ParcelDpdTwoDay,DPD UK,EasyPost
+357,ParcelDpdNextDay,DPD UK,EasyPost
+358,ParcelDpd12,DPD UK,EasyPost
+359,ParcelDpd10,DPD UK,EasyPost
+360,ParcelReturnToShop,DPD UK,EasyPost
+361,ParcelSaturday,DPD UK,EasyPost
+362,ParcelSaturday12,DPD UK,EasyPost
+363,ParcelSaturday10,DPD UK,EasyPost
+364,ParcelSunday12,DPD UK,EasyPost
+365,FreightParcelDpdClassic,DPD UK,EasyPost
+366,FreightParcelSunday12,DPD UK,EasyPost
+367,ExpresspakDpdNextDay,DPD UK,EasyPost
+368,ExpresspakDpd12,DPD UK,EasyPost
+369,ExpresspakDpd10,DPD UK,EasyPost
+370,ExpresspakSaturday,DPD UK,EasyPost
+371,ExpresspakSaturday12,DPD UK,EasyPost
+372,ExpresspakSaturday10,DPD UK,EasyPost
+373,ExpresspakSunday12,DPD UK,EasyPost
+374,PalletSunday12,DPD UK,EasyPost
+375,PalletDpdTwoDay,DPD UK,EasyPost
+376,PalletDpdNextDay,DPD UK,EasyPost
+377,PalletDpd12,DPD UK,EasyPost
+378,PalletDpd10,DPD UK,EasyPost
+379,PalletSaturday,DPD UK,EasyPost
+380,PalletSaturday12,DPD UK,EasyPost
+381,PalletSaturday10,DPD UK,EasyPost
+382,FreightParcelDpdTwoDay,DPD UK,EasyPost
+383,FreightParcelDpdNextDay,DPD UK,EasyPost
+384,FreightParcelDpd12,DPD UK,EasyPost
+385,FreightParcelDpd10,DPD UK,EasyPost
+386,FreightParcelSaturday,DPD UK,EasyPost
+387,FreightParcelSaturday12,DPD UK,EasyPost
+388,FreightParcelSaturday10,DPD UK,EasyPost
+389,ParcelShipToShop,DPD UK,EasyPost
+390,Parcel,Fastway,EasyPost
+391,Satchel,Fastway,EasyPost
+392,FEDEX_GROUND,FedEx,EasyPost
+393,FEDEX_2_DAY,FedEx,EasyPost
+394,FEDEX_2_DAY_AM,FedEx,EasyPost
+395,FEDEX_EXPRESS_SAVER,FedEx,EasyPost
+396,STANDARD_OVERNIGHT,FedEx,EasyPost
+397,FIRST_OVERNIGHT,FedEx,EasyPost
+398,PRIORITY_OVERNIGHT,FedEx,EasyPost
+399,INTERNATIONAL_ECONOMY,FedEx,EasyPost
+400,INTERNATIONAL_FIRST,FedEx,EasyPost
+401,INTERNATIONAL_PRIORITY,FedEx,EasyPost
+402,GROUND_HOME_DELIVERY,FedEx,EasyPost
+403,SMART_POST,FedEx SmartPost,EasyPost
+404,EconomyService,FedEx SameDay City,EasyPost
+405,StandardService,FedEx SameDay City,EasyPost
+406,PriorityService,FedEx SameDay City,EasyPost
+407,LastMile,FedEx SameDay City,EasyPost
+408,SMART_POST,FedEx SmartPost,EasyPost
+409,PMEI,Globegistics,EasyPost
+410,PMI,Globegistics,EasyPost
+411,eComDomestic,Globegistics,EasyPost
+412,eComDomesticBPM,Globegistics,EasyPost
+413,eComDomesticFlats,Globegistics,EasyPost
+414,eComEurope,Globegistics,EasyPost
+415,eComExpress,Globegistics,EasyPost
+416,eComExtra,Globegistics,EasyPost
+417,eComIPA,Globegistics,EasyPost
+418,eComISAL,Globegistics,EasyPost
+419,eComPacket,Globegistics,EasyPost
+420,eComPriority,Globegistics,EasyPost
+421,eComStandard,Globegistics,EasyPost
+422,eComTrackedDDP,Globegistics,EasyPost
+423,eComTrackedDDU,Globegistics,EasyPost
+424,EarlyPriorityOvernight,GSO,EasyPost
+425,PriorityOvernight,GSO,EasyPost
+426,CaliforniaParcelService,GSO,EasyPost
+427,SaturdayDeliveryService,GSO,EasyPost
+428,EarlySaturdayService,GSO,EasyPost
+429,Ground,GSO,EasyPost
+430,Overnight,OnTrac,EasyPost
+431,InterlinkAirClassicInternationalAir,Interlink Express,EasyPost
+432,InterlinkAirExpressInternationalAir,Interlink Express,EasyPost
+433,InterlinkExpresspak1By10:30,Interlink Express,EasyPost
+434,InterlinkExpresspak1By12,Interlink Express,EasyPost
+435,InterlinkExpresspak1NextDay,Interlink Express,EasyPost
+436,InterlinkExpresspak1Saturday,Interlink Express,EasyPost
+437,InterlinkExpresspak1SaturdayBy10:30,Interlink Express,EasyPost
+438,InterlinkExpresspak1SaturdayBy12,Interlink Express,EasyPost
+439,InterlinkExpresspak1Sunday,Interlink Express,EasyPost
+440,InterlinkExpresspak1SundayBy12,Interlink Express,EasyPost
+441,InterlinkExpresspak5By10,Interlink Express,EasyPost
+442,InterlinkExpresspak5By10:30,Interlink Express,EasyPost
+443,InterlinkExpresspak5By12,Interlink Express,EasyPost
+444,InterlinkExpresspak5NextDay,Interlink Express,EasyPost
+445,InterlinkExpresspak5Saturday,Interlink Express,EasyPost
+446,InterlinkExpresspak5SaturdayBy10,Interlink Express,EasyPost
+447,InterlinkExpresspak5SaturdayBy10:30,Interlink Express,EasyPost
+448,InterlinkExpresspak5SaturdayBy12,Interlink Express,EasyPost
+449,InterlinkExpresspak5Sunday,Interlink Express,EasyPost
+450,InterlinkExpresspak5SundayBy12,Interlink Express,EasyPost
+451,InterlinkFreightBy10,Interlink Express,EasyPost
+452,InterlinkFreightBy12,Interlink Express,EasyPost
+453,InterlinkFreightNextDay,Interlink Express,EasyPost
+454,InterlinkFreightSaturday,Interlink Express,EasyPost
+455,InterlinkFreightSaturdayBy10,Interlink Express,EasyPost
+456,InterlinkFreightSaturdayBy12,Interlink Express,EasyPost
+457,InterlinkFreightSunday,Interlink Express,EasyPost
+458,InterlinkFreightSundayBy12,Interlink Express,EasyPost
+459,InterlinkParcelBy10,Interlink Express,EasyPost
+460,InterlinkParcelBy10:30,Interlink Express,EasyPost
+461,InterlinkParcelBy12,Interlink Express,EasyPost
+462,InterlinkParcelDpdEuropeByRoad,Interlink Express,EasyPost
+463,InterlinkParcelNextDay,Interlink Express,EasyPost
+464,InterlinkParcelReturn,Interlink Express,EasyPost
+465,InterlinkParcelReturnToShop,Interlink Express,EasyPost
+466,InterlinkParcelSaturday,Interlink Express,EasyPost
+467,InterlinkParcelSaturdayBy10,Interlink Express,EasyPost
+468,InterlinkParcelSaturdayBy10:30,Interlink Express,EasyPost
+469,InterlinkParcelSaturdayBy12,Interlink Express,EasyPost
+470,InterlinkParcelShipToShop,Interlink Express,EasyPost
+471,InterlinkParcelSunday,Interlink Express,EasyPost
+472,InterlinkParcelSundayBy12,Interlink Express,EasyPost
+473,InterlinkParcelTwoDay,Interlink Express,EasyPost
+474,InterlinkPickupParcelDpdEuropeByRoad,Interlink Express,EasyPost
+475,SameDay,LaserShip,EasyPost
+476,NextDay,LaserShip,EasyPost
+477,TourAppointment20161124From1600To1900,Liefery,EasyPost
+478,GroundEarly,LSO,EasyPost
+479,GroundBasic,LSO,EasyPost
+480,PriorityBasic,LSO,EasyPost
+481,PriorityEarly,LSO,EasyPost
+482,PrioritySaturday,LSO,EasyPost
+483,Priority2ndDay,LSO,EasyPost
+484,SameDay,LaserShip,EasyPost
+485,BronzeDelivery,Network4,EasyPost
+486,BronzeDeliveryAndCollection,Network4,EasyPost
+487,SilverDelivery,Network4,EasyPost
+488,SilverDeliveryAndCollection,Network4,EasyPost
+489,GoldDelivery,Network4,EasyPost
+490,GoldDeliveryAndCollection,Network4,EasyPost
+491,PlatinumDelivery,Network4,EasyPost
+492,PlatinumDeliveryAndCollection,Network4,EasyPost
+493,EarlyOvernite,Norco,EasyPost
+494,MorningOvernite,Norco,EasyPost
+495,OneOvernite,Norco,EasyPost
+496,NextDayOvernite,Norco,EasyPost
+497,SaturdayOvernite,Norco,EasyPost
+498,2DayMetro,Norco,EasyPost
+499,Ground,Norco,EasyPost
+500,Overnight,OnTrac,EasyPost
+501,CPOnlineParcel,NZ Courier Post,EasyPost
+502,CPOnlineParcelSaturdayDelivery,NZ Courier Post,EasyPost
+503,CPOnlineParcelSigRq,NZ Courier Post,EasyPost
+504,CPOnlineWIslandContract,NZ Courier Post,EasyPost
+505,CPOnlineWIslandContractSaturdayDelivery,NZ Courier Post,EasyPost
+506,CPOnlineWIslandContractSigRq,NZ Courier Post,EasyPost
+507,Sunrise,OnTrac,EasyPost
+508,Gold,OnTrac,EasyPost
+509,OnTrac Gold,OnTrac,EasyPost
+510,Ground,Generic,EasyPost
+511,Overnight,OnTrac,EasyPost
+512,OnTrac DirectPost,OnTrac DirectPost,EasyPost
+513,FirstClassMail,OnTrac DirectPost,EasyPost
+514,PriorityMail,OnTrac DirectPost,EasyPost
+515,BoundPrintedMatter,OnTrac DirectPost,EasyPost
+516,Media Mail,Generic,EasyPost
+517,Parcel Select,Generic,EasyPost
+518,ParcelSelectLightweight,OnTrac DirectPost,EasyPost
+519,OrangeDSInternational,Orange DS,EasyPost
+520,OrangeDSDomestic,Orange DS,EasyPost
+521,OrangeDSTracking,Orange DS,EasyPost
+522,OrangeDSSecureShip,Orange DS,EasyPost
+523,OnDemand,Uber RUSH,EasyPost
+524,EUPackSpecialCOD,PostNL,EasyPost
+525,EUPackStandard,PostNL,EasyPost
+526,BelgiumStatedAddressOnlyReturnNotHome,PostNL,EasyPost
+527,BelgiumReturnNotHome,PostNL,EasyPost
+528,BelgiumSignatureStatedAddressOnlyReturnNotHome,PostNL,EasyPost
+529,BelgiumSignatureReturnNotHome,PostNL,EasyPost
+530,BelgiumCODReturnNotHome,PostNL,EasyPost
+531,BelgiumExtraCoverStatedAddressOnlyReturnNotHome,PostNL,EasyPost
+532,BelgiumCODExtraCoverReturnNotHome,PostNL,EasyPost
+533,LetterIDAgeCheck,PostNL,EasyPost
+534,LetterAgeCheck,PostNL,EasyPost
+535,LetterIDCheck,PostNL,EasyPost
+536,StandardShipment,PostNL,EasyPost
+537,COD,PostNL,EasyPost
+538,ExtraCover,PostNL,EasyPost
+539,SignatureStatedAddressOnly,PostNL,EasyPost
+540,DeliveryToNeighbourReturnNotHome,PostNL,EasyPost
+541,CODExtraCover,PostNL,EasyPost
+542,CODReturnNotHome,PostNL,EasyPost
+543,ExtraCoverReturnNotHome,PostNL,EasyPost
+544,SignatureStatedAddressOnlyReturnNotHome,PostNL,EasyPost
+545,CODExtraCoverReturnNotHome,PostNL,EasyPost
+546,Signature,PostNL,EasyPost
+547,StatedAddressOnly,PostNL,EasyPost
+548,SignatureReturnNotHome,PostNL,EasyPost
+549,StatedAddressOnlyReturnNotHome,PostNL,EasyPost
+550,ParcelAgeCheck,PostNL,EasyPost
+551,ParcelIDAgeCheck,PostNL,EasyPost
+552,ParcelIDCheck,PostNL,EasyPost
+553,PurolatorExpress,Purolator,EasyPost
+554,PurolatorExpress1030AM,Purolator,EasyPost
+555,PurolatorExpress9AM,Purolator,EasyPost
+556,PurolatorExpressBox,Purolator,EasyPost
+557,PurolatorExpressBox1030AM,Purolator,EasyPost
+558,PurolatorExpressBox9AM,Purolator,EasyPost
+559,PurolatorExpressBoxEvening,Purolator,EasyPost
+560,PurolatorExpressBoxInternational,Purolator,EasyPost
+561,PurolatorExpressBoxUS,Purolator,EasyPost
+562,PurolatorExpressEnvelope,Purolator,EasyPost
+563,PurolatorExpressEnvelope1030AM,Purolator,EasyPost
+564,PurolatorExpressEnvelope9AM,Purolator,EasyPost
+565,PurolatorExpressEnvelopeEvening,Purolator,EasyPost
+566,PurolatorExpressEnvelopeInternational,Purolator,EasyPost
+567,PurolatorExpressEnvelopeUS,Purolator,EasyPost
+568,PurolatorExpressEvening,Purolator,EasyPost
+569,PurolatorExpressInternational,Purolator,EasyPost
+570,PurolatorExpressInternational1030AM,Purolator,EasyPost
+571,PurolatorExpressInternational1200,Purolator,EasyPost
+572,PurolatorExpressInternational9AM,Purolator,EasyPost
+573,PurolatorExpressInternationalBox1030AM,Purolator,EasyPost
+574,PurolatorExpressInternationalBox1200,Purolator,EasyPost
+575,PurolatorExpressInternationalBox9AM,Purolator,EasyPost
+576,PurolatorExpressInternationalEnvelope1030AM,Purolator,EasyPost
+577,PurolatorExpressInternationalEnvelope1200,Purolator,EasyPost
+578,PurolatorExpressInternationalEnvelope9AM,Purolator,EasyPost
+579,PurolatorExpressInternationalPack1030AM,Purolator,EasyPost
+580,PurolatorExpressInternationalPack1200,Purolator,EasyPost
+581,PurolatorExpressInternationalPack9AM,Purolator,EasyPost
+582,PurolatorExpressPack,Purolator,EasyPost
+583,PurolatorExpressPack1030AM,Purolator,EasyPost
+584,PurolatorExpressPack9AM,Purolator,EasyPost
+585,PurolatorExpressPackEvening,Purolator,EasyPost
+586,PurolatorExpressPackInternational,Purolator,EasyPost
+587,PurolatorExpressPackUS,Purolator,EasyPost
+588,PurolatorExpressUS,Purolator,EasyPost
+589,PurolatorExpressUS1030AM,Purolator,EasyPost
+590,PurolatorExpressUS1200,Purolator,EasyPost
+591,PurolatorExpressUS9AM,Purolator,EasyPost
+592,PurolatorExpressUSBox1030AM,Purolator,EasyPost
+593,PurolatorExpressUSBox1200,Purolator,EasyPost
+594,PurolatorExpressUSBox9AM,Purolator,EasyPost
+595,PurolatorExpressUSEnvelope1030AM,Purolator,EasyPost
+596,PurolatorExpressUSEnvelope1200,Purolator,EasyPost
+597,PurolatorExpressUSEnvelope9AM,Purolator,EasyPost
+598,PurolatorExpressUSPack1030AM,Purolator,EasyPost
+599,PurolatorExpressUSPack1200,Purolator,EasyPost
+600,PurolatorExpressUSPack9AM,Purolator,EasyPost
+601,PurolatorGround,Purolator,EasyPost
+602,PurolatorGround1030AM,Purolator,EasyPost
+603,PurolatorGround9AM,Purolator,EasyPost
+604,PurolatorGroundDistribution,Purolator,EasyPost
+605,PurolatorGroundEvening,Purolator,EasyPost
+606,PurolatorGroundRegional,Purolator,EasyPost
+607,PurolatorGroundUS,Purolator,EasyPost
+608,InternationalSigned,Royal Mail,EasyPost
+609,InternationalStandard,Royal Mail,EasyPost
+610,InternationalTracked,Royal Mail,EasyPost
+611,InternationalTrackedAndSigned,Royal Mail,EasyPost
+612,1stClass,Royal Mail,EasyPost
+613,1stClassSignedFor,Royal Mail,EasyPost
+614,2ndClass,Royal Mail,EasyPost
+615,2ndClassSignedFor,Royal Mail,EasyPost
+616,RoyalMail24,Royal Mail,EasyPost
+617,RoyalMail24SignedFor,Royal Mail,EasyPost
+618,RoyalMail48,Royal Mail,EasyPost
+619,RoyalMail48SignedFor,Royal Mail,EasyPost
+620,SpecialDeliveryGuaranteed1pm,Royal Mail,EasyPost
+621,SpecialDeliveryGuaranteed9am,Royal Mail,EasyPost
+622,StandardLetter1stClass,Royal Mail,EasyPost
+623,StandardLetter1stClassSignedFor,Royal Mail,EasyPost
+624,StandardLetter2ndClass,Royal Mail,EasyPost
+625,StandardLetter2ndClassSignedFor,Royal Mail,EasyPost
+626,Tracked24,Royal Mail,EasyPost
+627,Tracked24HighVolume,Royal Mail,EasyPost
+628,Tracked24HighVolumeSignature,Royal Mail,EasyPost
+629,Tracked24Signature,Royal Mail,EasyPost
+630,Tracked48,Royal Mail,EasyPost
+631,Tracked48HighVolume,Royal Mail,EasyPost
+632,Tracked48HighVolumeSignature,Royal Mail,EasyPost
+633,Tracked48Signature,Royal Mail,EasyPost
+634,CourierServiceDDP,RR Donnelley,EasyPost
+635,CourierServiceDDU,RR Donnelley,EasyPost
+636,DomesticEconomyParcel,RR Donnelley,EasyPost
+637,DomesticParcelBPM,RR Donnelley,EasyPost
+638,DomesticPriorityParcel,RR Donnelley,EasyPost
+639,DomesticPriorityParcelBPM,RR Donnelley,EasyPost
+640,EMIService,RR Donnelley,EasyPost
+641,EconomyParcelService,RR Donnelley,EasyPost
+642,IPAService,RR Donnelley,EasyPost
+643,ISALService,RR Donnelley,EasyPost
+644,PMIService,RR Donnelley,EasyPost
+645,PriorityParcelDDP,RR Donnelley,EasyPost
+646,PriorityParcelDDU,RR Donnelley,EasyPost
+647,PriorityParcelDeliveryConfirmationDDP,RR Donnelley,EasyPost
+648,PriorityParcelDeliveryConfirmationDDU,RR Donnelley,EasyPost
+649,ePacketService,RR Donnelley,EasyPost
+650,SpeeDeeDelivery,Spee-Dee,EasyPost
+651,SameDay,LaserShip,EasyPost
+652,SameDayWhiteGlove,TForce,EasyPost
+653,NextDay,LaserShip,EasyPost
+654,NextDayWhiteGlove,TForce,EasyPost
+655,0900Express,TNT Express,EasyPost
+656,1000Express,TNT Express,EasyPost
+657,1200Express,TNT Express,EasyPost
+658,EconomyExpress,TNT Express,EasyPost
+659,GlobalExpress,TNT Express,EasyPost
+660,0900ExpressDocs,TNT Express,EasyPost
+661,1200ExpressDocs,TNT Express,EasyPost
+662,GlobalExpressDocs,TNT Express,EasyPost
+663,Scheduled,Uber RUSH,EasyPost
+664,OnDemand,Uber RUSH,EasyPost
+665,DeliveryService,UDS,EasyPost
+666,Ground,UPS,EasyPost
+667,UPSStandard,UPS,EasyPost
+668,UPSSaver,UPS,EasyPost
+669,Express,UPS,EasyPost
+670,ExpressPlus,UPS,EasyPost
+671,Expedited,UPS,EasyPost
+672,NextDayAir,UPS,EasyPost
+673,NextDayAirSaver,UPS,EasyPost
+674,NextDayAirEarlyAM,UPS,EasyPost
+675,2ndDayAir,UPS,EasyPost
+676,2ndDayAirAM,UPS,EasyPost
+677,3DaySelect,UPS,EasyPost
+678,First,UPS,EasyPost
+679,Priority,UPS,EasyPost
+680,ExpeditedMailInnovations,UPS,EasyPost
+681,PriorityMailInnovations,UPS,EasyPost
+682,EconomyMailInnovations,UPS,EasyPost
+683,First Class Mail,USPS,EasyPost
+684,Priority Mail,USPS,EasyPost
+685,Priority Mail Express,USPS,EasyPost
+686,Parcel Select,USPS,EasyPost
+687,Library Mail,USPS,EasyPost
+688,Media Mail,USPS,EasyPost
+689,First Class International,USPS,EasyPost
+690,First Class Package International Service,USPS,EasyPost
+691,Priority Mail International,USPS,EasyPost
+692,Express Mail International,USPS,EasyPost
+694,USPS Priority,USPS,Intuiship
+695,USPS Express,USPS,Intuiship
+696,USPS Intl Priority,USPS,Intuiship
+697,USPS Intl Express,USPS,Intuiship
+698,USPS First Class,USPS,Intuiship
+699,USPS First Class Package International Service,USPS,Intuiship
+700,USPS Media Mail,USPS,Intuiship
+702,UPS Next Day Air,UPS,UPS
+703,UPS Next Day Air Saver,UPS,UPS
+704,UPS 2nd Day Air,UPS,UPS
+705,UPS 2nd Day Air A.M.,UPS,UPS
+706,UPS 3 Day Select,UPS,UPS
+707,UPS Ground,UPS,UPS
+708,UPS Worldwide Express Plus,UPS,UPS
+709,UPS Worldwide Express,UPS,UPS
+710,UPS Worldwide Express Saver,UPS,UPS
+711,UPS Worldwide Expedited,UPS,UPS
+712,UPS Economy,UPS,UPS
+713,UPS Standard,UPS,UPS
+714,UPS Expedited,UPS,UPS
+715,UPS Express Saver,UPS,UPS
+716,UPS Express,UPS,UPS
+717,UPS Express Plus,UPS,UPS
+718,UPS Standard Canada,UPS,UPS
+719,UPS 3 Day Select (Canada),UPS,UPS
+720,UPS SurePost Less than 1 lb,UPS,UPS
+721,UPS SurePost 1 lb or Greater,UPS,UPS
+722,UPS SurePost BPM,UPS,UPS
+723,UPS SurePost Media,UPS,UPS
+724,UPS First Class Mail,UPS,UPS
+725,UPS Priority Mail,UPS,UPS
+726,UPS Expedited Mail Innovations,UPS,UPS
+727,UPS Priority Mail Innovations,UPS,UPS
+728,UPS Economy Mail Innovations,UPS,UPS
+732,Skymail Commercial ePacket,Skymail,USPS GSS
+733,Skymail International Priority Airmail,Skymail,USPS GSS
+734,Skymail International Surface Airlift,Skymail,USPS GSS
+735,Skymail International Priority,Skymail,USPS GSS
+736,Skymail International Priority Drop Ship,Skymail,USPS GSS
+737,Skymail International Express,Skymail,USPS GSS
+738,Skymail International Express Drop Ship,Skymail,USPS GSS
+739,Skymail Canada D&T Paid Priority,Skymail,USPS GSS
+740,Skymail Canada D&T Paid Express,Skymail,USPS GSS
+741,Skymail Canada D&T Paid Commercial ePacket,Skymail,USPS GSS
+742,USPSFirstClassPackageInternational,USPS,FirstMile
+744,FedEx Priority Overnight,FedEx,Ratelinx
+745,FedEx 2Day,FedEx,Ratelinx
+746,FedEx Standard Overnight,FedEx,Ratelinx
+747,FedEx First Overnight,FedEx,Ratelinx
+748,FedEx Express Saver,FedEx,Ratelinx
+749,FedEx 2Day A.M.,FedEx,Ratelinx
+750,FedEx 1Day Freight,FedEx,Ratelinx
+751,FedEx 2Day Freight,FedEx,Ratelinx
+752,FedEx 3Day Freight,FedEx,Ratelinx
+753,FedEx Home Delivery,FedEx,Ratelinx
+754,FedEx Ground,FedEx,Ratelinx
+755,FedEx International Priority,FedEx,Ratelinx
+756,FedEx International Economy,FedEx,Ratelinx
+757,FedEx International First,FedEx,Ratelinx
+758,FedEx Intl Home Delivery,FedEx,Ratelinx
+759,FedEx Intl Ground,FedEx,Ratelinx
+760,FedEx SmartPost Standard A,FedEx SmartPost,Ratelinx
+761,FedEx SmartPost BPM,FedEx SmartPost,Ratelinx
+762,FedEx SmartPost Media Mail,FedEx SmartPost,Ratelinx
+763,FedEx SmartPost Parcel Post,FedEx SmartPost,Ratelinx
+764,FedEx SmartPost Returns,FedEx SmartPost,Ratelinx
+765,UPS Next Day Air,UPS,Ratelinx
+766,UPS 2nd Day Air,UPS,Ratelinx
+767,UPS Ground,UPS,Ratelinx
+768,UPS 3 Day Select,UPS,Ratelinx
+769,UPS Next Day Air Saver,UPS,Ratelinx
+770,UPS Next Day Air Early AM,UPS,Ratelinx
+771,UPS 2nd Day Air AM,UPS,Ratelinx
+772,UPS Worldwide Express,UPS,Ratelinx
+773,UPS Worldwide Expedited,UPS,Ratelinx
+774,UPS Standard,UPS,Ratelinx
+775,UPS Worldwide Express Plus,UPS,Ratelinx
+776,UPS Worldwide Saver,UPS,Ratelinx
+777,Domestic First Class Mail Innovations,UPS,Ratelinx
+778,Domestic Priority Mail Innovations,UPS,Ratelinx
+779,Domestic Expedited Mail Innovations,UPS,Ratelinx
+780,International Priotiy Mail Innovations,UPS Mail Innovations,Ratelinx
+781,International Economy Mail Innovations,UPS Mail Innovations,Ratelinx
+782,Priority,USPS,USPS eVS
+783,Priority Express,USPS,USPS eVS
+784,First Class Mail,USPS,USPS eVS
+785,Library,USPS,USPS eVS
+786,Media,USPS,USPS eVS
+787,Parcel Select Ground,USPS,USPS eVS
+788,BPM,USPS,USPS eVS
+789,Priority Mail Express International,USPS,USPS eVS
+790,Priority Mail International,USPS,USPS eVS
+791,First Class Mail International,USPS,USPS eVS
+799,USPS First Class,USPS,L5
+800,USPS Priority,USPS,L5
+801,USPS Express,USPS,L5
+802,L5_PRIORITY_MAIL,L5,L5
+803,L5_PRIORITY_LIGHTWEIGHT,L5,L5
+804,L5_SUPER_SAVER_LIGHTWEIGHT,L5,L5
+806,UPS SurePost Under 1LB,UPS,Ratelinx
+807,UPS SurePost Over 1LB,UPS,Ratelinx
+808,UPS SurePost BPM,UPS,Ratelinx
+809,UPS SurePost Media,UPS,Ratelinx
+924,DHL Worldwide Priority Express,DHL Express,Ratelinx
+925,DHL Express 9:00,DHL Express,Ratelinx
+926,DHL Express 12:00,DHL Express,Ratelinx
+927,DHL Express Envelope,DHL Express,Ratelinx
+928,Skymail International First Class,Skymail,USPS GSS
+929,Skymail International First Class Drop Ship,Skymail,USPS GSS
+930,FedEx First Overnight,FedEx,FedEx
+931,FedEx Priority Overnight,FedEx,FedEx
+932,FedEx Standard Overnight,FedEx,FedEx
+933,FedEx 2Day A.M.,FedEx,FedEx
+934,FedEx 2Day,FedEx,FedEx
+935,FedEx Express Saver,FedEx,FedEx
+936,FedEx Ground,FedEx,FedEx
+937,FedEx Home Delivery,FedEx,FedEx
+938,FedEx SmartPost Media Mail,FedEx SmartPost,FedEx
+939,FedEx SmartPost Parcel Select,FedEx SmartPost,FedEx
+940,FedEx SmartPost Bound Printed Matter,FedEx SmartPost,FedEx
+941,FedEx SmartPost Parcel Select Lightweight,FedEx SmartPost,FedEx
+942,FedEx SmartPost Returns,FedEx SmartPost,FedEx
+983,First Class Mail,USPS,Vip Parcel
+984,Priority Mail,USPS,Vip Parcel
+985,Priority Mail Express,USPS,Vip Parcel
+986,Parcel Select,USPS,Vip Parcel
+987,Media Mail,USPS,Vip Parcel
+988,Library Mail,USPS,Vip Parcel
+989,Express Mail International,USPS,Vip Parcel
+990,Priority Mail International,USPS,Vip Parcel
+991,First Class Package International Service,USPS,Vip Parcel
+993,Asendia Priority Tracked,Asendia,EasyPost
+994,Asendia PMEI,Asendia,EasyPost
+995,Priority Mail,USPS,USPS Evs Manifest
+996,Parcel Select,USPS,USPS Evs Manifest
+997,First Class,USPS,USPS Evs Manifest
+998,Priority Mail Express,USPS,USPS Evs Manifest
+999,OSM First,OSM,EasyPost
+1000,OSM Priority,OSM,EasyPost
+1001,OSM Expedited,OSM,EasyPost
+1002,OSM PS LightWeight,OSM,EasyPost
+1003,OSM BPM,OSM,EasyPost
+1004,OSM Parcel Select,OSM,EasyPost
+1005,OSM Media Mail,OSM,EasyPost
+1006,OSM Marketing Parcel,OSM,EasyPost
+1011,USPS First Class,AmazonMws,EasyPost
+1012,USPS Priority Mail,AmazonMws,EasyPost
+1020,USPS Parcel Select,AmazonMws,EasyPost
+1021,UPS 2nd Day Air,AmazonMws,EasyPost
+1022,UPS 3 Day Select,AmazonMws,EasyPost
+1023,UPS Ground,AmazonMws,EasyPost
+1024,UPS Next Day Air,AmazonMws,EasyPost
+1025,UPS Next Day Air Saver,AmazonMws,EasyPost
+1026,FedEx Express Saver,AmazonMws,EasyPost
+1027,FedEx Ground,AmazonMws,EasyPost
+1028,FedEx Home Delivery,AmazonMws,EasyPost
+1029,FedEx Standard Overnight,AmazonMws,EasyPost
+1030,FedEx Priority Overnight,AmazonMws,EasyPost
+1031,FedEx 2Day,AmazonMws,EasyPost
+1032,FedEx 2Day A.M.,AmazonMws,EasyPost
+1033,Loomis Express Ground,LoomisExpress,EasyPost
+1034,Loomis Express 18:00,LoomisExpress,EasyPost
+1035,Loomis Express 12:00,LoomisExpress,EasyPost
+1036,Loomis Express 9:00,LoomisExpress,EasyPost
+1037,OLX,OLX,OLX
+1038,USPS Priority Mail Return,USPS,EasyPost
+1039,USPS First Class Return,USPS,EasyPost
+1040,USPS Parcel Select Return,USPS,EasyPost
+1041,DHL Ecommerce Parcel Expedited,DHL Ecommerce,EasyPost
+1042,DHL Ecommerce Parcel Expedited Max,DHL Ecommerce,EasyPost
+1043,DHL Ecommerce Parcel Ground,DHL Ecommerce,EasyPost
+1044,DHL Ecommerce BPM Expedited,DHL Ecommerce,EasyPost
+1045,DHL Ecommerce BPM Ground,DHL Ecommerce,EasyPost
+1046,DHL Ecommerce International Direct,DHL Ecommerce,EasyPost
+1047,DHL Ecommerce International Standard,DHL Ecommerce,EasyPost
+1048,DHL Ecommerce Packet International,DHL Ecommerce,EasyPost
+1049,DHL Ecommerce International Direct Priority,DHL Ecommerce,EasyPost
+1050,DHL Ecommerce Parcel International Direct Standard,DHL Ecommerce,EasyPost
+1051,UPS SurePost Less than 1 lb,UPS,EasyPost
+1052,UPS SurePost 1 lb or Greater,UPS,EasyPost
+1053,UPS Worldwide Express Plus,UPS,EasyPost
+1054,UPS Worldwide Express,UPS,EasyPost
+1055,UPS Worldwide Express Saver,UPS,EasyPost
+1056,UPS Worldwide Expedited,UPS,EasyPost
+1057,EXPRESS EASY DOC,DHL Express,DHL Express
+1058,EXPRESS DOMESTIC,DHL Express,DHL Express
+1059,EXPRESS WORLDWIDE DOC,DHL Express,DHL Express
+1060,EXPRESS WORLDWIDE NONDOC,DHL Express,DHL Express
+1061,First-Class PKG,PostageOne,PostageOne
+1062,Priority Mail,PostageOne,PostageOne
+1063,e-PAQ Plus,Asendia,Asendia
+1064,e PAQ Select PMEI,Asendia,Asendia
+1065,e PAQ Select,Asendia,Asendia
+1066,BrightStore,BrightStore,BrightStore
+1067,Pigeon Ship,PigeonShip,PigeonShip
+1068,DHL Worldwide Priority Express,DHL Express,ShipVia
+1069,DHL Express 9:00,DHL Express,ShipVia
+1070,DHL Express 12:00,DHL Express,ShipVia
+1071,DHL Express Envelope,DHL Express,ShipVia
+1072,FedEx Priority Overnight,FedEx,ShipVia
+1073,FedEx 2Day,FedEx,ShipVia
+1074,FedEx Standard Overnight,FedEx,ShipVia
+1075,FedEx First Overnight,FedEx,ShipVia
+1076,FedEx Express Saver,FedEx,ShipVia
+1077,FedEx 2Day A.M.,FedEx,ShipVia
+1078,FedEx 1Day Freight,FedEx,ShipVia
+1079,FedEx 2Day Freight,FedEx,ShipVia
+1080,FedEx 3Day Freight,FedEx,ShipVia
+1081,FedEx Home Delivery,FedEx,ShipVia
+1082,FedEx Ground,FedEx,ShipVia
+1083,FedEx International Priority,FedEx,ShipVia
+1084,FedEx International Economy,FedEx,ShipVia
+1085,FedEx International First,FedEx,ShipVia
+1086,FedEx Intl Home Delivery,FedEx,ShipVia
+1087,FedEx Intl Ground,FedEx,ShipVia
+1088,FedEx SmartPost Standard A,FedEx SmartPost,ShipVia
+1089,FedEx SmartPost BPM,FedEx SmartPost,ShipVia
+1090,FedEx SmartPost Media Mail,FedEx SmartPost,ShipVia
+1091,FedEx SmartPost Parcel Post,FedEx SmartPost,ShipVia
+1092,FedEx SmartPost Returns,FedEx SmartPost,ShipVia
+1093,UPS Next Day Air,UPS,ShipVia
+1094,UPS 2nd Day Air,UPS,ShipVia
+1095,UPS Ground,UPS,ShipVia
+1096,UPS 3 Day Select,UPS,ShipVia
+1097,UPS Next Day Air Saver,UPS,ShipVia
+1098,UPS Next Day Air Early AM,UPS,ShipVia
+1099,UPS 2nd Day Air AM,UPS,ShipVia
+1100,UPS Worldwide Express,UPS,ShipVia
+1101,UPS Worldwide Expedited,UPS,ShipVia
+1102,UPS Standard,UPS,ShipVia
+1103,UPS Worldwide Express Plus,UPS,ShipVia
+1104,UPS Worldwide Saver,UPS,ShipVia
+1105,UPS SurePost Under 1LB,UPS,ShipVia
+1106,UPS SurePost Over 1LB,UPS,ShipVia
+1107,UPS SurePost BPM,UPS,ShipVia
+1108,UPS SurePost Media,UPS,ShipVia
+1109,Domestic First Class Mail Innovations,UPS,ShipVia
+1110,Domestic Priority Mail Innovations,UPS,ShipVia
+1111,Domestic Expedited Mail Innovations,UPS,ShipVia
+1112,International Priotiy Mail Innovations,UPS Mail Innovations,ShipVia
+1113,International Economy Mail Innovations,UPS Mail Innovations,ShipVia
+1114,ClearJet Economy Service,ClearJet,ClearJet
+1115,ClearJet Standard,ClearJet,ClearJet
+1116,ClearJet Express Service,ClearJet,ClearJet
+1117,Economy Extensible Delivery Service,Extensible Delivery Network (ClearJet),Extensible Delivery Network (ClearJet)
+1118,Standard Extensible Delivery Service,Extensible Delivery Network (ClearJet),Extensible Delivery Network (ClearJet)
+1119,Express Extensible Delivery Service,Extensible Delivery Network (ClearJet),Extensible Delivery Network (ClearJet)
+1120,OSM First,OSM,OSM
+1121,OSM Priority,OSM,OSM
+1122,OSM PS LightWeight,OSM,OSM
+1123,OSM Parcel Select,OSM,OSM
+1124,OSM BPM,OSM,OSM
+1128,UPS Next Day Air,UPS,UPS
+1129,UPS 2nd Day Air,UPS,UPS
+1130,UPS Ground,UPS,UPS
+1131,UPS 3 Day Select,UPS,UPS
+1132,UPS Next Day Air Saver,UPS,UPS
+1133,UPS 2nd Day Air A.M.,UPS,UPS
+1167,DHL Ecommerce Parcel Expedited,DHL Ecommerce,DHL Ecommerce
+1168,DHL Ecommerce Parcel Expedited Max,DHL Ecommerce,DHL Ecommerce
+1169,DHL Ecommerce Parcel Ground,DHL Ecommerce,DHL Ecommerce
+1170,DHL Ecommerce BPM Expedited,DHL Ecommerce,DHL Ecommerce
+1171,DHL Ecommerce BPM Ground,DHL Ecommerce,DHL Ecommerce
+1172,USPS Ground Advantage,USPS,EasyPost
+1173,USPS Ground Advantage Under 1LB,USPS,EasyPost
+1174,USPS Ground Advantage Over 1LB,USPS,EasyPost
+1175,Ground Advantage,USPS,USPS eVS
+1176,Ground Advantage Under 1LB,USPS,USPS eVS
+1177,Ground Advantage Over 1LB,USPS,USPS eVS
+1179,Tusk Ground,Tusk,Tusk
+1182,DHL Parcel International Direct,DHL Ecommerce,DHL Ecommerce
+1183,DHL Parcel International Standard,DHL Ecommerce,DHL Ecommerce
+1184,DHL Packet International,DHL Ecommerce,DHL Ecommerce
+1185,DHL Parcel International Direct Priority,DHL Ecommerce,DHL Ecommerce
+1186,DHL Parcel International Direct Standard,DHL Ecommerce,DHL Ecommerce
+1187,DHL Parcel International Direct,DHL Ecommerce,EasyPost
+1188,DHL Parcel International Standard,DHL Ecommerce,EasyPost
+1189,DHL Packet International,DHL Ecommerce,EasyPost
+1190,DHL Parcel International Direct Priority,DHL Ecommerce,EasyPost
+1191,DHL Parcel International Direct Standard,DHL Ecommerce,EasyPost
+1192,FeDex International Connect Plus,FedEx,EasyPost
+1193,ePAQ Select Direct Access Canada DDP,Asendia,Asendia

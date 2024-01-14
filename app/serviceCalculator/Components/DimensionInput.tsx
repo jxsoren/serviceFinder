@@ -18,7 +18,7 @@ import {
 interface DimensionsInputProps {
   id: string;
   label: string;
-  value: number;
+  value: number | string;
   onChange: (valueAsString: string, valueAsNumber: number) => void;
   icon: IconType;
   extraInput?: React.ReactNode;
