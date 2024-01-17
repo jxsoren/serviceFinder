@@ -120,7 +120,7 @@ const ServiceLookup = () => {
       service_id: csvItem.id,
       service: csvItem.serviceName,
       service_code: "",
-      carrier_code: "",
+      carrier_code: csvItem.providerName,
       source: csvItem.source,
       category: "",
       package_types: [
