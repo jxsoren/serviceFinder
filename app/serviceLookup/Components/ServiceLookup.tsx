@@ -118,13 +118,14 @@ const ServiceLookup = () => {
     return csvData.map((csvItem) => ({
       service_id: csvItem.id,
       service: csvItem.serviceName,
-      service_code: "defaultServiceCode",
-      carrier_code: "defaultCarrierCode",
-      category: "defaultCategory",
+      service_code: "",
+      carrier_code: "",
+      source: csvItem.source,
+      category: "",
       package_types: [
         {
-          type: "defaultType",
-          name: "defaultName",
+          type: "",
+          name: "",
         },
       ],
     }));
