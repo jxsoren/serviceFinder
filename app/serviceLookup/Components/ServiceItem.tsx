@@ -24,6 +24,7 @@ type ServiceItemProps = {
   carrierIcon: IconType;
   carrierBgColor: string;
   carrierIconBgColor: string;
+  source: string;
 };
 
 const ServiceItem: React.FC<ServiceItemProps> = ({
@@ -32,6 +33,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   carrierIcon,
   carrierBgColor,
   carrierIconBgColor,
+  source,
 }) => {
   const headingSize = useBreakpointValue({ base: "md", md: "lg", lg: "xl" });
   const detailSize = useBreakpointValue({ base: "sm", md: "md" });
@@ -76,16 +78,18 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
         </HStack>
 
         <Flex direction="column">
-          <HStack>
-            <Icon
-              as={FaShippingFast}
-              color="white.400"
-              aria-label="Shipping icon"
-            />
-            <Text fontSize={detailSize} fontWeight="semibold" color="white">
-              Service Code: {service.service_code}
-            </Text>
-          </HStack>
+          {service.service_code && (
+            <HStack>
+              <Icon
+                as={FaShippingFast}
+                color="white.400"
+                aria-label="Shipping icon"
+              />
+              <Text fontSize={detailSize} fontWeight="semibold" color="white">
+                Service Code: {service.service_code}
+              </Text>
+            </HStack>
+          )}
 
           {service.carrier_code && (
             <HStack>
@@ -100,37 +104,39 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             </HStack>
           )}
 
-          <VStack align="flex-start" mt={2}>
-            <HStack>
-              <Icon
-                as={FaBoxOpen}
-                color="orange.400"
-                aria-label="Package icon"
-              />
-              <Text fontSize={detailSize} fontWeight="semibold" color="white">
-                Package Types:
-              </Text>
-            </HStack>
-            <Box overflowY="auto" maxHeight="200px">
-              <Grid templateColumns={gridTemplateColumns} gap={2}>
-                {service.package_types.length > 0 ? (
-                  service.package_types.map((type, index) => (
-                    <Text
-                      key={index}
-                      fontSize={codeSize}
-                      color="whiteAlpha.800"
-                    >
-                      {type.name}
+          {service.package_types[0].name.length > 0 && (
+            <VStack align="flex-start" mt={2}>
+              <HStack>
+                <Icon
+                  as={FaBoxOpen}
+                  color="orange.400"
+                  aria-label="Package icon"
+                />
+                <Text fontSize={detailSize} fontWeight="semibold" color="white">
+                  Package Types:
+                </Text>
+              </HStack>
+              <Box overflowY="auto" maxHeight="200px">
+                <Grid templateColumns={gridTemplateColumns} gap={2}>
+                  {service.package_types.length > 0 ? (
+                    service.package_types.map((type, index) => (
+                      <Text
+                        key={index}
+                        fontSize={codeSize}
+                        color="whiteAlpha.800"
+                      >
+                        {type.name}
+                      </Text>
+                    ))
+                  ) : (
+                    <Text fontSize={codeSize} color="whiteAlpha.500">
+                      No package types available
                     </Text>
-                  ))
-                ) : (
-                  <Text fontSize={codeSize} color="whiteAlpha.500">
-                    No package types available
-                  </Text>
-                )}
-              </Grid>
-            </Box>
-          </VStack>
+                  )}
+                </Grid>
+              </Box>
+            </VStack>
+          )}
         </Flex>
 
         <HStack>
@@ -139,6 +145,15 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             Service ID: {service.service_id}
           </Text>
         </HStack>
+
+        {source && (
+          <HStack>
+            <Icon as={HiIdentification} color="white.400" />
+            <Text fontSize={detailSize} fontWeight="semibold" color="white">
+              Source: {source}
+            </Text>
+          </HStack>
+        )}
       </VStack>
     </Box>
   );

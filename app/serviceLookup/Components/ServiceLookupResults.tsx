@@ -129,6 +129,7 @@ const ServiceLookupResults: React.FC<ServiceLookupResultsProps> = ({
           carrierIcon={getCarrierUI(service.carrier_code).icon}
           carrierBgColor={getCarrierUI(service.carrier_code).bg}
           carrierIconBgColor={getCarrierUI(service.carrier_code).iconBg}
+          source={service.source}
         />
       ))}
     </VStack>

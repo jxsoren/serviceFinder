@@ -33,6 +33,7 @@ export interface ServiceData {
   carrier_code: string;
   category: string;
   package_types: PackageType[];
+  source: string;
 }
 
 import ServiceLookupInputs from "./ServiceLookupInputs";
