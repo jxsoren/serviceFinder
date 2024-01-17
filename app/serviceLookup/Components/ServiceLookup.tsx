@@ -139,13 +139,15 @@ const ServiceLookup = () => {
       const csvData: CSVServiceData[] = await response.json();
 
       let filteredData = csvData.filter((item) => item.id === searchId);
-      console.log(csvData);
-      console.log(searchId);
-
       const convertedData = convertCSVToServiceData(filteredData);
 
+      if (filteredData.length === 0) {
+        setError("No services found. Please verify the service ID.");
+        setDisplayResults(false);
+        return;
+      }
+
       setData(convertedData);
-      console.log(data);
       setDisplayResults(true);
     } catch (error) {
       setError("Error fetching data.");
