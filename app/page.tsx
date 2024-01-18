@@ -37,8 +37,7 @@ const Home: React.FC = () => {
           Simplify Your Service Identification
         </Heading>
         <Text color="whiteAlpha.800" px={2}>
-          Quickly find service details, calculate costs, and explore service
-          tables with ease.
+          Quickly find service details and calculate costs with ease.
         </Text>
         <Flex
           direction={{ base: "column", md: "row" }}
@@ -56,14 +55,8 @@ const Home: React.FC = () => {
           <FeatureCard
             icon={FaCalculator}
             title="Service Qualification"
-            text="Determine if a service is available for a given shipment."
+            text="Check service availability for a shipment."
             action={() => console.log("Navigate to Cost Calculator")}
-          />
-          <FeatureCard
-            icon={FaTable}
-            title="Service Tables"
-            text="Browse detailed tables for service comparisons."
-            action={() => console.log("Navigate to Service Tables")}
           />
         </Flex>
       </VStack>
