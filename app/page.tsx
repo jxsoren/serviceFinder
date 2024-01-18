@@ -34,7 +34,7 @@ const Home: React.FC = () => {
 
       <VStack spacing={10} mt={10} textAlign="center">
         <Heading color="white" as="h1" size="xl" mb={2}>
-          Simplify Your Shipping & E-commerce Services
+          Simplify Your Service Identification
         </Heading>
         <Text color="whiteAlpha.800" px={2}>
           Quickly find service details, calculate costs, and explore service
@@ -50,13 +50,13 @@ const Home: React.FC = () => {
           <FeatureCard
             icon={FaSearch}
             title="Service Lookup"
-            text="Identify services by ID for shipping and e-commerce."
+            text="Identify services by ID and browse details."
             action={() => console.log("Navigate to Service Lookup")}
           />
           <FeatureCard
             icon={FaCalculator}
-            title="Cost Calculator"
-            text="Estimate your shipping costs with our comprehensive calculator."
+            title="Service Qualification"
+            text="Determine if a service is available for a given shipment."
             action={() => console.log("Navigate to Cost Calculator")}
           />
           <FeatureCard
