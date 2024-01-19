@@ -22,7 +22,7 @@ export default function ServiceLookupPage() {
   return (
     <Box
       bgGradient="linear(to-r, #1E5DF9, #30E3CA)"
-      minH="100vh"
+      minH="80vh"
       py={10}
       px={5}
     >
@@ -43,16 +43,4 @@ export default function ServiceLookupPage() {
       </Center>
     </Box>
   );
-}
-
-{
-  /* <Box
-bgGradient="linear(to-r, #1E5DF9, #30E3CA)"
-minH="100vh"
-py={10}
-px={5}
->
-<PageHeader icon={CiSearch} title={"Service Lookup"} />
-<ServiceLookup />
-</Box> */
 }

@@ -11,7 +11,7 @@ const ServiceCalculatorPage = () => {
   return (
     <Box
       bgGradient="linear(to-r, #1E5DF9, #30E3CA)"
-      minH="100vh"
+      minH="80vh"
       py={10}
       px={5}
     >
