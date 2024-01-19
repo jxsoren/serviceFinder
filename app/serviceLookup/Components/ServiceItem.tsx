@@ -104,7 +104,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             </HStack>
           )}
 
-          {service.package_types[0].name.length > 0 && (
+          {service.package_types[0]?.name.length > 0 && (
             <VStack align="flex-start" mt={2}>
               <HStack>
                 <Icon
