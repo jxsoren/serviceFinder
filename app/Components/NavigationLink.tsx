@@ -29,4 +29,6 @@ const NavigationLink: React.FC<NavigationLinkProps> = React.memo(({ path }) => {
   );
 });
 
+NavigationLink.displayName = "NavigationLink";
+
 export default NavigationLink;
