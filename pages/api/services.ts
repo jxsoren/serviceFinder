@@ -1,12 +1,20 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "node-fetch";
 
+/*
+  May need to depricate this endpoint, as Vercel sets a max of
+  10 seconds, before the request times out with the free (hobby)
+  version of their deployment solution. There is also no need
+  to pull data via API, as I have the response body stored in
+  memory within the project, which is much faster overall.
+*/
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const apiKey = process.env.API_KEY;
-  const baseurl = "https://api.essentialhub.com/api/v2/services";
+  const urlPath = "https://api.essentialhub.com/api/v2/services";
 
   if (!apiKey) {
     res.status(500).json({ message: "API key is undefined" });
@@ -23,7 +31,7 @@ export default async function handler(
   });
 
   try {
-    const url = `${baseurl}?${queryParams.toString()}`;
+    const url = `${urlPath}?${queryParams.toString()}`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
