@@ -17,9 +17,8 @@ import FeatureCard from "./Components/FeatureCard";
 
 const Home: React.FC = () => {
   return (
-    <Box bgGradient="linear(to-r, #1E5DF9, #30E3CA)" minH="80vh" py={10} px={5}>
+    <Box minH="80vh" py={10} px={5}>
       <PageHeader icon={FaCompass} title={"Service Explorer Tool"} />
-
       <VStack spacing={10} mt={10} textAlign="center">
         <Heading color="white" as="h1" size="xl" mb={2}>
           Simplify Your Service Identification
@@ -39,12 +38,14 @@ const Home: React.FC = () => {
             title="Service Lookup"
             text="Identify services by ID and browse details."
             navLink="/serviceLookup"
+            label="Get Started"
           />
           <FeatureCard
             icon={FaCalculator}
             title="Service Qualification"
             text="Check service availability for a shipment."
             navLink="/serviceCalculator"
+            label="Get Started"
           />
         </Flex>
       </VStack>

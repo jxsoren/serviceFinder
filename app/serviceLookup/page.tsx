@@ -10,7 +10,11 @@ import PageHeader from "../Components/PageHeader";
 
 export default function ServiceLookupPage() {
   return (
-    <Box bgGradient="linear(to-r, #1E5DF9, #30E3CA)" minH="80vh" py={10} px={5}>
+    <Box
+      minH="80vh"
+      py={10}
+      px={5}
+    >
       <PageHeader icon={CiSearch} title={"Service Lookup"} />
       <Center>
         <VStack
