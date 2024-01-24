@@ -15,11 +15,9 @@ const Navbar = () => {
       wrap="wrap"
       paddingY="1rem"
       paddingX={{ base: "1rem", md: "2rem" }}
-      bg="blue.800"
+      bg="#0D0F14"
       color="white"
-      boxShadow="0px 2px 10px rgba(0, 0, 0, 0.1)"
-      position="relative"
-      zIndex="2"
+      boxShadow="sm"
     >
       <Flex align="center" mr={5}>
         <Icon as={FaCompass} boxSize="40px" mr={2} />
