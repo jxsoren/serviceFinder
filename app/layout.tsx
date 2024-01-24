@@ -24,9 +24,9 @@ export default function RootLayout({
         <Box
           style={{
             background: `url('/curvyLines.svg'), radial-gradient(circle, rgba(30,93,249,1) 0%, rgba(10,45,87,1) 100%)`,
-            backgroundSize: "cover, cover",
+            backgroundSize: "cover",
             backgroundPosition: "center, center",
-            backgroundRepeat: "no-repeat, no-repeat",
+            backgroundRepeat: "repeat, no-repeat",
             minHeight: "100vh",
           }}
         >

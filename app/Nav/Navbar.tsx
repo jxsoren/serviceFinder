@@ -3,7 +3,6 @@
 import React from "react";
 import { Flex, Box, Text, Icon } from "@chakra-ui/react";
 import { FaCompass } from "react-icons/fa";
-
 import NavLink from "./NavLink";
 
 const Navbar = () => {
@@ -15,9 +14,9 @@ const Navbar = () => {
       wrap="wrap"
       paddingY="1rem"
       paddingX={{ base: "1rem", md: "2rem" }}
-      bg="#0D0F14"
-      color="white"
-      boxShadow="sm"
+      bg="gray.800"
+      color="whiteAlpha.900"
+      boxShadow="lg"
     >
       <Flex align="center" mr={5}>
         <Icon as={FaCompass} boxSize="40px" mr={2} />
@@ -27,11 +26,10 @@ const Navbar = () => {
       </Flex>
 
       <Box
-        width={{ sm: "full", md: "auto" }}
+        display={{ base: "none", md: "flex" }}
         alignItems="center"
         flexGrow={1}
-        justifyContent="flex-end"
-        mt={{ base: 4, md: 0 }}
+        justifyContent="flex-start"
       >
         <NavLink href="/">Home</NavLink>
         <NavLink href="/serviceLookup">Lookup</NavLink>
