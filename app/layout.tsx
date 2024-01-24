@@ -22,8 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Box
-          style={{ background: "linear-gradient(to right, #1E5DF9, #30E3CA)" }}
-          minH="100vh"
+          style={{
+            background: `url('/curvyLines.svg'), radial-gradient(circle, rgba(30,93,249,1) 0%, rgba(10,45,87,1) 100%)`,
+            backgroundSize: "cover, cover",
+            backgroundPosition: "center, center",
+            backgroundRepeat: "no-repeat, no-repeat",
+            minHeight: "100vh",
+          }}
         >
           <Providers>
             <Navbar />
