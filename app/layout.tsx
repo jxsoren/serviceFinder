@@ -23,7 +23,7 @@ export default function RootLayout({
       <body>
         <Box
           style={{
-            background: `url('/curvyLines.svg'), radial-gradient(circle, rgba(30,93,249,1) 0%, rgba(10,45,87,1) 100%)`,
+            background: `radial-gradient(circle, rgba(30,93,249,1) 0%, rgba(10,45,87,1) 100%)`,
             backgroundSize: "cover",
             backgroundPosition: "center, center",
             backgroundRepeat: "repeat, no-repeat",
@@ -39,3 +39,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// background: `url('/curvyLines.svg'), radial-gradient(circle, rgba(30,93,249,1) 0%, rgba(10,45,87,1) 100%)`,
