@@ -14,9 +14,11 @@ const Navbar = () => {
       wrap="wrap"
       paddingY="1rem"
       paddingX={{ base: "1rem", md: "2rem" }}
-      bg="gray.800"
       color="whiteAlpha.900"
-      boxShadow="lg"
+      // boxShadow="lg"
+      // borderBottom={1}
+      // borderStyle={"solid"}
+      // borderColor="gray.200"
     >
       <Flex align="center" mr={5}>
         <Icon as={FaCompass} boxSize="40px" mr={2} />
