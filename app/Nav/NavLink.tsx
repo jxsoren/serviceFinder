@@ -20,11 +20,11 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
       py={2}
       rounded="md"
       fontWeight={isActive ? "bold" : "normal"}
-      color={isActive ? "blue.300" : "gray.200"}
+      color={isActive ? "blue.600" : "white.100"}
       _hover={{
         textDecoration: "none",
-        color: "blue.400",
-        bg: "blue.700",
+        color: "blue.100",
+        bg: "blue.600",
       }}
       transition="background-color 0.2s, color 0.2s"
     >
