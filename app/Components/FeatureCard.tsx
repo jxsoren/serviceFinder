@@ -10,10 +10,11 @@ interface FeatureCardProps {
   title: string;
   text: string;
   navLink: string;
+  label: string;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = React.memo(
-  ({ icon, title, text, navLink }) => {
+  ({ icon, title, text, navLink, label }) => {
     return (
       <VStack
         bg="whiteAlpha.300"
@@ -32,7 +33,7 @@ const FeatureCard: React.FC<FeatureCardProps> = React.memo(
           {title}
         </Heading>
         <Text color="whiteAlpha.800">{text}</Text>
-        <NavigationLink path={navLink} />
+        <NavigationLink path={navLink} label={label} />
       </VStack>
     );
   }
